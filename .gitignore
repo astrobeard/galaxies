@@ -1,4 +1,4 @@
 
-*.vice/* 
-
+*.out 
+*.config 
 
