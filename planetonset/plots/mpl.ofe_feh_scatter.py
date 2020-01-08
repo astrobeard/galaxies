@@ -10,6 +10,9 @@ ARGV
 import matplotlib.pyplot as plt 
 import plots 
 plots.mpltoolkit.load_mpl_presets() 
+import vice 
+from vice.yields.presets import starburst19 
+vice.yields.ccsne.settings["o"] = 0.01
 import numpy as np 
 import math as m 
 import sys 
@@ -45,7 +48,7 @@ def setup_axis():
 	""" 
 	fig = plt.figure(figsize = (7, 7)) 
 	ax = fig.add_subplot(111, facecolor = "white") 
-	ax.set_xlabel("[M/H]") 
+	ax.set_xlabel(r"$\log_{10}(Z/Z_\odot)$") 
 	ax.set_ylabel(r"[$\alpha$/M]") 
 	ax.set_xlim([-2.8, 0]) 
 	ax.set_ylim([-0.2, 0.8]) 
@@ -91,6 +94,17 @@ def draw_legend(ax, colors, labels):
 		leg.get_texts()[i].set_color(colors[i])  
 
 
+def run_vice_simulation(name = "onezonemodel", tau_star = 2, end = 1): 
+	vice.singlezone(name = name, tau_star = tau_star, dt = 1e-3, eta = 1, 
+		func = lambda t: 0).run(np.linspace(0, end, 1001), overwrite = True) 
+
+def plot_vice_simulation(ax, name = "onezonemodel"): 
+	hist = vice.history(name) 
+	ax.plot(hist["[m/h]"], hist["[o/fe]"], 
+		# list(map(lambda x, y: x - y, hist["[o/h]"], hist["[m/h]"])), 
+		c = plots.mpltoolkit.named_colors()["black"], 
+		zorder = 10) 
+
 if __name__ == "__main__": 
 	plt.clf() 
 	giants = read_data(GIANTS_FILE) 
@@ -98,6 +112,10 @@ if __name__ == "__main__":
 	ax = setup_axis() 
 	plot_dataset(ax, giants, "crimson") 
 	plot_dataset(ax, dwarfs, "dodgerblue") 
+	run_vice_simulation(name = "tau_star_2p5", tau_star = 2.5, end = 0.7) 
+	run_vice_simulation(name = "tau_star_20", tau_star = 20, end = 2)  
+	plot_vice_simulation(ax, "tau_star_2p5") 
+	plot_vice_simulation(ax, "tau_star_20") 
 	draw_legend(ax, ["crimson", "dodgerblue"], ["Giants", "Dwarfs"]) 
 	plt.tight_layout()  
 	plt.savefig(sys.argv[1]) 
