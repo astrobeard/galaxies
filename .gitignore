@@ -2,4 +2,5 @@
 *.out 
 *.config 
 *.sublime-workspace
+*.sublime-project
 
