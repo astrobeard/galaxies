@@ -77,6 +77,6 @@ if __name__ == "__main__":
 	cbar.set_label("Age [Gyr]") 
 	plt.tight_layout() 
 	plt.subplots_adjust(wspace = 0) 
-	plt.savefig(sys.argv[2]) 
+	plt.savefig(sys.argv[2], rasterized = True) 
 	plt.clf() 
 
