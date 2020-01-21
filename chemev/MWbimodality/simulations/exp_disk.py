@@ -33,7 +33,7 @@ class gas_reservoir(object):
 
 def run_simulation(): 
 	from vice.yields.presets import my_yields 
-	mz = vice.multizone(name = "expdisk", n_zones = len(RAD_BINS) - 1, 
+	mz = vice.multizone(name = "outward_gas", n_zones = len(RAD_BINS) - 1, 
 		n_tracers = 2, verbose = True, simple = False) 
 	mz.migration.stars = UWhydro(TIME_BINS, RAD_BINS) 
 	for i in range(mz.n_zones): 
@@ -42,12 +42,17 @@ def run_simulation():
 		mz.zones[i].bins = np.linspace(-3, 1, 401) 
 		mz.zones[i].elements = ["mg", "fe", "o"] 
 		mz.zones[i].eta = 0.2 * (i + 1) 
-		if i > 62: 
+		if i > 1: mz.migration.gas[i - 1][i] = 1e-3 * (i + 1)
+		if i > 61: 
 			mz.zones[i].tau_star = float("inf") 
+			for j in mz.zones[i].elements: 
+				mz.zones[i].entrainment.agb[j] = 0 
+				mz.zones[i].entrainment.ccsne[j] = 0 
+				mz.zones[i].entrainment.sneia[j] = 0 
 		# else: 
-			# mz.zones[i].tau_star = 2 * ((RAD_BINS[i + 1]**2 - RAD_BINS[i]**2) / 
-			# 	RAD_BINS[1]**2 * m.exp((-RAD_BINS[i] + 0.125) / 
-			# 		float(sys.argv[1])))**(-0.5) 
+		# 	mz.zones[i].tau_star = 2 * ((RAD_BINS[i + 1]**2 - RAD_BINS[i]**2) / 
+		# 		RAD_BINS[1]**2 * m.exp((-RAD_BINS[i] + 0.125) / 
+		# 			float(sys.argv[1])))**(-0.5) 
 	print("Running....") 
 	mz.run(np.linspace(0, 13.8, 1381), overwrite = True) 
 
