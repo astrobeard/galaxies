@@ -3,7 +3,7 @@ Subroutines for setting up tracer particles in multizone simulations
 by tuning them to hydrodynamical simulation star particles. 
 """ 
 
-__all__ = ["UWhydro", "UWhydro_reverse"] 
+__all__ = ["UWhydro", "UWhydro_inward", "UWhydro_outward", "UWhydro_reverse"] 
 import numpy as np 
 
 def _get_bin_number(bins, val): 
@@ -45,6 +45,7 @@ def _interpolate(x1, x2, y1, y2, x):
 		return (y2 - y1) / (x2 - x1) * (x - x1) + y1 
 	except ZeroDivisionError: 
 		return y2 
+
 
 class UWhydro(object): 
 
@@ -92,6 +93,70 @@ class UWhydro(object):
 				if len(zones[i][j]) == 0: 
 					zones[i][j].append(i) 
 				else: continue 
+		return zones 
+
+
+class UWhydro_inward(UWhydro): 
+
+	""" 
+	A callable object with tracer particle data tuned to the UW hydro simulation 
+	interpolating liearly between zone numbers, but selects only star particles 
+	which migrate inward. 
+	""" 
+
+	def __init__(self, time_bins, rad_bins): 
+		super().__init__(time_bins, rad_bins) 
+
+	def __call__(self, zone, time): 
+		tbin = _get_bin_number(self._time_bins, time) 
+		possibilities = list(filter(lambda x: x <= zone, 
+			self._zones[zone][tbin])) 
+		if len(possibilities) > 0: 
+			final = possibilities[np.random.randint(len(possibilities))] 
+		else: 
+			final = zone 
+		final += np.random.random() 
+		init = zone + np.random.random() 
+		def zones(t): 
+			if t < time: 
+				return 0 
+			elif t == time: 
+				return zone 
+			else: 
+				return int(_interpolate(time, self._time_bins[-1], init, final, 
+					t)) 
+		return zones 
+		
+
+class UWhydro_outward(UWhydro): 
+
+	""" 
+	A callable object with tracer particle data tuned to the UW hydro simulation 
+	interpolating liearly between zone numbers, but selects only star particles 
+	which migrate outward. 
+	""" 
+
+	def __init__(self, time_bins, rad_bins): 
+		super().__init__(time_bins, rad_bins) 
+
+	def __call__(self, zone, time): 
+		tbin = _get_bin_number(self._time_bins, time) 
+		possibilities = list(filter(lambda x: x >= zone, 
+			self._zones[zone][tbin])) 
+		if len(possibilities) > 0: 
+			final = possibilities[np.random.randint(len(possibilities))] 
+		else: 
+			final = zone 
+		final += np.random.random() 
+		init = zone + np.random.random() 
+		def zones(t): 
+			if t < time: 
+				return 0 
+			elif t == time: 
+				return zone 
+			else: 
+				return int(_interpolate(time, self._time_bins[-1], init, final, 
+					t)) 
 		return zones 
 
 
