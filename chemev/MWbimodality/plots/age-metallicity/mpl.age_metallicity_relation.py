@@ -27,9 +27,13 @@ def setup_axes():
 	for i in range(3): 
 		axes[i] = fig.add_subplot(131 + i, facecolor = "white") 
 		axes[i].set_xlabel("Age [Gyr]") 
+		axes[i].set_xlim([-1, 15]) 
 	axes[0].set_ylabel("[O/H]") 
 	axes[1].set_ylabel("[Fe/H]") 
 	axes[2].set_ylabel("[O/Fe]") 
+	axes[0].set_ylim([-0.9, 0.2]) 
+	axes[1].set_ylim([-1.2, 0.2]) 
+	axes[2].set_ylim([0.0, 0.5]) 
 	return axes 
 
 def plot_tracers(axes, multiout): 
@@ -52,23 +56,38 @@ def plot_tracers(axes, multiout):
 	OFe = len(tracers) * [0.] 
 	for i in range(len(tracers)): 
 		ages[i] = 13.8 - tracers[i][0] 
-		OH[i] = m.log10(tracers[i][4] / vice.solar_z['o']) 
-		FeH[i] = m.log10(tracers[i][5] / vice.solar_z['fe']) 
+		if tracers[i][4]: 
+			OH[i] = m.log10(tracers[i][4] / vice.solar_z['o']) 
+		else: 
+			OH[i] = -float("inf") 
+		if tracers[i][5]: 
+			FeH[i] = m.log10(tracers[i][5] / vice.solar_z['fe']) 
+		else: 
+			FeH[i] = -float("inf") 
 		OFe[i] = OH[i] - FeH[i] 
 		sizes[i] = tracers[i][3] / 4e6 * 4 * (1 - 
 			vice.cumulative_return_fraction(tracers[i][0])) 
 		colors[i] = 0.25 * tracers[i][2] 
-	sc = axes[0].scatter(ages, OH, c = colors, s = sizes, cmap = cmap, 
+	axes[0].scatter(ages, OH, c = colors, s = sizes, cmap = cmap, 
+		vmin = 0, vmax = 15) 
+	axes[1].scatter(ages, FeH, c = colors, s = sizes, cmap = cmap, 
+		vmin = 0, vmax = 15) 
+	sc = axes[2].scatter(ages, OFe, c = colors, s = sizes, cmap = cmap, 
 		vmin = 0, vmax = 15) 
 	return sc 
 
+# def plot_gas_phase(axes, multiout): 
 
 if __name__ == "__main__": 
 	plt.clf() 
 	axes = setup_axes() 
 	out = vice.multioutput(sys.argv[1]) 
-	plot_tracers(axes, out) 
+	sc = plot_tracers(axes, out) 
+	cbar = plt.colorbar(sc, 
+		cax = plots.mpltoolkit.append_axes(axes[2]), pad = 0.0) 
+	cbar.set_label(r"$R_\text{gal}$ of birth [kpc]") 
 	plt.tight_layout() 
+	# plt.subplots_adjust(right = 0.97) 
 	plt.savefig(sys.argv[2]) 
 	plt.clf() 
 
