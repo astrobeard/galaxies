@@ -7,7 +7,6 @@ ARGV
 1) 		The name of the output figure 
 """ 
 
-from importlib import import_module 
 import matplotlib.pyplot as plt 
 import plots 
 plots.mpltoolkit.load_mpl_presets() 
@@ -19,7 +18,8 @@ current = os.getcwd()
 os.chdir("../../") 
 sys.path.append(os.getcwd()) 
 os.chdir(current) 
-from data import UWhydro 
+# from data import UWhydro 
+from data import UWhydro_zfilter as UWhydro 
 formation_bins = np.linspace(0, 16, 51).tolist() 
 centers = list(map(lambda x, y: (x + y) / 2, formation_bins[1:], 
 	formation_bins[:-1]))  

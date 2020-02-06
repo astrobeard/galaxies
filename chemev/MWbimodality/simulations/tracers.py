@@ -96,6 +96,33 @@ class UWhydro(object):
 		return zones 
 
 
+class UWhydro_zfilter(UWhydro): 
+
+	def __init__(self, time_bins, rad_bins): 
+		super().__init__(time_bins, rad_bins) 
+
+	def _analyze_radii(self): 
+		from data import UWhydroparticles_zfilter 
+		zones = (len(self._rad_bins) - 1) * [None] 
+		for i in range(len(zones)): 
+			zones[i] = len(self._time_bins) * [None] 
+			for j in range(len(zones[i])): 
+				zones[i][j] = [] 
+		for i in range(len(UWhydroparticles_zfilter["tform"])): 
+			tbin = _get_bin_number(self._time_bins, 
+				UWhydroparticles_zfilter["tform"][i]) 
+			rbin = _get_bin_number(self._rad_bins, 
+				UWhydroparticles_zfilter["rform"][i]) 
+			zones[rbin][tbin].append(_get_bin_number(self._rad_bins, 
+				UWhydroparticles_zfilter["rfinal"][i]))  
+		for i in range(len(zones)): 
+			for j in range(len(zones[i])): 
+				if len(zones[i][j]) == 0: 
+					zones[i][j].append(i) 
+				else: continue 
+		return zones 
+
+
 class UWhydro_inward(UWhydro): 
 
 	""" 
