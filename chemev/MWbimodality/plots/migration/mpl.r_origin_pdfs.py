@@ -5,6 +5,7 @@ different age ranges and in bins of final radius.
 ARGV 
 ==== 
 1) 		The name of the output figure 
+2) 		0 for birth radii PDFs, 1 for final radii PDFs 
 """ 
 
 import matplotlib.pyplot as plt 
@@ -27,12 +28,18 @@ centers = list(map(lambda x, y: (x + y) / 2, formation_bins[1:],
 def setup_axes(): 
 	fig, axes = plt.subplots(nrows = 3, ncols = 5, 
 		sharex = True, sharey = True, figsize = (35, 21)) 
-	axes[1][0].set_ylabel(r"PDF of birth $R_\text{gal}$", fontsize = 40) 
+	axes[1][0].set_ylabel(r"PDF of %s $R_\text{gal}$" % ({
+		0:	"Birth", 
+		1: 	"Final" 
+		}[int(sys.argv[2])]), fontsize = 40) 
 	axes[2][2].set_xlabel(r"$R_\text{gal}$ [kpc]", fontsize = 40) 
 	for i in range(3): 
 		for j in range(5): 
 			axes[i][j].text(0.2, 1.0, 
-				r"Final $R_\text{gal}$ %d - %d kpc" % (5 * i + j, 
+				r"%s $R_\text{gal}$ %d - %d kpc" % ({
+					0: 	"Final", 
+					1: 	"Birth"
+					}[int(sys.argv[2])], 5 * i + j, 
 					5 * i + j + 1), 
 				fontsize = 40) 
 	axes[0][0].set_ylim([0.0, 1.2]) 
@@ -40,18 +47,20 @@ def setup_axes():
 
 
 def get_formation_radii(age_range, radius_range): 
-	of_interest = len(UWhydro["rfinal"]) * [0] 
-	for i in range(len(UWhydro["rfinal"])): 
-		if radius_range[0] <= UWhydro["rfinal"][i] <= radius_range[1]: 
+	rfinalkey = "rfinal" if not int(sys.argv[2]) else "rform" 
+	rformkey = "rform" if not int(sys.argv[2]) else "rfinal" 
+	of_interest = len(UWhydro[rfinalkey]) * [0] 
+	for i in range(len(UWhydro[rfinalkey])): 
+		if radius_range[0] <= UWhydro[rfinalkey][i] <= radius_range[1]: 
 			if age_range[0] <= 13.8 - UWhydro["tform"][i] <= age_range[1]: 
 				of_interest[i] = 1 
 			else: pass 
 		else: pass 
 	formation = sum(of_interest) * [None] 
 	n = 0 
-	for i in range(len(UWhydro["rfinal"])): 
+	for i in range(len(UWhydro[rfinalkey])): 
 		if of_interest[i]: 
-			formation[n] = UWhydro["rform"][i] 
+			formation[n] = UWhydro[rformkey][i] 
 			n += 1 
 		else: continue 
 	return formation 
@@ -68,17 +77,26 @@ def plot_formation_radii_pdfs(ax, radius_range, age_binspace, colors):
 	outside = 0. 
 	insitu = 0. 
 	rforms = get_formation_radii([0, 14], radius_range) 
-	inside = len(list(filter(lambda x: x <= radius_range[0], rforms))) 
-	outside = len(list(filter(lambda x: x >= radius_range[1], rforms))) 
+	if int(sys.argv[2]): 
+		inside = len(list(filter(lambda x: x >= radius_range[1], rforms))) 
+		outside = len(list(filter(lambda x: x <= radius_range[0], rforms))) 
+	else: 
+		inside = len(list(filter(lambda x: x <= radius_range[0], rforms))) 
+		outside = len(list(filter(lambda x: x >= radius_range[1], rforms))) 
 	insitu = len(list(filter(lambda x: radius_range[0] <= x <= radius_range[1], 
-		rforms)))  
+		rforms))) 
 	s = inside + outside + insitu 
 	inside /= s 
 	outside /= s 
 	insitu /= s 
-	ax.text(0.2, 0.9, r"from inside: %.2f" % (inside), fontsize = 30) 
-	ax.text(0.2, 0.8, r"from outside: %.2f" % (outside), fontsize = 30) 
-	ax.text(0.2, 0.7, r"from in-situ: %.2f" % (insitu), fontsize = 30) 
+	if int(sys.argv[2]): 
+		ax.text(0.2, 0.9, r"moved out: %.2f" % (inside), fontsize = 30) 
+		ax.text(0.2, 0.8, r"moved in: %.2f" % (outside), fontsize = 30) 
+		ax.text(0.2, 0.7, r"in-situ: %.2f" % (insitu), fontsize = 30) 
+	else: 	
+		ax.text(0.2, 0.9, r"from inside: %.2f" % (inside), fontsize = 30) 
+		ax.text(0.2, 0.8, r"from outside: %.2f" % (outside), fontsize = 30) 
+		ax.text(0.2, 0.7, r"from in-situ: %.2f" % (insitu), fontsize = 30) 
 	ax.plot(2 * [radius_range[0]], ax.get_ylim(), 
 		c = plots.mpltoolkit.named_colors()["black"], 
 		linestyle = ':') 

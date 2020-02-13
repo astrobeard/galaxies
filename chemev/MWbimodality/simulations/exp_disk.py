@@ -22,7 +22,7 @@ ZONE_WIDTH = 0.25
 
 def run_simulation(): 
 	from vice.yields.presets import my_yields 
-	mz = vice.multizone(name = "expdisk_zfilter", 
+	mz = vice.multizone(name = "expdisk_schmidt_zfilter_lowtaustar", 
 		n_zones = len(RAD_BINS) - 1, 
 		n_tracers = 2, verbose = True, simple = False) 
 	mz.migration.stars = tracers.UWhydro_zfilter(TIME_BINS, RAD_BINS) 
@@ -42,6 +42,10 @@ def run_simulation():
 				mz.zones[i].entrainment.agb[j] = 0 
 				mz.zones[i].entrainment.ccsne[j] = 0 
 				mz.zones[i].entrainment.sneia[j] = 0 
+		else: 
+			# tau_star ~ e^r/(2r_s) ; extra factor of two for bin center 
+			mz.zones[i].tau_star = 2 * m.exp( (RAD_BINS[i] + RAD_BINS[i + 1]) / 
+				(4 * float(sys.argv[1]))) 
 		# else: 
 		# 	mz.zones[i].tau_star = 2 * ((RAD_BINS[i + 1]**2 - RAD_BINS[i]**2) / 
 		# 		RAD_BINS[1]**2 * m.exp((-RAD_BINS[i] + 0.125) / 
