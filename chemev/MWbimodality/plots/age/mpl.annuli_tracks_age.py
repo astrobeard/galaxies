@@ -22,7 +22,7 @@ import os
 
 XLIM = [-1.7, 0.4] 
 YLIM = [0.0, 0.5] 
-CMAP = "plasma"
+CMAP = "plasma_r"
 
 def setup_axes(): 
 	fig = plt.figure(figsize = (35, 7)) 
@@ -39,14 +39,14 @@ def setup_axes():
 	axes[2].set_xlabel("[%s/H]" % (sys.argv[3])) 
 	return axes 
 
-def plot_tracers(ax, multiout, zone_bounds): 
+def plot_tracers(ax, tracers, zone_bounds): 
 	cmap = plt.get_cmap(CMAP) 
 	tracers = [list(i) for i in zip(
-		multiout.tracers["formation_time"], 
-		multiout.tracers["zone_final"], 
-		multiout.tracers["mass"], 
-		multiout.tracers["z(%s)" % (sys.argv[3])], 
-		multiout.tracers["z(%s)" % (sys.argv[4])]
+		tracers["formation_time"], 
+		tracers["zone_final"], 
+		tracers["mass"], 
+		tracers["z(%s)" % (sys.argv[3])], 
+		tracers["z(%s)" % (sys.argv[4])]
 	)] 
 	tracers = list(filter(lambda x: zone_bounds[0] <= x[1] <= zone_bounds[1], 
 		tracers)) 
@@ -75,11 +75,15 @@ def plot_track(ax, szout):
 if __name__ == "__main__": 
 	axes = setup_axes() 
 	out = vice.multioutput(sys.argv[1]) 
-	plot_tracers(axes[0], out, [12, 19]) 
-	plot_tracers(axes[1], out, [20, 27]) 
-	plot_tracers(axes[2], out, [28, 35]) 
-	plot_tracers(axes[3], out, [36, 43]) 
-	sc = plot_tracers(axes[4], out, [44, 51]) 
+	extra_tracer_data = np.genfromtxt("%s_extra_tracer_data.out" % (out.name)) 
+	out.tracers["zfinal"] = [row[-1] for row in extra_tracer_data[:out.tracers.size[0]]]  
+	fltrd_tracers = out.tracers.filter("zfinal", ">=", -3.) 
+	fltrd_tracers = fltrd_tracers.filter("zfinal", "<=", 3.) 
+	plot_tracers(axes[0], fltrd_tracers, [12, 19]) 
+	plot_tracers(axes[1], fltrd_tracers, [20, 27]) 
+	plot_tracers(axes[2], fltrd_tracers, [28, 35]) 
+	plot_tracers(axes[3], fltrd_tracers, [36, 43]) 
+	sc = plot_tracers(axes[4], fltrd_tracers, [44, 51]) 
 	plot_track(axes[0], out.zones["zone12"]) 
 	plot_track(axes[0], out.zones["zone19"]) 
 	plot_track(axes[1], out.zones["zone20"]) 

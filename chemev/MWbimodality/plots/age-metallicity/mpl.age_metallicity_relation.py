@@ -17,7 +17,7 @@ import vice
 import sys 
 import os 
 
-CMAP = "plasma" 
+CMAP = "plasma_r" 
 zone_min = int(7 / 0.25) 
 zone_max = int(9 / 0.25) 
 
@@ -36,15 +36,15 @@ def setup_axes():
 	axes[2].set_ylim([0.0, 0.5]) 
 	return axes 
 
-def plot_tracers(axes, multiout): 
+def plot_tracers(axes, tracers): 
 	cmap = plt.get_cmap(CMAP) 
 	tracers = [list(i) for i in zip(
-		multiout.tracers["formation_time"], 
-		multiout.tracers["zone_final"], 
-		multiout.tracers["zone_origin"], 
-		multiout.tracers["mass"], 
-		multiout.tracers["z(O)"], 
-		multiout.tracers["z(fe)"] 
+		tracers["formation_time"], 
+		tracers["zone_final"], 
+		tracers["zone_origin"], 
+		tracers["mass"], 
+		tracers["z(o)"], 
+		tracers["z(fe)"] 
 	)]
 	tracers = list(filter(lambda x: zone_min <= x[1] <= zone_max, 
 		tracers)) 
@@ -76,18 +76,20 @@ def plot_tracers(axes, multiout):
 		vmin = 0, vmax = 15) 
 	return sc 
 
-# def plot_gas_phase(axes, multiout): 
 
 if __name__ == "__main__": 
 	plt.clf() 
 	axes = setup_axes() 
 	out = vice.multioutput(sys.argv[1]) 
-	sc = plot_tracers(axes, out) 
+	extra_tracer_data = np.genfromtxt("%s_extra_tracer_data.out" % (out.name)) 
+	out.tracers["zfinal"] = [row[-1] for row in extra_tracer_data[:out.tracers.size[0]]] 
+	fltrd_tracers = out.tracers.filter("zfinal", ">=", -3.) 
+	fltrd_tracers = fltrd_tracers.filter("zfinal", "<=", 3.) 
+	sc = plot_tracers(axes, fltrd_tracers) 
 	cbar = plt.colorbar(sc, 
 		cax = plots.mpltoolkit.append_axes(axes[2]), pad = 0.0) 
 	cbar.set_label(r"$R_\text{gal}$ of birth [kpc]") 
 	plt.tight_layout() 
-	# plt.subplots_adjust(right = 0.97) 
 	plt.savefig(sys.argv[2]) 
 	plt.clf() 
 
