@@ -19,7 +19,7 @@ import os
 
 CMAP = "plasma_r" 
 zone_min = int(7 / 0.25) 
-zone_max = int(9 / 0.25) 
+zone_max = int(8.75 / 0.25) 
 
 def setup_axes(): 
 	fig = plt.figure(figsize = (21, 7)) 
@@ -31,8 +31,8 @@ def setup_axes():
 	axes[0].set_ylabel("[O/H]") 
 	axes[1].set_ylabel("[Fe/H]") 
 	axes[2].set_ylabel("[O/Fe]") 
-	axes[0].set_ylim([-0.9, 0.2]) 
-	axes[1].set_ylim([-1.2, 0.2]) 
+	axes[0].set_ylim([-0.9, 0.3]) 
+	axes[1].set_ylim([-1.1, 0.33]) 
 	axes[2].set_ylim([0.0, 0.5]) 
 	return axes 
 
@@ -46,8 +46,6 @@ def plot_tracers(axes, tracers):
 		tracers["z(o)"], 
 		tracers["z(fe)"] 
 	)]
-	tracers = list(filter(lambda x: zone_min <= x[1] <= zone_max, 
-		tracers)) 
 	ages = len(tracers) * [0.] 
 	sizes = len(tracers) * [0.] 
 	colors = len(tracers) * [0.] 
@@ -77,6 +75,49 @@ def plot_tracers(axes, tracers):
 	return sc 
 
 
+def weighted_median(values, weights, stop = 0.5): 
+	indeces = np.argsort(values) 
+	values = [values[i] for i in indeces] 
+	weights = [weights[i] for i in indeces] 
+	weights = [i / sum(weights) for i in weights] 
+	s = 0 
+	for i in range(len(weights)): 
+		s += weights[i] 
+		if s > stop: 
+			idx = i - 1 
+			break 
+	return values[idx] 
+
+
+def feuillet_points(ax, tracers, element): 
+	bins = np.arange(-1, 1.1, 0.1) 
+	ages = (len(bins) - 1) * [0.] 
+	lowers = (len(bins) - 1) * [0.] 
+	uppers = (len(bins) - 1) * [0.] 
+	for i in range(len(ages)): 
+		stars = tracers.filter("[%s/h]" % (element), ">=", bins[i]) 
+		stars = stars.filter("[%s/h]" % (element), "<=", bins[i + 1]) 
+		if len(stars["age"]) > 20: 
+			""" 
+			Calculate the mass-weighted median 
+			""" 
+			ages[i] = weighted_median(stars["age"], stars["mass"]) 
+			lowers[i] = weighted_median(stars["age"], stars["mass"], stop = 0.16) 
+			uppers[i] = weighted_median(stars["age"], stars["mass"], stop = 0.84) 
+		else: 
+			ages[i] = float("nan") 
+			lowers[i] = float("nan") 
+			uppers[i] = float("nan") 
+	ax.scatter(ages, list(map(lambda x, y: (x + y) / 2, bins[1:], bins[:-1])), 
+		marker = plots.mpltoolkit.markers()["star"], 
+		c = plots.mpltoolkit.named_colors()["black"], s = 100) 
+	ax.errorbar(list(map(lambda x, y: (x + y) / 2, uppers, lowers)), 
+		list(map(lambda x, y: (x + y) / 2, bins[1:], bins[:-1])), 
+		xerr = list(map(lambda x, y: (x - y) / 2, uppers, lowers)), 
+		c = plots.mpltoolkit.named_colors()["black"], 
+		linestyle = "None")  
+
+
 if __name__ == "__main__": 
 	plt.clf() 
 	axes = setup_axes() 
@@ -85,10 +126,14 @@ if __name__ == "__main__":
 	out.tracers["zfinal"] = [row[-1] for row in extra_tracer_data[:out.tracers.size[0]]] 
 	fltrd_tracers = out.tracers.filter("zfinal", ">=", -3.) 
 	fltrd_tracers = fltrd_tracers.filter("zfinal", "<=", 3.) 
+	fltrd_tracers = fltrd_tracers.filter("zone_final", ">=", zone_min) 
+	fltrd_tracers = fltrd_tracers.filter("zone_final", "<=", zone_max) 
 	sc = plot_tracers(axes, fltrd_tracers) 
 	cbar = plt.colorbar(sc, 
 		cax = plots.mpltoolkit.append_axes(axes[2]), pad = 0.0) 
 	cbar.set_label(r"$R_\text{gal}$ of birth [kpc]") 
+	feuillet_points(axes[0], fltrd_tracers, "o") 
+	feuillet_points(axes[1], fltrd_tracers, "fe") 
 	plt.tight_layout() 
 	plt.savefig(sys.argv[2]) 
 	plt.clf() 

@@ -54,16 +54,20 @@ class UWhydro(object):
 	interpolating linearly between zone numbers. 
 	""" 
 
-	def __init__(self, time_bins, rad_bins): 
+	def __init__(self, time_bins, rad_bins, filename = "tracers.out"): 
 		self._time_bins = time_bins[:] 
 		self._rad_bins = rad_bins[:] 
-		self._zones = self._analyze_radii() 
+		self._zones, self._heights = self._analyze_radii() 
+		self._file = open(filename, 'w') 
+		self._file.write("# zone_origin\ttime_origin\tzone_final\tzfinal\n") 
 
 	def __call__(self, zone, time): 
 		tbin = _get_bin_number(self._time_bins, time) 
-		final = self._zones[zone][tbin][np.random.randint(
-			len(self._zones[zone][tbin]))] + np.random.random() 
+		idx = np.random.randint(len(self._zones[zone][tbin])) 
+		final = self._zones[zone][tbin][idx] + np.random.random() 
 		init = zone + np.random.random() 
+		self._file.write("%d\t%.3f\t%d\t%.3f\n" % (zone, time, final, 
+			self._heights[zone][tbin][idx])) 
 		def zones(t): 
 			if t < time: 
 				return 0 
@@ -77,23 +81,31 @@ class UWhydro(object):
 	def _analyze_radii(self): 
 		from data import UWhydroparticles 
 		zones = (len(self._rad_bins) - 1) * [None] 
+		heights = (len(self._rad_bins) - 1) * [None] 
 		for i in range(len(zones)): 
 			zones[i] = len(self._time_bins) * [None] 
+			heights[i] = len(self._time_bins) * [None] 
 			for j in range(len(zones[i])): 
 				zones[i][j] = [] 
+				heights[i][j] = [] 
 		for i in range(len(UWhydroparticles["tform"])): 
 			tbin = _get_bin_number(self._time_bins, 
 				UWhydroparticles["tform"][i]) 
 			rbin = _get_bin_number(self._rad_bins, 
 				UWhydroparticles["rform"][i]) 
 			zones[rbin][tbin].append(_get_bin_number(self._rad_bins, 
-				UWhydroparticles["rfinal"][i]))  
+				UWhydroparticles["rfinal"][i])) 
+			heights[rbin][tbin].append(UWhydroparticles["zfinal"][i]) 
 		for i in range(len(zones)): 
 			for j in range(len(zones[i])): 
 				if len(zones[i][j]) == 0: 
 					zones[i][j].append(i) 
+					heights[i][j].append(100) # ignore after the fact 
 				else: continue 
-		return zones 
+		return [zones, heights] 
+
+	def close_file(self): 
+		self._file.close() 
 
 
 class UWhydro_zfilter(UWhydro): 
