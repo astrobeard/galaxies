@@ -31,8 +31,8 @@ def setup_axes():
 	axes[0].set_ylabel("[O/H]") 
 	axes[1].set_ylabel("[Fe/H]") 
 	axes[2].set_ylabel("[O/Fe]") 
-	axes[0].set_ylim([-0.9, 0.3]) 
-	axes[1].set_ylim([-1.1, 0.33]) 
+	axes[0].set_ylim([-0.7, 0.5]) 
+	axes[1].set_ylim([-0.7, 0.5]) 
 	axes[2].set_ylim([0.0, 0.5]) 
 	return axes 
 
@@ -63,7 +63,7 @@ def plot_tracers(axes, tracers):
 		else: 
 			FeH[i] = -float("inf") 
 		OFe[i] = OH[i] - FeH[i] 
-		sizes[i] = tracers[i][3] / 4e6 * 4 * (1 - 
+		sizes[i] = tracers[i][3] / 4e7 * 4 * (1 - 
 			vice.cumulative_return_fraction(tracers[i][0])) 
 		colors[i] = 0.25 * tracers[i][2] 
 	axes[0].scatter(ages, OH, c = colors, s = sizes, cmap = cmap, 
@@ -101,9 +101,12 @@ def feuillet_points(ax, tracers, element):
 			""" 
 			Calculate the mass-weighted median 
 			""" 
-			ages[i] = weighted_median(stars["age"], stars["mass"]) 
-			lowers[i] = weighted_median(stars["age"], stars["mass"], stop = 0.16) 
-			uppers[i] = weighted_median(stars["age"], stars["mass"], stop = 0.84) 
+			masses = list(map(lambda x, y: x * (1 - 
+				vice.cumulative_return_fraction(y)), 
+				stars["mass"], stars["age"])) 
+			ages[i] = weighted_median(stars["age"], masses) 
+			lowers[i] = weighted_median(stars["age"], masses, stop = 0.16) 
+			uppers[i] = weighted_median(stars["age"], masses, stop = 0.84) 
 		else: 
 			ages[i] = float("nan") 
 			lowers[i] = float("nan") 
