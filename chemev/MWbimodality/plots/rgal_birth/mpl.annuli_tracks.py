@@ -20,7 +20,7 @@ import vice
 import sys 
 import os 
 
-XLIM = [-1.7, 0.4] 
+XLIM = [-1.2, 0.7] 
 YLIM = [0.0, 0.5] 
 CMAP = "plasma_r"
 
@@ -61,7 +61,7 @@ def plot_tracers(ax, tracers, zone_bounds):
 		XH[i] = m.log10(tracers[i][3] / vice.solar_z[sys.argv[3]]) 
 		YX[i] = m.log10(tracers[i][4] / vice.solar_z[sys.argv[4]]) - XH[i] 
 		colors[i] = tracers[i][0] * 0.25 
-		sizes[i] = tracers[i][2] / 4e6 * 4 * (1 - 
+		sizes[i] = tracers[i][2] / 4e7 * 4 * (1 - 
 			vice.cumulative_return_fraction(tracers[i][5])) 
 	sc = ax.scatter(XH, YX, c = colors, s = sizes, cmap = cmap, vmin = 1, 
 		vmax = 15) 
