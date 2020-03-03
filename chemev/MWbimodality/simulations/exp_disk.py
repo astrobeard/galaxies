@@ -15,7 +15,7 @@ import vice
 import sys 
 import os 
 
-TIME_BINS = np.linspace(0, 13.8, 21).tolist() 
+TIME_BINS = np.linspace(0, 12.8, 41).tolist() 
 RAD_BINS = np.linspace(0, 30, 121).tolist() 
 ZONE_WIDTH = 0.25 
 
@@ -36,11 +36,11 @@ def eta(rgal):
 
 def run_simulation(): 
 	from vice.yields.presets import my_yields 
-	mz = vice.multizone(name = "expdisk_schmidt_neweta_vigorousSF", 
+	mz = vice.multizone(name = "moddisk_vigorousSF", 
 		n_zones = len(RAD_BINS) - 1, 
 		n_tracers = 2, verbose = True, simple = False) 
 	mz.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
-		filename = "%s_extra_tracer_data.out" % (mz.name))  
+		filename = "%s_extra_tracer_data.out" % (mz.name)) 
 	for i in range(mz.n_zones): 
 		mz.zones[i].mode = "gas" 
 		mz.zones[i].func = gas_disks.static_exponential(i, 6.0e9, 
@@ -67,7 +67,7 @@ def run_simulation():
 		# 		RAD_BINS[1]**2 * m.exp((-RAD_BINS[i] + 0.125) / 
 		# 			float(sys.argv[1])))**(-0.5) 
 	print("Running....") 
-	mz.run(np.linspace(0, 13.8, 691), overwrite = True) 
+	mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
 	mz.migration.stars.close_file() 
 
 if __name__ == "__main__": 

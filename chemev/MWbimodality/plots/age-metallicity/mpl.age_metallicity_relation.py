@@ -63,7 +63,7 @@ def plot_tracers(axes, tracers):
 		else: 
 			FeH[i] = -float("inf") 
 		OFe[i] = OH[i] - FeH[i] 
-		sizes[i] = tracers[i][3] / 4e6 * 4 * (1 - 
+		sizes[i] = tracers[i][3] / 4e7 * 4 * (1 - 
 			vice.cumulative_return_fraction(tracers[i][0])) 
 		colors[i] = 0.25 * tracers[i][2] 
 	axes[0].scatter(ages, OH, c = colors, s = sizes, cmap = cmap, 

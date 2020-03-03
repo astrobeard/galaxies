@@ -12,7 +12,7 @@ DIRS = os.path.abspath(__file__).split('/')[:-3]
 PATH = "/" 
 for i in DIRS: 
 	PATH += "%s/" % (i) 
-FILE = "%sdata/UWhydro_particles.dat" % (PATH) 
+FILE = "%sdata/UWhydro_modded.dat" % (PATH) 
 RAW = np.genfromtxt(FILE)  
 COLS = [1, 2, 4, 5, 6, 7, 8] 
 LABELS = ["tform", "rform", "rfinal", "zfinal", "v_r", "v_phi", "v_z"] 

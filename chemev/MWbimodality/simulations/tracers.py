@@ -60,14 +60,18 @@ class UWhydro(object):
 		self._zones, self._heights = self._analyze_radii() 
 		self._file = open(filename, 'w') 
 		self._file.write("# zone_origin\ttime_origin\tzone_final\tzfinal\n") 
+		self.__test_call = False 
 
 	def __call__(self, zone, time): 
 		tbin = _get_bin_number(self._time_bins, time) 
 		idx = np.random.randint(len(self._zones[zone][tbin])) 
 		final = self._zones[zone][tbin][idx] + np.random.random() 
 		init = zone + np.random.random() 
-		self._file.write("%d\t%.3f\t%d\t%.3f\n" % (zone, time, final, 
-			self._heights[zone][tbin][idx])) 
+		if self.__test_call: 
+			self._file.write("%d\t%.3f\t%d\t%.3f\n" % (zone, time, final, 
+				self._heights[zone][tbin][idx])) 
+		else: 
+			self.__test_call = True 
 		def zones(t): 
 			if t < time: 
 				return 0 
@@ -99,8 +103,16 @@ class UWhydro(object):
 		for i in range(len(zones)): 
 			for j in range(len(zones[i])): 
 				if len(zones[i][j]) == 0: 
-					zones[i][j].append(i) 
-					heights[i][j].append(100) # ignore after the fact 
+					# let it find something in a neighboring zone 
+					if i > 0: 
+						zones[i][j] += zones[i - 1][j][:] 
+						heights[i][j] += heights[i - 1][j][:] 
+					if i < len(zones) - 1: 
+						zones[i][j] += zones[i + 1][j][:] 
+						heights[i][j] += heights[i + 1][j][:] 
+					if len(zones[i][j]) == 0: 
+						zones[i][j].append(i) 
+						heights[i][j].append(100) # ignore after the fact 
 				else: continue 
 		return [zones, heights] 
 
