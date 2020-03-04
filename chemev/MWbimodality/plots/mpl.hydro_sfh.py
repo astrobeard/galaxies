@@ -61,8 +61,8 @@ if __name__ == "__main__":
 	scalarMap = cm.ScalarMappable(norm = colors.Normalize(
 		vmin = RADIAL_BINS[0], vmax = RADIAL_BINS[-1]), cmap = cmap) 
 	for i in range(len(RADIAL_BINS) - 1): 
-		# plot_sfh_actual(ax, RADIAL_BINS[i], RADIAL_BINS[i + 1], scalarMap) 
-		plot_sfh_measured(ax, RADIAL_BINS[i], RADIAL_BINS[i + 1], scalarMap) 
+		plot_sfh_actual(ax, RADIAL_BINS[i], RADIAL_BINS[i + 1], scalarMap) 
+		# plot_sfh_measured(ax, RADIAL_BINS[i], RADIAL_BINS[i + 1], scalarMap) 
 	scalarMap._A = [] 
 	cbar = plt.colorbar(scalarMap, ax = ax, pad = 0) 
 	cbar.set_label(r"$R_\text{gal}$ [kpc]") 
