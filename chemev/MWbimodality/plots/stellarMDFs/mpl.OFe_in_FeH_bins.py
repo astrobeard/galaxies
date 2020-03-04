@@ -20,7 +20,7 @@ import os
 
 OFE_BINS = np.arange(0., 0.51, 0.01).tolist() 
 XLIM = [-0.02, 0.52] 
-YLIM = [0.005, 0.5] 
+YLIM = [0.0, 0.25] 
 FEH_BINS = [ 
 	# [-0.8, -0.7], 
 	[-0.6, -0.5], 
@@ -45,7 +45,7 @@ def setup_axes():
 		axes[i] = fig.add_subplot(151 + i, facecolor = "white") 
 		axes[i].set_title(r"%g kpc $\leq$ Final $R_\text{gal}$ $\leq$ %g kpc" % (
 			[3, 5, 7, 9, 11][i], [5, 7, 9, 11, 13][i]), fontsize = 25) 
-		axes[i].set_yscale("log") 
+		# axes[i].set_yscale("log") 
 		axes[i].set_xlim(XLIM) 
 		axes[i].set_ylim(YLIM) 
 		if i > 0: plt.setp(axes[i].get_yticklabels(), visible = False) 
