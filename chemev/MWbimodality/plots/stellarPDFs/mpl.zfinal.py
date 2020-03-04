@@ -5,8 +5,9 @@ and in-situ for several ages in a given radial bin.
 ARGV 
 ==== 
 1) 		The name of the output image 
-2) 		The minimum galactocentric radius in kpc 
-3)		The maximum galactocentric radius in kpc 
+2)		zfinal or vz, for which quantity to plot the PDF for 
+3) 		The minimum galactocentric radius in kpc 
+4)		The maximum galactocentric radius in kpc 
 """ 
 
 import matplotlib.pyplot as plt 
@@ -21,8 +22,8 @@ sys.path.append("../../")
 from data import UWhydro 
 
 AGE_BINS = [[2, 3], [6, 7], [10, 11]] 
-ZFINAL_BINS = np.linspace(-2, 2, 36).tolist() 
-XLIM = [-2.2, 2.2]
+BINS = np.linspace(-250, 250, 101).tolist() 
+XLIM = [-260, 260]
 
 
 def setup_axes(): 
@@ -42,7 +43,14 @@ def setup_axes():
 			AGE_BINS[i][0], AGE_BINS[i][1]), fontsize = 25) 
 		axes[i].set_xlim(XLIM) 
 	axes[0].set_ylabel("Stellar PDF") 
-	axes[len(AGE_BINS) // 2].set_xlabel(r"$z_\text{final}$ [kpc]") 
+	if sys.argv[2].lower() in ["zfinal", "v_z"]: 
+		axes[len(AGE_BINS) // 2].set_xlabel({
+			"zfinal":		r"$z_\text{final}$ [kpc]", 
+			"v_z": 			r"$v_z$ [km s$^{-1}$]" 	
+		}[sys.argv[2].lower()]) 
+	else: 
+		raise ValueError("ARGV[2] must be either 'zfinal' or 'v_z'. Got: %s" % (
+			sys.argv[2])) 
 	return axes 
 
 
@@ -50,7 +58,8 @@ def get_zfinal_pdf(stars):
 	""" 
 	stars :: The VICE dataframe holding the stars in a given radial and age bin 
 	""" 
-	return np.histogram(stars["zfinal"], bins = ZFINAL_BINS, density = True)[0] 
+	return np.histogram(stars[sys.argv[2].lower()], bins = BINS, 
+		density = True)[0] 
 
 
 def bin_centers(binspace): 
@@ -61,28 +70,28 @@ def bin_centers(binspace):
 
 
 def plot_zfinal_pdf(ax, stars, label = False): 
-	insitu = stars.filter("rfinal", ">=", float(sys.argv[2])) 
-	insitu = insitu.filter("rfinal", "<=", float(sys.argv[3])) 
-	movedin = stars.filter("rfinal", "<=", float(sys.argv[2])) 
-	movedout = stars.filter("rfinal", ">=", float(sys.argv[3])) 
+	insitu = stars.filter("rfinal", ">=", float(sys.argv[3])) 
+	insitu = insitu.filter("rfinal", "<=", float(sys.argv[4])) 
+	movedin = stars.filter("rfinal", "<=", float(sys.argv[3])) 
+	movedout = stars.filter("rfinal", ">=", float(sys.argv[4])) 
 	kwargs = {
 		"c":		"black" 
 	} 
 	if label: kwargs["label"] = "in-situ" 
-	ax.plot(bin_centers(ZFINAL_BINS), get_zfinal_pdf(insitu), **kwargs) 
+	ax.plot(bin_centers(BINS), get_zfinal_pdf(insitu), **kwargs) 
 	kwargs["c"] = "crimson" 
 	if label: kwargs["label"] = "moved in" 
-	ax.plot(bin_centers(ZFINAL_BINS), get_zfinal_pdf(movedin), **kwargs) 
+	ax.plot(bin_centers(BINS), get_zfinal_pdf(movedin), **kwargs) 
 	kwargs["c"] = "dodgerblue" 
 	if label: kwargs["label"] = "moved out" 
-	ax.plot(bin_centers(ZFINAL_BINS), get_zfinal_pdf(movedout), **kwargs) 
+	ax.plot(bin_centers(BINS), get_zfinal_pdf(movedout), **kwargs) 
 
 
 if __name__ == "__main__": 
 	plt.clf() 
 	axes = setup_axes() 
-	fltrd = UWhydro.filter("rform", ">=", float(sys.argv[2])) 
-	fltrd = fltrd.filter("rform", "<=", float(sys.argv[3])) 
+	fltrd = UWhydro.filter("rform", ">=", float(sys.argv[3])) 
+	fltrd = fltrd.filter("rform", "<=", float(sys.argv[4])) 
 	stars = len(AGE_BINS) * [None] 
 	for i in range(len(stars)): 
 		stars[i] = fltrd.filter("tform", "<=", 12.8 - AGE_BINS[i][0]) 
