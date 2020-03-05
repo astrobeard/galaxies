@@ -39,15 +39,19 @@ def get_proxies(zone):
 			) / (
 				zone.history["time"][i + 1] - zone.history["time"][i] 
 			) 
+			if i == 8: print(proxies[i]) 
 			proxies[i] -= (
 				vice.yields.ccsne.settings["fe"] * zone.history["sfr"][i] * 1e9 
 			) 
+			if i == 8: print(proxies[i]) 
 			proxies[i] += zone.history["z(fe)"][i] * zone.history["sfr"][i] * (
 				1 + mir.eta - 0.4) * 1e9 
+			if i == 8: print(proxies[i]) 
 			proxies[i] /= zone.history["mass(fe)"][i] 
+			if i == 8: print(proxies[i]) 
 			if proxies[i] < 0: proxies[i] = 0
 		else: pass 
-	return proxies  
+	return proxies 
 
 
 def plot_actual(ax, zone, color, norm, label): 	
@@ -57,6 +61,7 @@ def plot_actual(ax, zone, color, norm, label):
 		"c": 		plots.mpltoolkit.named_colors()[color] 
 	}
 	if label is not None: kwargs["label"] = label 
+	print(proxies[:15]) 
 	ax.plot(zone.history["time"][:-1], proxies, **kwargs) 
 
 
@@ -67,6 +72,7 @@ def plot_comparison(ax, zone, color):
 	comp = sz.run(np.linspace(0, 14, 1401), overwrite = True, capture = True) 
 	# proxies = [i / comp.history["mass(fe)"][-1] for i in get_proxies(comp)] 
 	proxies = get_proxies(comp) 
+	print(proxies[:15]) 
 	ax.plot(comp.history["time"][:-1], proxies, 
 		c = plots.mpltoolkit.named_colors()[color], linestyle = '--') 
 	return comp.history["mass(fe)"][-1] 
@@ -84,8 +90,8 @@ if __name__ == "__main__":
 			colors[i]) 
 		plot_actual(ax, out.zones["zone%d" % (int(radii[i] / 0.25))], 
 			colors[i], norm, r"$R_\text{gal}$ = %g kpc" % (radii[i])) 
-	leg = ax.legend(loc = plots.mpltoolkit.mpl_loc("upper right"), ncol = 1, 
-		frameon = False, bbox_to_anchor = (0.99, 0.99), handlelength = 0) 
+	leg = ax.legend(loc = plots.mpltoolkit.mpl_loc("lower right"), ncol = 1, 
+		frameon = False, bbox_to_anchor = (0.99, 0.01), handlelength = 0) 
 	for i in range(len(leg.legendHandles)): 
 		leg.get_texts()[i].set_color(colors[i]) 
 	plt.tight_layout() 
