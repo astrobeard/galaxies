@@ -10,6 +10,8 @@ ARGV
 """ 
 
 from vice.yields.presets import my_yields 
+import matplotlib 
+matplotlib.use("Agg") 
 import matplotlib.pyplot as plt 
 import matplotlib as mpl 
 import plots 
