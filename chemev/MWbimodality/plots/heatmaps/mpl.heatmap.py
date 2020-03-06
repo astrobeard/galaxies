@@ -33,11 +33,11 @@ def get_heatmap(out):
 	for i in range(len(qty)): 
 		# qty[i] = out.zones["zone%d" % (i)].history[KEY][:] 
 		actual = get_proxies(out.zones["zone%d" % (i)]) 
-		# quit() 
 		sz = vice.mirror(out.zones["zone%d" % (i)]) 
 		sz.func = lambda t: out.zones["zone%d" % (i)].history["mgas"][0] 
 		sz.name = "comparison" 
-		comp = sz.run(np.linspace(0, 12.8, 641), overwrite = True, capture = True) 
+		comp = sz.run(np.linspace(0, 12.8, 641), overwrite = True, 
+			capture = True) 
 		expected = get_proxies(comp) 
 		qty[i] = list(map(lambda x, y: 100 * (x - y) / y if y > 0 else 0, 
 			actual, expected)) 
@@ -60,7 +60,7 @@ def get_proxies(zone):
 			) 
 			proxies[i] += zone.history["z(fe)"][i] * zone.history["sfr"][i] * (
 				1 + mir.eta - 0.4) * 1e9 
-			proxies[i] /= zone.history["mass(fe)"][i] 
+			# proxies[i] /= zone.history["mass(fe)"][i] 
 			if proxies[i] < 0: proxies[i] = 0
 		else: pass 
 	return proxies 
