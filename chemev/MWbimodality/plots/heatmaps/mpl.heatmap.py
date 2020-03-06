@@ -21,11 +21,12 @@ import vice
 import sys 
 import os 
 
-CMAP = "bwr" 
-# KEY = "[o/fe]" 
-LABEL = r"\% difference $\dot{N}_\text{Ia}$"  
-VMIN = -50 
-VMAX = 50 
+CMAP = "plasma" 
+KEY = "[o/fe]" 
+# LABEL = r"\% difference $\dot{N}_\text{Ia}$" 
+LABEL = "[O/Fe]" 
+VMIN = 0.0 
+VMAX = 0.2 
 
 
 def get_heatmap(out): 
@@ -33,16 +34,16 @@ def get_heatmap(out):
 	times = out.zones["zone0"].history["time"][:] 
 	qty = len(radii) * [None] 
 	for i in range(len(qty)): 
-		# qty[i] = out.zones["zone%d" % (i)].history[KEY][:] 
-		actual = get_proxies(out.zones["zone%d" % (i)]) 
-		sz = vice.mirror(out.zones["zone%d" % (i)]) 
-		sz.func = lambda t: out.zones["zone%d" % (i)].history["mgas"][0] 
-		sz.name = "comparison" 
-		comp = sz.run(np.linspace(0, 12.8, 641), overwrite = True, 
-			capture = True) 
-		expected = get_proxies(comp) 
-		qty[i] = list(map(lambda x, y: 100 * (x - y) / y if y > 0 else 0, 
-			actual, expected)) 
+		qty[i] = out.zones["zone%d" % (i)].history[KEY][:] 
+		# actual = get_proxies(out.zones["zone%d" % (i)]) 
+		# sz = vice.mirror(out.zones["zone%d" % (i)]) 
+		# sz.func = lambda t: out.zones["zone%d" % (i)].history["mgas"][0] 
+		# sz.name = "comparison" 
+		# comp = sz.run(np.linspace(0, 12.8, 641), overwrite = True, 
+		# 	capture = True) 
+		# expected = get_proxies(comp) 
+		# qty[i] = list(map(lambda x, y: 100 * (x - y) / y if y > 0 else 0, 
+		# 	actual, expected)) 
 	return [radii, times, qty] 
 
 

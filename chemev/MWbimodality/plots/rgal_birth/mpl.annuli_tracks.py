@@ -31,7 +31,7 @@ def setup_axes():
 		axes[i] = fig.add_subplot(151 + i, facecolor = "white") 
 		axes[i].set_title(r"%g kpc $\leq$ Final $R_\text{gal}$ $\leq$ %g kpc" % (
 			[3, 5, 7, 9, 11][i], [5, 7, 9, 11, 13][i]), fontsize = 25) 
-		axes[i].xaxis.set_ticks([-1.5, -1.0, -0.5, 0.0]) 
+		axes[i].xaxis.set_ticks([-1.5, -1.0, -0.5, 0.0, 0.5]) 
 		axes[i].set_xlim(XLIM) 
 		axes[i].set_ylim(YLIM) 
 		if i > 0: plt.setp(axes[i].get_yticklabels(), visible = False) 
