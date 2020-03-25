@@ -76,7 +76,7 @@ def get_ofe_pdf(stars, min_rgal, max_rgal, min_FeH, max_FeH):
 		norm = sum(dist) 
 		return [i / norm for i in dist] 
 	else: 
-		return None 
+		return  
 
 
 def plot_pdfs(ax, stars, min_rgal, max_rgal, label = False): 
