@@ -59,7 +59,7 @@ def plot_tracers(ax, tracers, zone_bounds):
 		XH[i] = m.log10(tracers[i][3] / vice.solar_z[sys.argv[3]]) 
 		YX[i] = m.log10(tracers[i][4] / vice.solar_z[sys.argv[4]]) - XH[i] 
 		colors[i] = 13.8 - tracers[i][0] 
-		sizes[i] = tracers[i][2] / 4e6 * 4 * (1 - 
+		sizes[i] = tracers[i][2] / 1e6 * 4 * (1 - 
 			vice.cumulative_return_fraction(tracers[i][0])) 
 	sc = ax.scatter(XH, YX, c = colors, s = sizes, cmap = cmap, vmin = 1, 
 		vmax = 13.8) 
@@ -76,8 +76,9 @@ if __name__ == "__main__":
 	axes = setup_axes() 
 	out = vice.multioutput(sys.argv[1]) 
 	extra_tracer_data = np.genfromtxt("%s_extra_tracer_data.out" % (out.name)) 
-	out.tracers["zfinal"] = [row[-1] for row in extra_tracer_data[:out.tracers.size[0]]]  
-	fltrd_tracers = out.tracers.filter("zfinal", ">=", -3.) 
+	out.stars["zfinal"] = [row[-1] for row in 
+		extra_tracer_data[:out.stars.size[0]]]  
+	fltrd_tracers = out.stars.filter("zfinal", ">=", -3.) 
 	fltrd_tracers = fltrd_tracers.filter("zfinal", "<=", 3.) 
 	plot_tracers(axes[0], fltrd_tracers, [12, 19]) 
 	plot_tracers(axes[1], fltrd_tracers, [20, 27]) 

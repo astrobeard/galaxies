@@ -21,7 +21,7 @@ import os
 
 REF_ELEMENT = "Fe" 
 SEC_ELEMENT = "O" 
-XLIM = [-1.2, 0.7] 
+XLIM = [-1.7, 0.4] 
 YLIM = [-0.02, 0.52] 
 CMAP = "plasma_r" 
 
@@ -69,7 +69,7 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 	stars = stars.filter("zone_final", "<=", zone_bounds[1]) 
 	stars = stars.filter("abszfinal", ">=", zbounds[0]) 
 	stars = stars.filter("abszfinal", "<=", zbounds[1]) 
-	sizes = [i["mass"] / 4e6 * 4 * (1 - 
+	sizes = [i["mass"] / 1e6 * 4 * (1 - 
 		vice.cumulative_return_fraction(i["age"])) for i in stars] 
 	return ax.scatter(
 		stars["[%s/H]" % (REF_ELEMENT)], 

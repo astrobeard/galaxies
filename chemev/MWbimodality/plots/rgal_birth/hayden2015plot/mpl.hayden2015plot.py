@@ -70,7 +70,7 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 	stars = stars.filter("abszfinal", ">=", zbounds[0]) 
 	stars = stars.filter("abszfinal", "<=", zbounds[1]) 
 	colors = [i["zone_origin"] * 0.25 for i in stars] 
-	sizes = [i["mass"] / 4e6 * 4 * (1 - 
+	sizes = [i["mass"] / 1e6 * 4 * (1 - 
 		vice.cumulative_return_fraction(i["age"])) for i in stars] 
 	return ax.scatter(
 		stars["[%s/H]" % (REF_ELEMENT)], 
