@@ -30,7 +30,7 @@ def setup_axis():
 
 
 def get_proxies(zone): 
-	mir = vice.mirror(zone) 
+	mir = vice.singlezone.from_output(zone) 
 	proxies = (len(zone.history["time"]) - 1) * [0.] 
 	for i in range(len(proxies)): 
 		if zone.history["time"][i] > mir.delay: 
@@ -39,16 +39,12 @@ def get_proxies(zone):
 			) / (
 				zone.history["time"][i + 1] - zone.history["time"][i] 
 			) 
-			if i == 8: print(proxies[i]) 
 			proxies[i] -= (
 				vice.yields.ccsne.settings["fe"] * zone.history["sfr"][i] * 1e9 
 			) 
-			if i == 8: print(proxies[i]) 
 			proxies[i] += zone.history["z(fe)"][i] * zone.history["sfr"][i] * (
 				1 + mir.eta - 0.4) * 1e9 
-			if i == 8: print(proxies[i]) 
 			proxies[i] /= zone.history["mass(fe)"][i] 
-			if i == 8: print(proxies[i]) 
 			if proxies[i] < 0: proxies[i] = 0
 		else: pass 
 	return proxies 
@@ -61,18 +57,16 @@ def plot_actual(ax, zone, color, norm, label):
 		"c": 		plots.mpltoolkit.named_colors()[color] 
 	}
 	if label is not None: kwargs["label"] = label 
-	print(proxies[:15]) 
 	ax.plot(zone.history["time"][:-1], proxies, **kwargs) 
 
 
 def plot_comparison(ax, zone, color): 
-	sz = vice.mirror(zone) 
+	sz = vice.singlezone.from_output(zone) 
 	sz.func = lambda t: zone.history["mgas"][0] 
 	sz.name = "comparison" 
 	comp = sz.run(np.linspace(0, 14, 1401), overwrite = True, capture = True) 
 	# proxies = [i / comp.history["mass(fe)"][-1] for i in get_proxies(comp)] 
 	proxies = get_proxies(comp) 
-	print(proxies[:15]) 
 	ax.plot(comp.history["time"][:-1], proxies, 
 		c = plots.mpltoolkit.named_colors()[color], linestyle = '--') 
 	return comp.history["mass(fe)"][-1] 

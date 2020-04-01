@@ -21,8 +21,8 @@ import os
 
 REF_ELEMENT = "Fe" 
 SEC_ELEMENT = "O" 
-XLIM = [-1.7, 0.4] 
-YLIM = [-0.02, 0.52] 
+XLIM = [-1.2, 0.6] 
+YLIM = [-0.05, 0.55] 
 CMAP = "plasma_r" 
 
 
@@ -30,7 +30,7 @@ def setup_axes():
 	""" 
 	Setup the 3x5 matplotlib axes. 
 	""" 
-	fig, axes = plt.subplots(ncols = 5, nrows = 3, figsize = (35, 21)) 
+	fig, axes = plt.subplots(ncols = 5, nrows = 3, figsize = (20, 12)) 
 	for i in range(3): 
 		for j in range(5): 
 			if i != 2: plt.setp(axes[i][j].get_xticklabels(), visible = False) 
@@ -38,12 +38,12 @@ def setup_axes():
 			axes[i][j].set_xlim(XLIM) 
 			axes[i][j].set_ylim(YLIM) 
 			if i == 0: axes[i][j].set_title(
-				r"%g kpc $\leq$ Final $R_\text{gal}\ \leq$ %g kpc" % (
+				r"Final $R_\text{gal}$ = %g - %g kpc" % ( 
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
 			if j == 2: 
-				axes[i][j].text(-0.5, 0.45, 
-					r"%g kpc $\leq \left|z\right| \leq$ %g kpc" % (
+				axes[i][j].text(-0.8, 0.47, 
+					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
 	axes[2][2].set_xlabel("[%s/H]" % (REF_ELEMENT)) 
@@ -69,7 +69,7 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 	stars = stars.filter("zone_final", "<=", zone_bounds[1]) 
 	stars = stars.filter("abszfinal", ">=", zbounds[0]) 
 	stars = stars.filter("abszfinal", "<=", zbounds[1]) 
-	sizes = [i["mass"] / 1e6 * 4 * (1 - 
+	sizes = [i["mass"] / 1e7 * 4 * (1 - 
 		vice.cumulative_return_fraction(i["age"])) for i in stars] 
 	return ax.scatter(
 		stars["[%s/H]" % (REF_ELEMENT)], 
@@ -94,11 +94,11 @@ if __name__ == "__main__":
 	for i in range(3): 
 		for j in range(5): 
 			sc = plot_stars(axes[i][j], out.stars, zone_bounds[j], z_bounds[i]) 
-	cbar_ax = fig.add_axes([0.95, 0.05, 0.02, 0.95]) 
+	cbar_ax = fig.add_axes([0.92, 0.05, 0.02, 0.95]) 
 	fig.colorbar(sc, cax = cbar_ax) 
 	cbar_ax.set_ylabel(r"Age [Gyr]") 
 	plt.tight_layout() 
-	plt.subplots_adjust(wspace = 0, hspace = 0, right = 0.95) 
+	plt.subplots_adjust(wspace = 0, hspace = 0, right = 0.92) 
 	cbar_ax.set_position([
 		axes[-1][-1].get_position().x1, 
 		axes[-1][-1].get_position().y0, 

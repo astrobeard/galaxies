@@ -28,7 +28,7 @@ def setup_axes():
 		axes[i] = fig.add_subplot(121 + i, facecolor = "white") 
 		axes[i].set_xlabel(r"$R_\text{gal}$ [kpc]") 
 		axes[i].set_xlim([-1, 21]) 
-	axes[0].set_ylim([-0.55, 0.55]) 
+	axes[0].set_ylim([-0.55, 0.65]) 
 	axes[1].set_ylim([-0.1, 0.5]) 
 	axes[0].set_ylabel("[X/H]") 
 	axes[1].set_ylabel("[O/Fe]") 
