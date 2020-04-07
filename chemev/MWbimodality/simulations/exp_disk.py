@@ -9,29 +9,12 @@ ARGV
 
 import tracers 
 import gas_disks 
+from common import * 
 import numpy as np 
 import math as m 
 import vice 
 import sys 
 import os 
-
-TIME_BINS = np.linspace(0, 12.8, 41).tolist() 
-RAD_BINS = np.linspace(0, 30, 121).tolist() 
-ZONE_WIDTH = 0.25 
-
-
-def eta(rgal): 
-	""" 
-	The relation between the mass loading factor eta and galactocentric radius 
-
-	rgal :: galactocentric radius in kpc 
-
-	Notes 
-	===== 
-	0.00185 is the Mg CCSN yield assuming our O yield and [O/Mg] = 0 
-	-0.6 is r - 1 where r is the instantaneous recycling parameter from WAF17 
-	""" 
-	return 0.00185 / vice.solar_z["mg"] * 10**(0.06 * (rgal - 4) - 0.3) - 0.6 
 
 
 def run_simulation(): 

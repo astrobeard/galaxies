@@ -22,7 +22,7 @@ import os
 REF_ELEMENT = "Fe" 
 SEC_ELEMENT = "O" 
 XLIM = [-1.2, 0.6] 
-YLIM = [-0.05, 0.55] 
+YLIM = [-0.3, 0.55] 
 CMAP = "plasma_r" 
 
 
@@ -42,7 +42,7 @@ def setup_axes():
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
 			if j == 2: 
-				axes[i][j].text(-0.8, 0.47, 
+				axes[i][j].text(-0.8, 0.4, 
 					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
