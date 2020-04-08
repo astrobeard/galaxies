@@ -21,7 +21,7 @@ import os
 
 REF_ELEMENT = "Fe" 
 SEC_ELEMENT = "O" 
-XLIM = [-1.2, 0.6] 
+XLIM = [-1.2, 1.2] 
 YLIM = [-0.3, 0.55] 
 CMAP = "plasma_r" 
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
 	fig.colorbar(sc, cax = cbar_ax) 
 	cbar_ax.set_ylabel(r"Age [Gyr]") 
 	plt.tight_layout() 
-	plt.subplots_adjust(wspace = 0, hspace = 0, right = 0.92) 
+	plt.subplots_adjust(wspace = 0, hspace = 0, right = 0.92, left = 0.08)  
 	cbar_ax.set_position([
 		axes[-1][-1].get_position().x1, 
 		axes[-1][-1].get_position().y0, 

@@ -34,8 +34,8 @@ def tau_in(rgal):
 	tau_in : real number 
 		The infall timescale in Gyr. 
 	""" 
-	# return 4 + (rgal + 1.e-12) / 3.5
-	return 8 
+	return 4 + (rgal + 1.e-12) / 3.5
+	# return 6 
 
 
 def Min0(rgal, k = 0.1, tau_star0 = TAU_STAR0, scale = 3): 
@@ -64,7 +64,7 @@ def mdotdotstar(rgal):
 
 def run_simulation(): 
 	mz = vice.multizone(name = sys.argv[1], n_zones = len(RAD_BINS) - 1, 
-		n_tracers = 1, verbose = True, simple = False) 
+		n_tracers = 4, verbose = True, simple = False) 
 	mz.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
 		filename = "%s_extra_tracer_data.out" % (mz.name)) 
 	for i in range(mz.n_zones): 
@@ -79,7 +79,7 @@ def run_simulation():
 		# ) 
 		mz.bins = np.linspace(-3, 1, 401) 
 		mz.zones[i].elements = ["mg", "fe", "o"] 
-		mz.zones[i].dt = 0.05 
+		mz.zones[i].dt = 0.01 
 		mz.zones[i].Mg0 = 0 
 		if i > 61: 
 			# mz.zones[i].func = lambda t: 0 

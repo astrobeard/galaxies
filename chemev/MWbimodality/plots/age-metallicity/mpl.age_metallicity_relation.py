@@ -5,7 +5,7 @@ birth in the case of stars) for stars in a given annulus.
 ARGV 
 ==== 
 1) 		The name of the VICE output 
-2) 		The name of the output image
+2) 		The name of the output image (without extension) 
 """ 
 
 import matplotlib.pyplot as plt 
@@ -52,6 +52,7 @@ def plot_tracers(axes, tracers):
 	OH = len(tracers) * [0.] 
 	FeH = len(tracers) * [0.] 
 	OFe = len(tracers) * [0.] 
+	med_mass = np.median([row[3] for row in tracers]) 
 	for i in range(len(tracers)): 
 		ages[i] = 13.8 - tracers[i][0] 
 		if tracers[i][4]: 
@@ -63,7 +64,7 @@ def plot_tracers(axes, tracers):
 		else: 
 			FeH[i] = -float("inf") 
 		OFe[i] = OH[i] - FeH[i] 
-		sizes[i] = tracers[i][3] / 4e6 * 4 * (1 - 
+		sizes[i] = tracers[i][3] / med_mass * 20 * (1 - 
 			vice.cumulative_return_fraction(tracers[i][0])) 
 		colors[i] = 0.25 * tracers[i][2] 
 	axes[0].scatter(ages, OH, c = colors, s = sizes, cmap = cmap, 
@@ -139,7 +140,8 @@ if __name__ == "__main__":
 	feuillet_points(axes[0], fltrd_tracers, "o") 
 	feuillet_points(axes[1], fltrd_tracers, "fe") 
 	plt.tight_layout() 
-	plt.savefig(sys.argv[2]) 
+	plt.savefig("%s.pdf" % (sys.argv[2])) 
+	plt.savefig("%s.png" % (sys.argv[2])) 
 	plt.clf() 
 
 

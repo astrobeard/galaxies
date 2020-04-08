@@ -21,8 +21,8 @@ import os
 
 REF_ELEMENT = "Fe" 
 SEC_ELEMENT = "O" 
-XLIM = [-1.2, 0.6] 
-YLIM = [-0.05, 0.55] 
+XLIM = [-1.2, 1.2] 
+YLIM = [-0.3, 0.55] 
 CMAP = "plasma_r" 
 
 
@@ -42,7 +42,7 @@ def setup_axes():
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
 			if j == 2: 
-				axes[i][j].text(-0.8, 0.47, 
+				axes[i][j].text(-1, -0.2, 
 					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
@@ -69,8 +69,10 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 	stars = stars.filter("zone_final", "<=", zone_bounds[1]) 
 	stars = stars.filter("abszfinal", ">=", zbounds[0]) 
 	stars = stars.filter("abszfinal", "<=", zbounds[1]) 
+	stars = stars.filter("mass", ">", 0) 
 	colors = [i["zone_origin"] * 0.25 for i in stars] 
-	sizes = [i["mass"] / 1e7 * 4 * (1 - 
+	med_mass = np.median(stars["mass"])
+	sizes = [i["mass"] / med_mass * 10 * (1 - 
 		vice.cumulative_return_fraction(i["age"])) for i in stars] 
 	return ax.scatter(
 		stars["[%s/H]" % (REF_ELEMENT)], 
@@ -80,7 +82,7 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 		cmap = cmap, 
 		vmin = 1, 
 		vmax = 15 
-	)  
+	) 
 
 
 if __name__ == "__main__": 
@@ -94,12 +96,13 @@ if __name__ == "__main__":
 	z_bounds = [[1, 2], [0.5, 1], [0, 0.5]] 
 	for i in range(3): 
 		for j in range(5): 
-			sc = plot_stars(axes[i][j], out.stars, zone_bounds[j], z_bounds[i]) 
+			sc = plot_stars(axes[i][j], out.stars, zone_bounds[j], z_bounds[i])
+	# sc = plot_stars(axes[0][0], out.stars, zone_bounds[0], z_bounds[0])  
 	cbar_ax = fig.add_axes([0.92, 0.05, 0.02, 0.95]) 
 	fig.colorbar(sc, cax = cbar_ax) 
 	cbar_ax.set_ylabel(r"$R_\text{gal}$ of birth [kpc]") 
 	plt.tight_layout() 
-	plt.subplots_adjust(wspace = 0, hspace = 0, right = 0.92) 
+	plt.subplots_adjust(wspace = 0, hspace = 0, right = 0.92, left = 0.08) 
 	cbar_ax.set_position([
 		axes[-1][-1].get_position().x1, 
 		axes[-1][-1].get_position().y0, 

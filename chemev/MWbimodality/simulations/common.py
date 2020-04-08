@@ -65,6 +65,7 @@ def tau_star(rgal, norm = 2, scale = 3):
 	""" 
 	# return norm * m.exp(rgal / (2 * scale)) 
 	return norm * m.exp(rgal / (5 * scale)) 
+	# return norm * m.exp(rgal / (0.75 * scale)) 
 
 
 def harmonic_timescale(t1, t2): 
