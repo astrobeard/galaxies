@@ -63,8 +63,8 @@ def tau_star(rgal, norm = 2, scale = 3):
 	where :math:`r_\text{s}` is the scale radius, :math:`A` is the norm, and 
 	:math:`r` is the galactocentric radius. 
 	""" 
-	# return norm * m.exp(rgal / (2 * scale)) 
-	return norm * m.exp(rgal / (5 * scale)) 
+	return norm * m.exp(rgal / (2 * scale)) 
+	# return norm * m.exp(rgal / (5 * scale)) 
 	# return norm * m.exp(rgal / (0.75 * scale)) 
 
 

@@ -64,8 +64,9 @@ def mdotdotstar(rgal):
 
 def run_simulation(): 
 	mz = vice.multizone(name = sys.argv[1], n_zones = len(RAD_BINS) - 1, 
-		n_tracers = 4, verbose = True, simple = False) 
+		n_stars = 1, verbose = True, simple = False) 
 	mz.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
+		n_stars = mz.n_stars, 
 		filename = "%s_extra_tracer_data.out" % (mz.name)) 
 	for i in range(mz.n_zones): 
 		mz.zones[i].mode = "ifr" 
@@ -79,7 +80,7 @@ def run_simulation():
 		# ) 
 		mz.bins = np.linspace(-3, 1, 401) 
 		mz.zones[i].elements = ["mg", "fe", "o"] 
-		mz.zones[i].dt = 0.01 
+		mz.zones[i].dt = 0.05
 		mz.zones[i].Mg0 = 0 
 		if i > 61: 
 			# mz.zones[i].func = lambda t: 0 
@@ -99,7 +100,8 @@ def run_simulation():
 			# mz.zones[i].eta = eta( (RAD_BINS[i] + RAD_BINS[i + 1]) / 2 ) 
 		mz.zones[i].schmidt = True 
 	print("Running....") 
-	mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
+	# mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
+	mz.run(np.linspace(0, 12.85, 258), overwrite = True) 
 	mz.migration.stars.close_file() 
 
 

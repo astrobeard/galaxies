@@ -54,35 +54,53 @@ class UWhydro(object):
 	interpolating linearly between zone numbers. 
 	""" 
 
-	def __init__(self, time_bins, rad_bins, filename = "tracers.out"): 
+	def __init__(self, time_bins, rad_bins, n_stars = 1, 
+		filename = "tracers.out"): 
 		self._time_bins = time_bins[:] 
 		self._rad_bins = rad_bins[:] 
+		self._n_stars = n_stars 
 		self._zones, self._heights = self._analyze_radii() 
+		self._analogs = self._find_analogs() 
 		self._file = open(filename, 'w') 
 		self._file.write("# zone_origin\ttime_origin\tzone_final\tzfinal\n") 
-		self.__test_call = False 
+		self.write = False 
 
-	def __call__(self, zone, time): 
+	def __call__(self, zone, time, t, n = 0): 
+		# tbin = _get_bin_number(self._time_bins, time) 
+		# idx = np.random.randint(len(self._zones[zone][tbin])) 
+		# final = self._zones[zone][tbin][idx] + np.random.random() 
+		# init = zone + np.random.random() 
+		# if self.write: 
+		# 	self._file.write("%d\t%.3f\t%d\t%.3f\n" % (zone, time, final, 
+		# 		self._heights[zone][tbin][idx])) 
+		# else: 
+		# 	pass 
+		# def zones(t): 
+		# 	if t < time: 
+		# 		return 0 
+		# 	elif t == time: 
+		# 		return zone 
+		# 	else: 
+		# 		return int(_interpolate(time, self._time_bins[-1], init, final, 
+		# 			t)) 
+		# return zones 
+
 		tbin = _get_bin_number(self._time_bins, time) 
-		idx = np.random.randint(len(self._zones[zone][tbin])) 
-		final = self._zones[zone][tbin][idx] + np.random.random() 
-		init = zone + np.random.random() 
-		if self.__test_call: 
-			self._file.write("%d\t%.3f\t%d\t%.3f\n" % (zone, time, final, 
-				self._heights[zone][tbin][idx])) 
+		init, final, height = self._analogs[zone][tbin][n] 
+		if t == time: 
+			if self.write: 
+				self._file.write("%d\t%.3f\t%d\t%.3f\n" % (zone, time, final, 
+					height)) 
+			else: pass 
+		else: pass 
+		if t == time: 
+			return zone 
 		else: 
-			self.__test_call = True 
-		def zones(t): 
-			if t < time: 
-				return 0 
-			elif t == time: 
-				return zone 
-			else: 
-				return int(_interpolate(time, self._time_bins[-1], init, final, 
-					t)) 
-		return zones 
+			return int(_interpolate(time, self._time_bins[-1], init, final, 
+				t)) 
 
 	def _analyze_radii(self): 
+		print("Analyzing radii....") 
 		from data import UWhydroparticles 
 		zones = (len(self._rad_bins) - 1) * [None] 
 		heights = (len(self._rad_bins) - 1) * [None] 
@@ -116,9 +134,38 @@ class UWhydro(object):
 				else: continue 
 		return [zones, heights] 
 
+	def _find_analogs(self): 
+		print("Findings analogs....") 
+		analogs = (len(self._rad_bins) - 1) * [None] 
+		for i in range(len(analogs)): 
+			analogs[i] = (len(self._time_bins) - 1) * [None] 
+			for j in range(len(analogs[i])): 
+				analogs[i][j] = self._n_stars * [None] 
+				for k in range(len(analogs[i][j])): 
+					idx = np.random.randint(len(self._zones[i][j])) 
+					analogs[i][j][k] = [i + np.random.random(), 
+						self._zones[i][j][idx] + np.random.random(), 
+						self._heights[i][j][idx]] 
+		return analogs 
+
 	def close_file(self): 
 		self._file.close() 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# archived subclasses 
 
 class UWhydro_zfilter(UWhydro): 
 

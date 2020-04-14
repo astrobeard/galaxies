@@ -29,7 +29,7 @@ def setup_axis():
 	ax.set_xlabel(r"$R_\text{gal}$ [kpc]") 
 	ax.set_ylabel(r"Normalized $\Sigma$ [M$_\odot$ kpc$^{-2}$]") 
 	ax.set_xlim(XLIM) 
-	ax.set_ylim(YLIM)  
+	ax.set_ylim(YLIM) 
 	ax.set_yscale("log") 
 	return ax 
 
