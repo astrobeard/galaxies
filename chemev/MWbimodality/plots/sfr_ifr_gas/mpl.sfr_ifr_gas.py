@@ -22,7 +22,7 @@ import os
 CMAP = "plasma" 
 XLIM = [-1, 14] 
 RAD_BINS = np.linspace(0, 30, 121).tolist() 
-YLOG = True 
+YLOG = False 
 
 
 def setup_axes(): 
@@ -95,10 +95,10 @@ if __name__ == "__main__":
 		norm = plt.Normalize(vmin = 0, vmax = 15.5)) 
 	cbar = plt.colorbar(sm, cax = cbar_ax) 
 	cbar.set_label(r"$R_\text{gal}$ [kpc]") 
-	# axes[1].yaxis.set_ticks(range(0, m.ceil(axes[1].get_ylim()[1]), 5)) 
+	axes[1].yaxis.set_ticks(range(0, m.ceil(axes[1].get_ylim()[1]), 5)) 
 	# axes[2].yaxis.set_ticks(range(0, m.ceil(axes[2].get_ylim()[1]), 2)) 
-	axes[1].set_ylim([1e-3, 1e4]) 
-	axes[2].set_ylim([1e-3, 1e4]) 
+	# axes[1].set_ylim([1e-3, 1e4]) 
+	# axes[2].set_ylim([1e-3, 1e4]) 
 	plt.subplots_adjust(right = 0.92) 
 	cbar_ax.set_position([
 		axes[-1].get_position().x1, 

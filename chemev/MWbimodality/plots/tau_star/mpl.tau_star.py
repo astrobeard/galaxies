@@ -48,7 +48,7 @@ def plot_tau_star(ax, out):
 	""" 
 	cmap = plt.get_cmap(CMAP) 
 	for i in range(int(15.5 / 0.25)): 
-		tau_star = list(map(lambda x, y: 1.e-9 * x / y, 
+		tau_star = list(map(lambda x, y: 1.e-9 * x / y if y else float("nan"), 
 			out.zones["zone%d" % (i)].history["mgas"], 
 			out.zones["zone%d" % (i)].history["sfr"])) 
 		ax.plot(out.zones["zone%d" % (i)].history["time"], 

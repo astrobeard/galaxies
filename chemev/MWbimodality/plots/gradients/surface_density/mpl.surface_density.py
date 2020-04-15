@@ -51,7 +51,7 @@ def plot_densities(ax, out, color):
 	ax.scatter(bin_centers(RAD_BINS), stellar, 
 		marker = plots.mpltoolkit.markers()["star"], 
 		c = plots.mpltoolkit.named_colors()[color], 
-		s = 50)  
+		s = 50) 
 	ax.plot(bin_centers(RAD_BINS), gaseous, 
 		linestyle = ':', 
 		c = plots.mpltoolkit.named_colors()[color]) 

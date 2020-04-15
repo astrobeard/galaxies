@@ -71,7 +71,7 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 	stars = stars.filter("abszfinal", "<=", zbounds[1]) 
 	stars = stars.filter("mass", ">", 0) 
 	med_mass = np.median(stars["mass"]) 
-	sizes = [i["mass"] / med_mass * 10 * (1 - 
+	sizes = [i["mass"] / med_mass * 20 * (1 - 
 		vice.cumulative_return_fraction(i["age"])) for i in stars] 
 	return ax.scatter(
 		stars["[%s/H]" % (REF_ELEMENT)], 

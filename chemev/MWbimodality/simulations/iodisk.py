@@ -34,7 +34,7 @@ def tau_in(rgal):
 	tau_in : real number 
 		The infall timescale in Gyr. 
 	""" 
-	return 4 + (rgal + 1.e-12) / 3.5
+	return 4 + (rgal + 1.e-12) / 3.5 
 	# return 6 
 
 
@@ -55,37 +55,34 @@ def Min0(rgal, k = 0.1, tau_star0 = TAU_STAR0, scale = 3):
 	)
 
 
-def tau_sfh(rgal): 
-	return 1 + rgal / 1.5 
-
-def mdotdotstar(rgal): 
-	return 100 * rgal * m.exp(-rgal / 2) * (0.5 + 1)**(-1) 
+def sfr_norm(r, rs = 3, k = 100): 
+	return k * tau_in(r)**(-2) * (1 - (1 + 12.8 / tau_in(r)) * m.exp(-12.8 / 
+		tau_in(r)))**(-1) * 2 * m.pi * r * m.exp(-r / rs) * 0.25 
 
 
 def run_simulation(): 
 	mz = vice.multizone(name = sys.argv[1], n_zones = len(RAD_BINS) - 1, 
-		n_stars = 1, verbose = True, simple = False) 
+		n_stars = 4, verbose = True, simple = False) 
 	mz.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
 		n_stars = mz.n_stars, 
 		filename = "%s_extra_tracer_data.out" % (mz.name)) 
 	for i in range(mz.n_zones): 
-		mz.zones[i].mode = "ifr" 
-		mz.zones[i].func = gas_disks.exponential_decay(
-			Min0( (RAD_BINS[i] + RAD_BINS[i + 1]) / 2 ), 
-			tau_in(RAD_BINS[i] + RAD_BINS[i + 1]) / 2) 
-		# mz.zones[i].func = gas_disks.linear_then_exponential(
-		# 	mdotdotstar((RAD_BINS[i] + RAD_BINS[i + 1]) / 2), 
-		# 	1, 
-		# 	tau_sfh((RAD_BINS[i] + RAD_BINS[i + 1]) / 2)
-		# ) 
+		# mz.zones[i].mode = "ifr" 
+		mz.zones[i].mode = "sfr" 
+		# mz.zones[i].func = gas_disks.exponential_decay(
+		# 	Min0( (RAD_BINS[i] + RAD_BINS[i + 1]) / 2 ), 
+		# 	tau_in(RAD_BINS[i] + RAD_BINS[i + 1]) / 2) 
+		mz.zones[i].func = gas_disks.linear_exponential(
+		 	sfr_norm((RAD_BINS[i] + RAD_BINS[i + 1]) / 2), 
+		 	tau_in((RAD_BINS[i] + RAD_BINS[i + 1]) / 2))  
 		mz.bins = np.linspace(-3, 1, 401) 
 		mz.zones[i].elements = ["mg", "fe", "o"] 
-		mz.zones[i].dt = 0.05
+		mz.zones[i].dt = 0.01 
 		mz.zones[i].Mg0 = 0 
 		if i > 61: 
-			# mz.zones[i].func = lambda t: 0 
-			# mz.zones[i].tau_star = 100 
-			mz.zones[i].tau_star = float("inf") 
+			mz.zones[i].func = lambda t: 0 
+			mz.zones[i].tau_star = 100 
+			# mz.zones[i].tau_star = float("inf") 
 			mz.zones[i].eta = 100 
 			for j in mz.zones[i].elements: 
 				mz.zones[i].entrainment.agb[j] = 0 
@@ -101,18 +98,18 @@ def run_simulation():
 		mz.zones[i].schmidt = True 
 	print("Running....") 
 	# mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
-	mz.run(np.linspace(0, 12.85, 258), overwrite = True) 
+	mz.run(np.linspace(0, 12.8, 257), overwrite = True) 
 	mz.migration.stars.close_file() 
 
 
 if __name__ == "__main__": 
 	# for i in RAD_BINS[:60]: 
-	# 	print("R = %.2f kpc ; peak sfr = %.2f ; tau_sfh = %.2f" % (
-	# 		i + ZONE_WIDTH / 2, mdotdotstar(i + ZONE_WIDTH / 2), 
-	# 		tau_sfh(i + ZONE_WIDTH / 2))) 
+	# 	print("R = %.2f kpc ; Min0 = %.2f ; tau_in = %.2f" % (
+	# 		i + ZONE_WIDTH / 2, Min0(i + ZONE_WIDTH / 2), 
+	# 		tau_in(i + ZONE_WIDTH / 2))) 
 	for i in RAD_BINS[:60]: 
-		print("R = %.2f kpc ; Min0 = %.2f ; tau_in = %.2f" % (
-			i + ZONE_WIDTH / 2, Min0(i + ZONE_WIDTH / 2), 
+		print("R = %.2f kpc ; sfr_norm = %.2f ; tau_sfh = %.2f" % (
+			i + ZONE_WIDTH / 2, sfr_norm(i + ZONE_WIDTH / 2), 
 			tau_in(i + ZONE_WIDTH / 2))) 
 	run_simulation() 
 

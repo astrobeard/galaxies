@@ -28,7 +28,7 @@ def setup_axes():
 		axes[i] = fig.add_subplot(121 + i, facecolor = "white") 
 		axes[i].set_xlabel(r"$R_\text{gal}$ [kpc]") 
 		axes[i].set_xlim([-1, 21]) 
-	axes[0].set_ylim([-0.55, 0.65]) 
+	axes[0].set_ylim([-0.55, 0.75]) 
 	axes[1].set_ylim([-0.1, 0.5]) 
 	axes[0].set_ylabel("[X/H]") 
 	axes[1].set_ylabel("[O/Fe]") 
@@ -135,9 +135,12 @@ def plot_gas_phase_metallicity(axes, out):
 	OFe = [out.zones["zone%d" % (i)].history["[o/fe]"][-1] for i in range(
 		len(out.zones.keys()))] 
 	radii = [0.25 * i + 0.125 for i in range(len(out.zones.keys()))] 
-	axes[0].plot(radii, O, c = plots.mpltoolkit.named_colors()["red"]) 
-	axes[0].plot(radii, Fe, c = plots.mpltoolkit.named_colors()["blue"]) 
-	axes[1].plot(radii, OFe, c = plots.mpltoolkit.named_colors()["black"]) 
+	axes[0].plot(radii[:62], O[:62], 
+		c = plots.mpltoolkit.named_colors()["red"]) 
+	axes[0].plot(radii[:62], Fe[:62], 
+		c = plots.mpltoolkit.named_colors()["blue"]) 
+	axes[1].plot(radii[:62], OFe[:62], 
+		c = plots.mpltoolkit.named_colors()["black"]) 
 
 
 def legend(ax): 

@@ -66,6 +66,18 @@ class exponential_decay:
 		else: 
 			raise TypeError("Must be a numerical value. Got: %s" % (
 				type(value))) 
+			
+
+class linear_exponential(exponential_decay): 
+
+	r""" 
+	A callable object representing a linear-exponential evolution 
+	""" 
+	def __init__(self, norm, timescale): 
+		super().__init__(norm, timescale) 
+
+	def __call__(self, time): 
+		return self.norm * time * m.exp(-time / self.timescale) 
 
 
 class linear_then_exponential: 
