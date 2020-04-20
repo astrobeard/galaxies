@@ -60,6 +60,13 @@ def sfr_norm(r, rs = 3, k = 100):
 		tau_in(r)))**(-1) * 2 * m.pi * r * m.exp(-r / rs) * 0.25 
 
 
+def lintexp_sfr_norm(r, rs = 3, k = 1000): 
+	t = 12.8 
+	t1 = 1 
+	return k * r * m.exp(-r / rs) / t * (0.5 * t + tau_in(r) * (1 - 
+		m.exp(-(t - t1) / tau_in(r))))**(-1) 
+
+
 def run_simulation(): 
 	mz = vice.multizone(name = sys.argv[1], n_zones = len(RAD_BINS) - 1, 
 		n_stars = 4, verbose = True, simple = False) 
@@ -72,9 +79,13 @@ def run_simulation():
 		# mz.zones[i].func = gas_disks.exponential_decay(
 		# 	Min0( (RAD_BINS[i] + RAD_BINS[i + 1]) / 2 ), 
 		# 	tau_in(RAD_BINS[i] + RAD_BINS[i + 1]) / 2) 
-		mz.zones[i].func = gas_disks.linear_exponential(
-		 	sfr_norm((RAD_BINS[i] + RAD_BINS[i + 1]) / 2), 
-		 	tau_in((RAD_BINS[i] + RAD_BINS[i + 1]) / 2))  
+		# mz.zones[i].func = gas_disks.linear_exponential(
+		#  	sfr_norm((RAD_BINS[i] + RAD_BINS[i + 1]) / 2), 
+		#  	tau_in((RAD_BINS[i] + RAD_BINS[i + 1]) / 2))  
+		mz.zones[i].func = gas_disks.linear_then_exponential(
+			lintexp_sfr_norm((RAD_BINS[i] + RAD_BINS[i + 1]) / 2), 
+			tau_in((RAD_BINS[i] + RAD_BINS[i + 1]) / 2), 
+			1) 
 		mz.bins = np.linspace(-3, 1, 401) 
 		mz.zones[i].elements = ["mg", "fe", "o"] 
 		mz.zones[i].dt = 0.01 
@@ -97,8 +108,8 @@ def run_simulation():
 			# mz.zones[i].eta = eta( (RAD_BINS[i] + RAD_BINS[i + 1]) / 2 ) 
 		mz.zones[i].schmidt = True 
 	print("Running....") 
-	# mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
-	mz.run(np.linspace(0, 12.8, 257), overwrite = True) 
+	mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
+	# mz.run(np.linspace(0, 12.8, 257), overwrite = True) 
 	mz.migration.stars.close_file() 
 
 
@@ -107,9 +118,13 @@ if __name__ == "__main__":
 	# 	print("R = %.2f kpc ; Min0 = %.2f ; tau_in = %.2f" % (
 	# 		i + ZONE_WIDTH / 2, Min0(i + ZONE_WIDTH / 2), 
 	# 		tau_in(i + ZONE_WIDTH / 2))) 
+	# for i in RAD_BINS[:60]: 
+	# 	print("R = %.2f kpc ; sfr_norm = %.2f ; tau_sfh = %.2f" % (
+	# 		i + ZONE_WIDTH / 2, sfr_norm(i + ZONE_WIDTH / 2), 
+	# 		tau_in(i + ZONE_WIDTH / 2))) 
 	for i in RAD_BINS[:60]: 
-		print("R = %.2f kpc ; sfr_norm = %.2f ; tau_sfh = %.2f" % (
-			i + ZONE_WIDTH / 2, sfr_norm(i + ZONE_WIDTH / 2), 
+		print("R = %.2f kpc; norm = %.2f ; tau_sfh = %.2f" % (
+			i + ZONE_WIDTH / 2, lintexp_sfr_norm(i + ZONE_WIDTH / 2), 
 			tau_in(i + ZONE_WIDTH / 2))) 
 	run_simulation() 
 

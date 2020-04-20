@@ -36,7 +36,7 @@ def setup_axes():
 	""" 
 	Setup the 3x5 matplotlib axes. 
 	""" 
-	fig, axes = plt.subplots(ncols = 5, nrows = 3, figsize = (35, 21), 
+	fig, axes = plt.subplots(ncols = 5, nrows = 3, figsize = (20, 12), 
 		sharex = True, sharey = True)  
 	for i in range(3): 
 		for j in range(5): 
@@ -44,15 +44,24 @@ def setup_axes():
 			if j != 0: plt.setp(axes[i][j].get_yticklabels(), visible = False) 
 			axes[i][j].set_xlim(XLIM) 
 			axes[i][j].set_ylim(YLIM) 
+			axes[i][j].yaxis.set_ticks([0, 0.1, 0.2]) 
 			if i == 0: axes[i][j].set_title(
-				r"%g kpc $\leq$ Final $R_\text{gal}\ \leq$ %g kpc" % (
+				r"Final $R_\text{gal}$ = %g - %g kpc" % ( 
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
 			if j == 3: 
-				axes[i][j].text(0.2, 0.2, 
-					r"%g kpc $\leq \left|z\right| \leq$ %g kpc" % (
+				axes[i][j].text(0.1, 0.2, 
+					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
+			elif j == 4: 
+				axes[i][j].text(0.05, 0.2, 
+					r"%g $\leq$ [Fe/H] $\leq$ %g" % (
+						[-0.6, -0.4, -0.2][i], [-0.4, -0.2, 0.0][i]), 
+					fontsize = 25, 
+					color = plots.mpltoolkit.named_colors()[["crimson", "lime", 
+						"dodgerblue"][i]])  
+			else: pass 
 	axes[2][2].set_xlabel("[O/Fe]") 
 	axes[1][0].set_ylabel("PDF") 
 	return axes 
@@ -106,7 +115,8 @@ def plot_mdfs(ax, stars, min_rgal, max_rgal, minabsz, maxabsz, label = False):
 			kwargs = {
 				"c": 		plots.mpltoolkit.named_colors()[COLORS[i]] 
 			} 
-			if label: kwargs["label"] = r"%g $\leq$ [Fe/H] $\leq$ %g" % (
+			# if label: kwargs["label"] = r"%g $\leq$ [Fe/H] $\leq$ %g" % (
+			if label: kwargs["label"] = r"[Fe/H] = %g - %g" % (
 				FEH_BINS[i][0], FEH_BINS[i][1]) 
 			ax.plot(
 				list(map(lambda x, y: (x + y) / 2., OFE_BINS[1:], 
@@ -127,8 +137,10 @@ if __name__ == "__main__":
 	z = [2, 1, 0.5, 0] 
 	for i in range(3): 
 		for j in range(5): 
+			# plot_mdfs(axes[i][j], out.stars, radii[j], radii[j + 1], 
+			# 	z[i + 1], z[i], label = i == 2 and j == 4) 
 			plot_mdfs(axes[i][j], out.stars, radii[j], radii[j + 1], 
-				z[i + 1], z[i], label = i == 0 and j == 4) 
+				z[i + 1], z[i]) 
 	leg = axes[0][4].legend(loc = plots.mpltoolkit.mpl_loc("upper right"), 
 		ncol = 1, frameon = False, handlelength = 0, fontsize = 25) 
 	for i in range(len(leg.get_texts())): 

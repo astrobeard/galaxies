@@ -80,79 +80,41 @@ class linear_exponential(exponential_decay):
 		return self.norm * time * m.exp(-time / self.timescale) 
 
 
-class linear_then_exponential: 
+class linear_then_exponential(exponential_decay): 
 
 	r""" 
 	A callable object representing a linear-then-exponential evolution 
 	""" 
 
-	def __init__(self, slope, delay, timescale): 
-		self.slope = slope 
-		self.delay = delay 
-		self.timescale = timescale 
+	def __init__(self, norm, timescale, switch): 
+		super().__init__(norm, timescale) 
+		self.switch = switch 
 
 	def __call__(self, time): 
-		if time < self.delay: 
-			return self.slope * time 
+		if time <= self.switch: 
+			return self.norm * time 
 		else: 
-			return (self.slope * self.delay) * m.exp(
-				-(time - self.delay) / self.timescale
-			) 
+			return self.norm * self.switch * m.exp(-(time - self.switch) / 
+				self.timescale) 
 
 	@property 
-	def slope(self): 
+	def switch(self): 
 		r""" 
-		The slope of the increase in Gyr^-1 
+		The time at which the evolution switches from linear growth to 
+		exponential decay. 
 		""" 
-		return self._slope 
+		return self._switch 
 
-	@slope.setter 
-	def slope(self, value): 
+	@switch.setter 
+	def switch(self, value): 
 		if isinstance(value, numbers.Number): 
 			if value > 0: 
-				self._slope = value 
+				self._switch = float(value) 
 			else: 
 				raise ValueError("Must be positive. Got: %g" % (value)) 
 		else: 
 			raise TypeError("Must be a numerical value. Got: %s" % (
 				type(value))) 
-
-	@property 
-	def delay(self): 
-		r""" 
-		The amount of time the evolution increases linearly in Gyr 
-		""" 
-		return self._delay 
-
-	@delay.setter 
-	def delay(self, value): 
-		if isinstance(value, numbers.Number): 
-			if value > 0: 
-				self._delay = value 
-			else: 
-				raise ValueError("Must be positive. Got: %g" % (value)) 
-		else: 
-			raise TypeError("Must be a numerical value. Got: %s" % (
-				type(value))) 
-
-	@property 
-	def timescale(self): 
-		r""" 
-		The e-folding timescale of the exponential decay. 
-		""" 
-		return self._timescale 
-
-	@timescale.setter 
-	def timescale(self, value): 
-		if isinstance(value, numbers.Number): 
-			if value > 0: 
-				self._timescale = value 
-			else: 
-				raise ValueError("Must be positive. Got: %g" % (value)) 
-		else: 
-			raise TypeError("Must be a numerical value. Got: %s" % (
-				type(value))) 
-
 
 
 

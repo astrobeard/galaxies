@@ -60,7 +60,6 @@ class UWhydro(object):
 		self._rad_bins = rad_bins[:] 
 		self._n_stars = n_stars 
 		self._zones, self._heights = self._analyze_radii() 
-		self._analogs = self._find_analogs() 
 		self._file = open(filename, 'w') 
 		self._file.write("# zone_origin\ttime_origin\tzone_final\tzfinal\n") 
 		self.write = False 
@@ -86,18 +85,25 @@ class UWhydro(object):
 		# return zones 
 
 		tbin = _get_bin_number(self._time_bins, time) 
-		init, final, height = self._analogs[zone][tbin][n] 
 		if t == time: 
+			self._idx = np.random.randint(len(self._zones[zone][tbin])) 
+			self._init = zone + np.random.random() 
+			self._final = self._zones[zone][tbin][self._idx] + np.random.random() 
 			if self.write: 
-				self._file.write("%d\t%.3f\t%d\t%.3f\n" % (zone, time, final, 
-					height)) 
-			else: pass 
-		else: pass 
-		if t == time: 
+				self._file.write("%d\t%.2f\t%d\t%.3f\n" % (zone, time, 
+					self._final, self._heights[zone][tbin][self._idx]))  
+			else: 
+				pass 
+		else: 
+			pass 
+		if t < time: 
+			return 0 
+		elif t == time: 
 			return zone 
 		else: 
-			return int(_interpolate(time, self._time_bins[-1], init, final, 
-				t)) 
+			return int(_interpolate(time, self._time_bins[-1], self._init, 
+				self._final, t)) 
+
 
 	def _analyze_radii(self): 
 		print("Analyzing radii....") 
@@ -131,22 +137,11 @@ class UWhydro(object):
 					if len(zones[i][j]) == 0: 
 						zones[i][j].append(i) 
 						heights[i][j].append(100) # ignore after the fact 
+						# print("i = %d" % (i)) 
+						# print(zones[i][j]) 
 				else: continue 
 		return [zones, heights] 
 
-	def _find_analogs(self): 
-		print("Findings analogs....") 
-		analogs = (len(self._rad_bins) - 1) * [None] 
-		for i in range(len(analogs)): 
-			analogs[i] = (len(self._time_bins) - 1) * [None] 
-			for j in range(len(analogs[i])): 
-				analogs[i][j] = self._n_stars * [None] 
-				for k in range(len(analogs[i][j])): 
-					idx = np.random.randint(len(self._zones[i][j])) 
-					analogs[i][j][k] = [i + np.random.random(), 
-						self._zones[i][j][idx] + np.random.random(), 
-						self._heights[i][j][idx]] 
-		return analogs 
 
 	def close_file(self): 
 		self._file.close() 
