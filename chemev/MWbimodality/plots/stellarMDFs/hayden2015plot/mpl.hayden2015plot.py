@@ -17,8 +17,8 @@ import vice
 import sys 
 import os 
 
-OFE_BINS = np.arange(0., 0.51, 0.01).tolist() 
-XLIM = [-0.02, 0.52] 
+OFE_BINS = np.arange(-0.1, 0.51, 0.01).tolist() 
+XLIM = [-0.12, 0.52] 
 YLIM = [0.0, 0.24] 
 FEH_BINS = [
 	[-0.6, -0.4], 
@@ -45,17 +45,18 @@ def setup_axes():
 			axes[i][j].set_xlim(XLIM) 
 			axes[i][j].set_ylim(YLIM) 
 			axes[i][j].yaxis.set_ticks([0, 0.1, 0.2]) 
+			axes[i][j].xaxis.set_ticks([0.0, 0.2, 0.4]) 
 			if i == 0: axes[i][j].set_title(
 				r"Final $R_\text{gal}$ = %g - %g kpc" % ( 
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
 			if j == 3: 
-				axes[i][j].text(0.1, 0.2, 
+				axes[i][j].text(0.0, 0.2, 
 					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
 			elif j == 4: 
-				axes[i][j].text(0.05, 0.2, 
+				axes[i][j].text(0.0, 0.2, 
 					r"%g $\leq$ [Fe/H] $\leq$ %g" % (
 						[-0.6, -0.4, -0.2][i], [-0.4, -0.2, 0.0][i]), 
 					fontsize = 25, 

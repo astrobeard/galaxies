@@ -6,7 +6,7 @@ history
 ARGV 
 ==== 
 1) 		The name of the multizone output 
-2) 		The name of the output image 
+2) 		The name of the output image (without extension) 
 """ 
 
 from vice.yields.presets import my_yields 
@@ -23,7 +23,8 @@ import os
 def setup_axis(): 
 	fig = plt.figure(figsize = (7, 7)) 
 	ax = fig.add_subplot(111, facecolor = "white") 
-	ax.set_ylabel(r"$m_\text{Fe}^\text{Ia}\dot{N}_\text{Ia}/M_\text{Fe}$ [Gyr$^{-1}$]") 
+	ax.set_ylabel(
+		r"$m_\text{Fe}^\text{Ia}\dot{N}_\text{Ia}/M_\text{Fe}$ [Gyr$^{-1}$]") 
 	ax.set_xlabel("Time [Gyr]") 
 	ax.set_xlim([-1, 15]) 
 	return ax 
@@ -80,8 +81,9 @@ if __name__ == "__main__":
 	radii = [5, 10, 15]
 	colors = ["dodgerblue", "lime", "crimson"] 
 	for i in range(len(radii)): 
-		norm = plot_comparison(ax, out.zones["zone%d" % (int(radii[i] / 0.25))], 
-			colors[i]) 
+		# norm = plot_comparison(ax, 
+		# 	out.zones["zone%d" % (int(radii[i] / 0.25))], colors[i]) 
+		norm = 1 
 		plot_actual(ax, out.zones["zone%d" % (int(radii[i] / 0.25))], 
 			colors[i], norm, r"$R_\text{gal}$ = %g kpc" % (radii[i])) 
 	leg = ax.legend(loc = plots.mpltoolkit.mpl_loc("lower right"), ncol = 1, 
@@ -89,7 +91,8 @@ if __name__ == "__main__":
 	for i in range(len(leg.legendHandles)): 
 		leg.get_texts()[i].set_color(colors[i]) 
 	plt.tight_layout() 
-	plt.savefig(sys.argv[2]) 
+	plt.savefig("%s.pdf" % (sys.argv[2])) 
+	plt.savefig("%s.png" % (sys.argv[2])) 
 	plt.clf() 
 
 

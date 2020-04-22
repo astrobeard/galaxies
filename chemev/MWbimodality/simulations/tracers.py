@@ -47,6 +47,25 @@ def _interpolate(x1, x2, y1, y2, x):
 		return y2 
 
 
+def _rand_range(start, stop): 
+	r""" 
+	Return a randomly-generated number in a given range. 
+
+	Parameters 
+	----------
+	start : real number 
+		The lower-bound of the range 
+	stop : real number 
+		The upper-bound of the range 
+
+	Returns 
+	-------
+	x : real number 
+		A pseudo-randomly generated number in the range [start, stop). 
+	""" 
+	return start + (stop - start) * np.random.random() 
+
+
 class UWhydro(object): 
 
 	""" 
@@ -145,6 +164,38 @@ class UWhydro(object):
 
 	def close_file(self): 
 		self._file.close() 
+
+
+
+class UWhydro_1event(UWhydro): 
+
+	def __init__(self, time_bins, rad_bins, n_stars = 1, 
+		filename = "tracers.out"): 
+		super().__init__(time_bins, rad_bins, n_stars = n_stars, 
+			filename = filename) 
+
+
+	def __call__(self, zone, time, t, n = 0): 
+		tbin = _get_bin_number(self._time_bins, time) 
+		if t == time: 
+			self._idx = np.random.randint(len(self._zones[zone][tbin])) 
+			# self._init = zone 
+			self._final = self._zones[zone][tbin][self._idx] 
+			self._mig_time = _rand_range(time, 12.8) 
+			if self.write: 
+				self._file.write("%d\t%.2f\t%d\t%.3f\n" % (zone, time, 
+					self._final, self._heights[zone][tbin][self._idx]))  
+			else: 
+				pass 
+		else: 
+			pass 
+		if t == time: 
+			return zone 
+		elif t > self._mig_time: 
+			return self._final 
+		else: 
+			return zone 
+
 
 
 

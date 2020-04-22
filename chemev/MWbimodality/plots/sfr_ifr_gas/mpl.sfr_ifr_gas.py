@@ -19,7 +19,7 @@ import sys
 import os 
 
 
-CMAP = "plasma" 
+CMAP = "plasma_r" 
 XLIM = [-1, 14] 
 RAD_BINS = np.linspace(0, 30, 121).tolist() 
 YLOG = False 

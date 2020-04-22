@@ -54,7 +54,7 @@ def plot_tracers(axes, tracers):
 	OFe = len(tracers) * [0.] 
 	med_mass = np.median([row[3] for row in tracers]) 
 	for i in range(len(tracers)): 
-		ages[i] = 13.8 - tracers[i][0] 
+		ages[i] = 12.8 - tracers[i][0] 
 		if tracers[i][4]: 
 			OH[i] = m.log10(tracers[i][4] / vice.solar_z['o']) 
 		else: 

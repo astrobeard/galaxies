@@ -34,7 +34,7 @@ def tau_in(rgal):
 	tau_in : real number 
 		The infall timescale in Gyr. 
 	""" 
-	return 4 + (rgal + 1.e-12) / 3.5 
+	return 1 + (rgal + 1.e-12) / 1.5 
 	# return 6 
 
 
@@ -73,6 +73,9 @@ def run_simulation():
 	mz.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
 		n_stars = mz.n_stars, 
 		filename = "%s_extra_tracer_data.out" % (mz.name)) 
+	# mz.migration.stars = tracers.UWhydro_1event(TIME_BINS, RAD_BINS, 
+	# 	n_stars = mz.n_stars, 
+		# filename = "%s_extra_tracer_data.out" % (mz.name)) 
 	for i in range(mz.n_zones): 
 		# mz.zones[i].mode = "ifr" 
 		mz.zones[i].mode = "sfr" 
@@ -108,8 +111,8 @@ def run_simulation():
 			# mz.zones[i].eta = eta( (RAD_BINS[i] + RAD_BINS[i + 1]) / 2 ) 
 		mz.zones[i].schmidt = True 
 	print("Running....") 
-	mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
-	# mz.run(np.linspace(0, 12.8, 257), overwrite = True) 
+	# mz.run(np.linspace(0, 12.8, 641), overwrite = True) 
+	mz.run(np.linspace(0, 12.8, 257), overwrite = True) 
 	mz.migration.stars.close_file() 
 
 
