@@ -18,6 +18,8 @@ import math as m
 import vice 
 import sys 
 import os 
+sys.path.append("../../simulations/") 
+import gas_disks 
 
 
 def setup_axis(): 

@@ -34,7 +34,7 @@ def tau_in(rgal):
 	tau_in : real number 
 		The infall timescale in Gyr. 
 	""" 
-	return 1 + (rgal + 1.e-12) / 1.5 
+	return 4 + (rgal + 1.e-12) / 3.5 
 	# return 6 
 
 
@@ -70,12 +70,12 @@ def lintexp_sfr_norm(r, rs = 3, k = 1000):
 def run_simulation(): 
 	mz = vice.multizone(name = sys.argv[1], n_zones = len(RAD_BINS) - 1, 
 		n_stars = 4, verbose = True, simple = False) 
-	mz.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
+	# mz.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
+	# 	n_stars = mz.n_stars, 
+	# 	filename = "%s_extra_tracer_data.out" % (mz.name)) 
+	mz.migration.stars = tracers.UWhydro_1event(TIME_BINS, RAD_BINS, 
 		n_stars = mz.n_stars, 
 		filename = "%s_extra_tracer_data.out" % (mz.name)) 
-	# mz.migration.stars = tracers.UWhydro_1event(TIME_BINS, RAD_BINS, 
-	# 	n_stars = mz.n_stars, 
-		# filename = "%s_extra_tracer_data.out" % (mz.name)) 
 	for i in range(mz.n_zones): 
 		# mz.zones[i].mode = "ifr" 
 		mz.zones[i].mode = "sfr" 
