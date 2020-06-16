@@ -18,7 +18,7 @@ import sys
 import os 
 
 OFE_BINS = np.arange(-0.1, 0.51, 0.01).tolist() 
-XLIM = [-0.12, 0.52] 
+XLIM = [-0.1, 0.5] 
 YLIM = [0.0, 0.24] 
 FEH_BINS = [
 	[-0.6, -0.4], 
@@ -56,12 +56,12 @@ def setup_axes():
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
 			elif j == 4: 
-				axes[i][j].text(0.0, 0.2, 
+				axes[i][j].text(-0.05, 0.2, 
 					r"%g $\leq$ [Fe/H] $\leq$ %g" % (
-						[-0.6, -0.4, -0.2][i], [-0.4, -0.2, 0.0][i]), 
+						[row[0] for row in FEH_BINS][i], 
+						[row[1] for row in FEH_BINS][i]), 
 					fontsize = 25, 
-					color = plots.mpltoolkit.named_colors()[["crimson", "lime", 
-						"dodgerblue"][i]])  
+					color = plots.mpltoolkit.named_colors()[COLORS[i]]) 
 			else: pass 
 	axes[2][2].set_xlabel("[O/Fe]") 
 	axes[1][0].set_ylabel("PDF") 

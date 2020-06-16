@@ -31,9 +31,9 @@ def setup_axes():
 	axes[0].set_ylabel("[O/H]") 
 	axes[1].set_ylabel("[Fe/H]") 
 	axes[2].set_ylabel("[O/Fe]") 
-	axes[0].set_ylim([-0.7, 0.9]) 
-	axes[1].set_ylim([-1.1, 0.9]) 
-	axes[2].set_ylim([-0.1, 0.5]) 
+	axes[0].set_ylim([-0.7, 0.5]) 
+	axes[1].set_ylim([-0.7, 0.5]) 
+	axes[2].set_ylim([0.0, 0.5]) 
 	return axes 
 
 def plot_tracers(axes, tracers): 
