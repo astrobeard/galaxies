@@ -8,13 +8,14 @@ ARGV
 2) 		The number of star particles per zone per timestep 
 """ 
 
-import tracers 
+# import tracers 
 import gas_disks 
 import common 
 import numpy as np 
 import math as m 
 import vice 
-from vice.yields.presets import my_yields 
+from vice.yields.presets import JW20  
+from vice.toolkit import hydrodisk 
 import sys 
 import os 
 
@@ -25,7 +26,7 @@ TSTAR_1 = 0.04 # tau_star normalization in linear phase
 TSTAR_2 = 2. # tau_star normalization in exponential phase 
 ZONE_WIDTH = 0.25 # width of each zone in kpc 
 RSCALE = 3 # scale radius of this disk model 
-DT = 0.05 # The timestep size in Gyr 
+DT = 0.01 # The timestep size in Gyr 
 TSTAR_NORM = 0.2 
 ALPHA = 0.1 
 
@@ -150,9 +151,10 @@ class diskmodel(vice.multizone):
 			n_stars = int(sys.argv[2]), 
 			verbose = True, 
 			simple = False) 
-		self.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
-			n_stars = self.n_stars, 
-			filename = "%s_extra_tracer_data.out" % (self.name)) 
+		# self.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
+		# 	n_stars = self.n_stars, 
+		# 	filename = "%s_extra_tracer_data.out" % (self.name)) 
+		self.migration.stars = hydrodisk.linear(RAD_BINS) 
 		for i in range(self.n_zones): 
 			# self.zones[i].func = infall_history(ZONE_WIDTH * (i + 0.5)) 
 			# self.zones[i].mode = "ifr" 
@@ -177,7 +179,7 @@ class diskmodel(vice.multizone):
 
 	def run(self): 
 		super().run(np.linspace(0, 12.8, 257), overwrite = True) 
-		self.migration.stars.close_file() 
+		# self.migration.stars.close_file() 
 		# pass 
 
 

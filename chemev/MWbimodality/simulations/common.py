@@ -5,7 +5,8 @@ Routines common to the multizone simulations in written here.
 __all__ = ["TIME_BINS", "RAD_BINS", "ZONE_WIDTH", "eta", "tau_star", 
 	"harmonic_timescale", "depletion_time"]   
 import vice 
-from vice.yields.presets import my_yields 
+# from vice.yields.presets import my_yields 
+from vice.yields.presets import JW20 
 import numpy as np 
 import math as m 
 
