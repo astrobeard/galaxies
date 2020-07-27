@@ -50,7 +50,7 @@ def setup_axes():
 				r"Final $R_\text{gal}$ = %g - %g kpc" % ( 
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
-			if j == 3: 
+			if j == 2: 
 				axes[i][j].text(0.0, 0.2, 
 					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 

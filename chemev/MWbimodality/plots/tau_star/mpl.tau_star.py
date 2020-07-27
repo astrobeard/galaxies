@@ -17,9 +17,9 @@ import vice
 import sys 
 import os 
 
-CMAP = "plasma_r" 
+CMAP = "plasma" 
 XLIM = [-1, 14] 
-YLIM = [0.05, 2000] 
+YLIM = [0.2, 20] 
 
 def setup_axis(): 
 	r""" 
