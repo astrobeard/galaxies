@@ -8,26 +8,27 @@ ARGV
 2) 		The number of star particles per zone per timestep 
 """ 
 
-import tracers 
+# import tracers 
 import gas_disks 
 import common 
 import numpy as np 
 import math as m 
 import vice 
-from vice.yields.presets import JW20 
+from vice.yields.presets import JW20  
+from vice.toolkit import hydrodisk 
 import sys 
 import os 
 
 TIME_BINS = np.linspace(0, 12.8, 41).tolist() 
 RAD_BINS = np.linspace(0, 30, 121).tolist() 
-TIME_SWITCH = 1.0 # time of linear to exponential switch in Gyr 
-TSTAR_1 = 0.08 # tau_star normalization in linear phase 
+TIME_SWITCH = 2. # time of linear to exponential switch in Gyr 
+TSTAR_1 = 0.04 # tau_star normalization in linear phase 
 TSTAR_2 = 2. # tau_star normalization in exponential phase 
 ZONE_WIDTH = 0.25 # width of each zone in kpc 
 RSCALE = 3 # scale radius of this disk model 
 DT = 0.01 # The timestep size in Gyr 
-TSTAR_NORM = 0.05 
-SWITCH = 1.0 
+TSTAR_NORM = 0.2 
+ALPHA = 0.1 
 
 
 def tau_in(rgal): 
@@ -69,19 +70,23 @@ class sfe:
 	""" 
 
 	def __init__(self, rgal): 
-		self._norm = tau_star(rgal,  norm = TSTAR_NORM) 
+		# self._norm = tau_star(rgal, norm = TSTAR_NORM) 
 		self._switch = TIME_SWITCH 
-		# self._tstar1 = tau_star(rgal, norm = TSTAR_1) 
-		# self._tstar2 = tau_star(rgal, norm = TSTAR_2) 
-		# self._rgal = rgal 
+		self._tstar1 = tau_star(rgal, norm = TSTAR_1) 
+		self._tstar2 = tau_star(rgal, norm = TSTAR_2) 
+		self._rgal = rgal 
 
 	def __call__(self, time): 
-		return self._norm 
+		# if time < self._switch: 
+		return self._tstar1 
+		# else: 
+		# 	return self._tstar1 + (self._tstar2 - self._tstar1) * (
+		# 		1 - m.exp(-(time - self._switch) / tau_in(self._rgal)) 
+		# 	) 
 		# if time < self._switch: 
 		# 	return self._norm  
 		# else: 
-		# 	return self._norm + (time - self._switch) / (
-		# 		12.8 - self._switch) 
+		# 	return self._norm + (time - self._switch) / (12.8 - self._switch) 
 
 
 class star_formation_history: 
@@ -91,20 +96,12 @@ class star_formation_history:
 	""" 
 	def __init__(self, rgal): 
 		self._rgal = rgal 
-		# self._norm = (2 * m.pi * rgal * m.exp(-rgal / RSCALE) * ZONE_WIDTH / 
-		# 	TIME_SWITCH * (
-		# 		# TIME_SWITCH / 2. + TSTAR_1 / TSTAR_2 * tau_in(rgal) * (
-		# 		TIME_SWITCH / 2. +  tau_in(rgal) * (
-		# 			m.exp(-TIME_SWITCH / tau_in(rgal)) - 
-		# 			m.exp(-TIME_BINS[-1] / tau_in(rgal)) 
-		# 		) 
-		# 	)**(-1) 
-		# ) 
 		self._norm = (2 * m.pi * rgal * m.exp(-rgal / RSCALE) * ZONE_WIDTH / 
 			TIME_SWITCH * (
-				TIME_SWITCH / 2 + 
-				tau_in(rgal) * (
-					1 - m.exp(-(12.8 - TIME_SWITCH) / tau_in(rgal))
+				# TIME_SWITCH / 2. + TSTAR_1 / TSTAR_2 * tau_in(rgal) * (
+				TIME_SWITCH / 2. +  tau_in(rgal) * (
+					m.exp(-TIME_SWITCH / tau_in(rgal)) - 
+					m.exp(-TIME_BINS[-1] / tau_in(rgal)) 
 				) 
 			)**(-1) 
 		) 
@@ -112,7 +109,7 @@ class star_formation_history:
 	def __call__(self, time): 
 		if time < TIME_SWITCH: 
 			# return self._norm 
-			return self._norm * time 
+			return self._norm * TIME_SWITCH  
 		else: 
 			# return self._norm * TIME_SWITCH * TSTAR_1 / TSTAR_2 * m.exp(
 			return self._norm * TIME_SWITCH * m.exp(
@@ -126,24 +123,23 @@ class infall_history:
 	galactocentric radius 
 	""" 
 	def __init__(self, rgal): 
-		tau_dep = sfe(rgal)(12.8) / (1 + eta(rgal) - 0.4) 
-		tau_in_ = tau_in(rgal) 
+		self._rgal = rgal 
+		self._tstar = tau_star(rgal, norm = TSTAR_NORM)
+		self._eta = eta(rgal, 
+			corrective = self._tstar / tau_in(rgal)) 
+		self._tau_dep = self._tstar / (1 + self._eta - 0.4) 
 		self._norm = 2 * m.pi * rgal * m.exp(-rgal / RSCALE) * ZONE_WIDTH * (
-			1 - m.exp(-SWITCH / tau_dep) + 
-			(tau_in_ / abs(tau_dep - tau_in_)) * (1 - m.exp(-(12.8 - SWITCH) / 
-				tau_dep))
-		)**(-1) / tau_dep 
-		self._tau_in = tau_in_ 
-		# self._norm = 2 * m.pi * rgal * m.exp(-rgal / RSCALE) * ZONE_WIDTH * (
-		# 	1 - m.exp(-12.8 / tau_dep) 
-		# ) / tau_dep 
+			harmonic_timescale(self._tau_dep, tau_in(rgal)) * (
+				m.exp(-12.8 / tau_in(rgal)) - 
+				m.exp(-12.8 / self._tau_dep)
+			) + ALPHA * self._tau_dep * (
+				1 - m.exp(-12.8 / self._tau_dep) 
+			)
+		)**(-1) 
+		self._tau_in = tau_in(rgal) 
 
 	def __call__(self, time): 
-		# return self._norm 
-		if time < SWITCH: 
-			return self._norm 
-		else: 
-			return self._norm * m.exp(-(time - SWITCH) / self._tau_in) 
+		return self._norm * m.exp(-time / self._tau_in) 
 
 
 class diskmodel(vice.multizone): 
@@ -155,23 +151,23 @@ class diskmodel(vice.multizone):
 			n_stars = int(sys.argv[2]), 
 			verbose = True, 
 			simple = False) 
-		self.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
-			n_stars = self.n_stars, 
-			filename = "%s_extra_tracer_data.out" % (self.name)) 
+		# self.migration.stars = tracers.UWhydro(TIME_BINS, RAD_BINS, 
+		# 	n_stars = self.n_stars, 
+		# 	filename = "%s_extra_tracer_data.out" % (self.name)) 
+		self.migration.stars = hydrodisk.linear(RAD_BINS) 
 		for i in range(self.n_zones): 
 			# self.zones[i].func = infall_history(ZONE_WIDTH * (i + 0.5)) 
 			# self.zones[i].mode = "ifr" 
 			self.zones[i].func = star_formation_history(ZONE_WIDTH * (i + 0.5)) 
 			self.zones[i].mode = "sfr" 
-			self.zones[i].bins = np.linspace(-3, 1, 401) 
+			self.bins = np.linspace(-3, 1, 401) 
 			self.zones[i].elements = ["fe", "o"] 
 			self.zones[i].dt = DT 
-			self.zones[i].schmidt = True 
 			self.zones[i].Mg0 = 0 
+			self.zones[i].schmidt = True 
 			if i > 61: 
 				self.zones[i].func = lambda t: 0 
-				# self.zones[i].tau_star = float("inf") 
-				self.zones[i].tau_star = 1e4 
+				self.zones[i].tau_star = 100 
 				self.zones[i].eta = 100 
 				for j in self.zones[i].elements: 
 					self.zones[i].entrainment.agb[j] = 0 
@@ -180,17 +176,10 @@ class diskmodel(vice.multizone):
 			else: 
 				self.zones[i].tau_star = sfe(ZONE_WIDTH * (i + 0.5)) 
 				self.zones[i].eta = eta(ZONE_WIDTH * (i + 0.5)) 
-				# self.zones[i].Mg0 = 0 
-				# self.zones[i].Mg0 = (
-				# 	1e9 * self.zones[i].func(0) * 
-				# 	self.zones[i].tau_star(0) / 
-				# 	(1 + self.zones[i].eta - 0.4) * 
-				# 	self.zones[i].MgSchmidt**self.zones[i].schmidt_index 
-				# )**(1 / (1 + self.zones[i].schmidt_index)) 
 
 	def run(self): 
 		super().run(np.linspace(0, 12.8, 257), overwrite = True) 
-		self.migration.stars.close_file() 
+		# self.migration.stars.close_file() 
 		# pass 
 
 
