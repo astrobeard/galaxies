@@ -133,6 +133,7 @@ if __name__ == "__main__":
 	fltrd_tracers = fltrd_tracers.filter("zfinal", "<=", 3.) 
 	fltrd_tracers = fltrd_tracers.filter("zone_final", ">=", zone_min) 
 	fltrd_tracers = fltrd_tracers.filter("zone_final", "<=", zone_max) 
+	fltrd_tracers = fltrd_tracers.filter("mass", ">=", 1.) 
 	sc = plot_tracers(axes, fltrd_tracers) 
 	cbar = plt.colorbar(sc, 
 		cax = plots.mpltoolkit.append_axes(axes[2]), pad = 0.0) 

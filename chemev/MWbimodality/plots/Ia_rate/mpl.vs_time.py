@@ -20,7 +20,7 @@ import sys
 import os 
 sys.path.append("../../simulations/") 
 import gas_disks 
-from conference import TIME_SWITCH, tau_in, tau_star, eta 
+from conference import TIME_SWITCH, tau_in, tau_star, eta, TSWITCH 
 
 
 def setup_axis(): 
