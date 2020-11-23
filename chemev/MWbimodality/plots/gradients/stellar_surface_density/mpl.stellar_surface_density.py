@@ -19,7 +19,7 @@ import sys
 import os
 
 RAD_BINS = np.linspace(0, 30, 121).tolist() 
-NORM = 1e11 
+NORM = 5e7  
 
 
 def setup_axis(): 
@@ -69,7 +69,7 @@ def draw(ax, output):
 		marker = plots.mpltoolkit.markers()["star"], 
 		c = plots.mpltoolkit.named_colors()["black"]) 
 	xvals = np.linspace(0, 21, 1001).tolist() 
-	Rs = 2 
+	Rs = 3 
 	profile = lambda x: 13 * m.exp(-x / Rs) 
 	ax.plot(xvals, [profile(i) for i in xvals], linestyle = ':', 
 		c = plots.mpltoolkit.named_colors()["black"]) 

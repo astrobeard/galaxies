@@ -42,7 +42,7 @@ def setup_axes():
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
 			if j == 2: 
-				axes[i][j].text(-0.8, 0.4, 
+				axes[i][j].text(-0.8, -0.2, 
 					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
@@ -69,15 +69,15 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 	stars = stars.filter("zone_final", "<=", zone_bounds[1]) 
 	stars = stars.filter("abszfinal", ">=", zbounds[0]) 
 	stars = stars.filter("abszfinal", "<=", zbounds[1]) 
-	stars = stars.filter("mass", ">", 0) 
+	stars = stars.filter("mass", ">", 1) 
 	med_mass = np.median(stars["mass"]) 
-	sizes = [i["mass"] / med_mass * 20 * (1 - 
+	stars["size"] = [i["mass"] / med_mass * 20 * (1 - 
 		vice.cumulative_return_fraction(i["age"])) for i in stars] 
 	return ax.scatter(
 		stars["[%s/H]" % (REF_ELEMENT)], 
 		stars["[%s/%s]" % (SEC_ELEMENT, REF_ELEMENT)], 
 		c = stars["age"], 
-		s = sizes, 
+		s = stars["size"], 
 		cmap = cmap, 
 		vmin = 0, 
 		vmax = 13.8 

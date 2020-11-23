@@ -31,9 +31,9 @@ def setup_axes():
 	axes[0].set_ylabel("[O/H]") 
 	axes[1].set_ylabel("[Fe/H]") 
 	axes[2].set_ylabel("[O/Fe]") 
-	axes[0].set_ylim([-0.7, 0.5]) 
-	axes[1].set_ylim([-0.7, 0.5]) 
-	axes[2].set_ylim([0.0, 0.5]) 
+	axes[0].set_ylim([-0.7, 0.7]) 
+	axes[1].set_ylim([-0.7, 0.7]) 
+	axes[2].set_ylim([-0.1, 0.5]) 
 	return axes 
 
 def plot_tracers(axes, tracers): 
@@ -133,6 +133,7 @@ if __name__ == "__main__":
 	fltrd_tracers = fltrd_tracers.filter("zfinal", "<=", 3.) 
 	fltrd_tracers = fltrd_tracers.filter("zone_final", ">=", zone_min) 
 	fltrd_tracers = fltrd_tracers.filter("zone_final", "<=", zone_max) 
+	fltrd_tracers = fltrd_tracers.filter("mass", ">=", 1.) 
 	sc = plot_tracers(axes, fltrd_tracers) 
 	cbar = plt.colorbar(sc, 
 		cax = plots.mpltoolkit.append_axes(axes[2]), pad = 0.0) 

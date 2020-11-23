@@ -9,7 +9,7 @@ ARGV
 2) 		The name of the output image (without extension) 
 """ 
 
-from vice.yields.presets import my_yields 
+from vice.yields.presets import JW20  
 import matplotlib.pyplot as plt 
 import plots 
 plots.mpltoolkit.load_mpl_presets() 
@@ -20,6 +20,7 @@ import sys
 import os 
 sys.path.append("../../simulations/") 
 import gas_disks 
+from conference import TIME_SWITCH, tau_in, tau_star, eta, TSWITCH 
 
 
 def setup_axis(): 
@@ -29,6 +30,7 @@ def setup_axis():
 		r"$m_\text{Fe}^\text{Ia}\dot{N}_\text{Ia}/M_\text{Fe}$ [Gyr$^{-1}$]") 
 	ax.set_xlabel("Time [Gyr]") 
 	ax.set_xlim([-1, 15]) 
+	ax.set_ylim([-0.1, 1.3])
 	return ax 
 
 
@@ -65,7 +67,10 @@ def plot_actual(ax, zone, color, norm, label):
 
 def plot_comparison(ax, zone, color): 
 	sz = vice.singlezone.from_output(zone) 
-	sz.func = lambda t: zone.history["mgas"][0] 
+	# sz.func = lambda t: zone.history["mgas"][0] 
+	# sz.schmidt = False 
+	# sz.func = vice.toolkit.repair_function(zone, "sfr") 
+	# sz.tau_star = vice.toolkit.repair_function(zone, "tau_star") 
 	sz.name = "comparison" 
 	comp = sz.run(np.linspace(0, 14, 1401), overwrite = True, capture = True) 
 	# proxies = [i / comp.history["mass(fe)"][-1] for i in get_proxies(comp)] 
@@ -83,15 +88,16 @@ if __name__ == "__main__":
 	radii = [5, 10, 15]
 	colors = ["dodgerblue", "lime", "crimson"] 
 	for i in range(len(radii)): 
-		# norm = plot_comparison(ax, 
-		# 	out.zones["zone%d" % (int(radii[i] / 0.25))], colors[i]) 
-		norm = 1 
+		norm = plot_comparison(ax, 
+			out.zones["zone%d" % (int(radii[i] / 0.25))], colors[i]) 
+		# norm = 1 
 		plot_actual(ax, out.zones["zone%d" % (int(radii[i] / 0.25))], 
 			colors[i], norm, r"$R_\text{gal}$ = %g kpc" % (radii[i])) 
 	leg = ax.legend(loc = plots.mpltoolkit.mpl_loc("lower right"), ncol = 1, 
 		frameon = False, bbox_to_anchor = (0.99, 0.01), handlelength = 0) 
 	for i in range(len(leg.legendHandles)): 
 		leg.get_texts()[i].set_color(colors[i]) 
+		leg.legendHandles[i].set_visible(False) 
 	plt.tight_layout() 
 	plt.savefig("%s.pdf" % (sys.argv[2])) 
 	plt.savefig("%s.png" % (sys.argv[2])) 

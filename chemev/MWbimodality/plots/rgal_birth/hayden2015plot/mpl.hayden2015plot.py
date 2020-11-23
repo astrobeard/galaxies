@@ -23,7 +23,7 @@ REF_ELEMENT = "Fe"
 SEC_ELEMENT = "O" 
 XLIM = [-1.2, 1.2] 
 YLIM = [-0.3, 0.55] 
-CMAP = "plasma_r" 
+CMAP = "plasma" 
 
 
 def setup_axes(): 
@@ -42,7 +42,7 @@ def setup_axes():
 					[3, 5, 7, 9, 11][j], [5, 7, 9, 11, 13][j]), 
 				fontsize = 25) 
 			if j == 2: 
-				axes[i][j].text(-1, -0.2, 
+				axes[i][j].text(-0.8, -0.2, 
 					r"$\left|z\right|$ = %g - %g kpc" % ( 
 						[1, 0.5, 0][i], [2, 1, 0.5][i]), 
 					fontsize = 25) 
@@ -69,7 +69,7 @@ def plot_stars(ax, stars, zone_bounds, zbounds):
 	stars = stars.filter("zone_final", "<=", zone_bounds[1]) 
 	stars = stars.filter("abszfinal", ">=", zbounds[0]) 
 	stars = stars.filter("abszfinal", "<=", zbounds[1]) 
-	stars = stars.filter("mass", ">", 0) 
+	stars = stars.filter("mass", ">", 1) 
 	colors = [i["zone_origin"] * 0.25 for i in stars] 
 	med_mass = np.median(stars["mass"])
 	sizes = [i["mass"] / med_mass * 10 * (1 - 

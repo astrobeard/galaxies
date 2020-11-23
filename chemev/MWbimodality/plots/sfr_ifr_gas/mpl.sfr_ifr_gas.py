@@ -19,10 +19,10 @@ import sys
 import os 
 
 
-CMAP = "plasma_r" 
+CMAP = "plasma" 
 XLIM = [-1, 14] 
 RAD_BINS = np.linspace(0, 30, 121).tolist() 
-YLOG = False 
+YLOG = False  
 
 
 def setup_axes(): 
@@ -32,9 +32,12 @@ def setup_axes():
 	fig = plt.figure(figsize = (21, 7)) 
 	axes = 3 * [None] 
 	ylabels = [
-		r"$\dot{M}_\text{in}$ [M$_\odot$ yr$^{-1}$]", 
-		r"Normalized $\dot{M}_\star$ [M$_\odot$ yr$^{-1}$]", 
-		r"Normalized $M_\text{gas}$ [M$_\odot$]"
+		# r"$\dot{M}_\text{in}$ [M$_\odot$ yr$^{-1}$]", 
+		# r"Normalized $\dot{M}_\star$ [M$_\odot$ yr$^{-1}$]", 
+		# r"Normalized $M_\text{gas}$ [M$_\odot$]"
+		r"$\propto \Sigma_\text{in}$ [M$_\odot$ yr$^{-1}$ pc$^{-2}$]", 
+		r"$\propto \dot{\Sigma}_\star$ [M$_\odot$ yr$^{-1}$ pc$^{-2}$]", 
+		r"$\propto \Sigma_\text{gas}$ [M$_\odot$ pc$^{-2}$]" 
 	]
 	for i in range(3): 
 		axes[i] = fig.add_subplot(131 + i, facecolor = "white") 
@@ -58,30 +61,32 @@ def plot_quantities(axes, out):
 		The multioutput object from the VICE simulation. 
 	""" 
 	cmap = plt.get_cmap(CMAP) 
-	# sigma_sfr_prefactor = 1 
-	# sigma_gas_prefactor = 1e-9 
+	prefac_in = 100 
+	prefac_sfr = 100 
+	prefac_gas = 1e-7 
 	for i in range(int(15.5 / 0.25)): 
-		# sigma_sfr = out.zones["zone%d" % (i)].history.size[0] * [0.] 
-		# sigma_gas = out.zones["zone%d" % (i)].history.size[0] * [0.] 
-		# for j in range(out.zones["zone%d" % (i)].history.size[0]): 
-		# 	area = m.pi * (RAD_BINS[i + 1]**2 - RAD_BINS[i]**2) 
-		# 	sigma_sfr[j] = out.zones["zone%d" % (i)].history["sfr"][j] / area 
-		# 	sigma_gas[j] = out.zones["zone%d" % (i)].history["mgas"][j] / area 
-		# 	sigma_sfr[j] *= sigma_sfr_prefactor 
-		# 	sigma_gas[j] *= sigma_gas_prefactor 
-
+		sigma_in = [j / (m.pi * ((0.25 * (i + 1))**2 - (0.25 * i)**2)) for j in 
+			out.zones["zone%d" % (i)].history["ifr"]]
+		sigma_sfr = [j / (m.pi * ((0.25 * (i + 1))**2 - (0.25 * i)**2)) for j in 
+			out.zones["zone%d" % (i)].history["sfr"]] 
+		sigma_gas = [j / (m.pi * ((0.25 * (i + 1))**2 - (0.25 * i)**2)) for j in 
+			out.zones["zone%d" % (i)].history["mgas"]] 
+		sigma_in = [j * prefac_in for j in sigma_in] 
+		sigma_sfr = [j * prefac_sfr for j in sigma_sfr] 
+		sigma_gas = [j * prefac_gas for j in sigma_gas] 
 		kwargs = {
 			"c": 		cmap((0.25 * i + 0.125) / 15.5) 
 		} 
 		axes[0].plot(out.zones["zone%d" % (i)].history["time"], 
-			out.zones["zone%d" % (i)].history["ifr"], **kwargs) 
+			# out.zones["zone%d" % (i)].history["ifr"], **kwargs) 
+			sigma_in, **kwargs) 
 		axes[1].plot(out.zones["zone%d" % (i)].history["time"], 
-			out.zones["zone%d" % (i)].history["sfr"], **kwargs) 
-			# sigma_sfr, **kwargs) 
+			# out.zones["zone%d" % (i)].history["sfr"], **kwargs) 
+			sigma_sfr, **kwargs) 
 		axes[2].plot(out.zones["zone%d" % (i)].history["time"], 
-			[i * 1.e-9 for i in out.zones["zone%d" % (i)].history["mgas"]], 
-			**kwargs) 
-			# sigma_gas, **kwargs) 
+			# [i * 1.e-9 for i in out.zones["zone%d" % (i)].history["mgas"]], 
+			# **kwargs) 
+			sigma_gas, **kwargs) 
 
 
 if __name__ == "__main__": 

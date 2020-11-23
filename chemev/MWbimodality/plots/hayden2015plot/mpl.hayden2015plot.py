@@ -65,7 +65,7 @@ def plot_density(ax, out, minrgal, maxrgal, minabsz, maxabsz):
 		density = True) 
 	ax.imshow(np.rot90(dist), cmap = CMAP, aspect = "auto", 
 		extent = [XLIM[0], XLIM[1], YLIM[0], YLIM[1]], interpolation = None, 
-		vmin = 0, vmax = 15) 
+		vmin = 0, vmax = 10) 
 
 
 if __name__ == "__main__": 
