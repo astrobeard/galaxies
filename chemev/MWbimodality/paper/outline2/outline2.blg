@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: outline2.aux
+The style file: mnras.bst
+Database file #1: outline2.bib
+Reallocated str_pool (elt_size=1) to 130000 items from 65000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 115 entries,
+            2881 wiz_defined-function locations,
+            1744 strings with 80796 characters,
+and the built_in function-call counts, 56479 in all, are:
+= -- 4885
+> -- 3883
+< -- 229
++ -- 1672
+- -- 580
+* -- 7068
+:= -- 8536
+add.period$ -- 0
+call.type$ -- 115
+change.case$ -- 230
+chr.to.int$ -- 112
+cite$ -- 115
+duplicate$ -- 2780
+empty$ -- 2657
+format.name$ -- 952
+if$ -- 9974
+int.to.chr$ -- 4
+int.to.str$ -- 0
+missing$ -- 115
+newline$ -- 358
+num.names$ -- 754
+pop$ -- 489
+preamble$ -- 1
+purify$ -- 460
+quote$ -- 0
+skip$ -- 1859
+stack$ -- 0
+substring$ -- 3524
+swap$ -- 1613
+text.length$ -- 467
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1035
+warning$ -- 0
+while$ -- 850
+width$ -- 0
+write$ -- 1162

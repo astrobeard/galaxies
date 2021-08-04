@@ -1,0 +1,134 @@
+
+% \documentclass[fleqn, usenatbib]{mnras} 
+\documentclass[felqn, usenatbib]{mnras} 
+\usepackage{newtxtext, newtxmath} 	% Required for MNRAS 
+\usepackage[T1]{fontenc} 
+\usepackage{graphicx}
+\usepackage{amsmath}
+% \usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{bm}
+\usepackage{pdflscape}
+\usepackage{natbib}
+\usepackage[section]{placeins}
+\usepackage{lipsum}
+\usepackage{etoolbox} 
+\usepackage{tabularx} 
+\usepackage{xcolor} 
+\usepackage[toc, page]{appendix} 
+\usepackage{subfiles} 
+% \voffset-0.6in 
+% \usepackage[margin = 0.5in]{geometry} 
+\usepackage{geometry} 
+\geometry{margin=0.6in} 
+% \addtolength{\topmargin}{-0.6in} 
+% \hypersetup{draft} 
+% \linespread{1.8} 
+\hypersetup{ % all blue links 
+	colorlinks		= true, 
+	urlcolor 		= blue, 
+	linkcolor 		= blue, 
+	citecolor 		= blue 
+} 
+
+% recurring expressions 
+\newcommand{\ddfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}} 
+\newcommand{\refp}[1]{(\ref{#1})} 
+\newcommand{\msun}{\ensuremath{\text{M}_\odot}} 
+\newcommand{\persqkpc}{\ensuremath{\text{kpc}^{-2}}} 
+\newcommand{\rgal}{\ensuremath{R_\text{gal}}} 
+\newcommand{\absz}{\ensuremath{\left|z\right|}} 
+\newcommand{\afe}{[$\alpha$/Fe]} 
+\newcommand{\ofe}{[O/Fe]} 
+\newcommand{\feh}{[Fe/H]} 
+\newcommand{\oh}{[O/H]} 
+\newcommand{\hsim}{\texttt{h277}} 
+\newcommand{\vice}{\texttt{VICE}} 
+
+% control over bibtex's alphabetizing 
+\providecommand{\noopsort}[1]{} 
+
+% figures for the paper in here 
+% \graphicspath{ {../plots/} } 
+
+\interfootnotelinepenalty = 10000 
+\defcitealias{Kroupa2001}{Kroupa} 
+\defcitealias{Salpeter1955}{Salpeter} 
+
+\title[Stellar Migration and Chemical Enrichment]{Stellar Migration and 
+Chemical Enrichment in the Milky Way Disc: A Hybrid Model} 
+
+\author[J.W. Johnson et al.]{James W. Johnson,$^{1}$\thanks{
+	Contanct e-mail: \href{mailto:
+	johnson.7419@osu.edu}{johnson.7419@osu.edu}} 
+	David H. Weinberg,$^{1, 2, 3}$ 
+	Fiorenzo Vincenzo,$^{1, 2}$ 
+	Jonathan C. Bird,$^{4}$ 
+	\newauthor 
+	Sarah R. Loebman,$^{5}$ 
+	Alyson M. Brooks,$^{6}$ 
+	Thomas R. Quinn,$^{7}$ 
+	Charlotte R. Christensen,$^{8}$ 
+	\newauthor 
+	and Emily J. Griffith$^{1}$ 
+	\\ \null \\ 
+	$^{1}$ Department of Astronomy, The Ohio State University, 
+	140 W. 18th Ave., Columbus, OH, 43210, USA 
+	\\ 
+	$^{2}$ Center for Cosmology and Astroparticle Physics (CCAPP), 
+	The Ohio State University, 191 W. Woodruff Ave., Columbus, OH, 43210, USA 
+	\\ 
+	$^{3}$ Institute for Advanced Study, 1 Einstein Dr., Princeton, NJ, 08540, 
+	USA 
+	\\ 
+	$^{4}$ Department of Physics \& Astronomy, Vanderbilt University, 
+	2301 Vanderbilt Place, Nashville, TN, 37235, USA 
+	\\ 
+	$^{5}$ Department of Physics, University of California Merced, 
+	5200 North Lake Rd., Merced, CA, 95343, USA 
+	\\ 
+	$^{6}$ Department of Physics \& Astronomy, Rutgers University, 136 
+	Frelinghuysen Rd., Piscataway, NJ, 08854, USA 
+	\\ 
+	$^{7}$ Department of Astronomy, University of Washington, Box 351580, 
+	Seattle, WA, 98195, USA 
+	\\ 
+	$^{8}$ Department of Physics, Grinnell College, 1116 8th Ave., Grinnell, 
+	IA, 50112, USA 
+} 
+
+\date{Accepted XXX; Received YYY; in original form ZZZ} 
+\pubyear{2021} 
+
+\begin{document} 
+\label{firstpage} 
+\pagerange{\pageref{firstpage}--\pageref{lastpage}} 
+\maketitle 
+
+\subfile{abstract.tex} 
+
+\begin{keywords} 
+methods: numerical -- galaxies: abundances, evolution, star formation, stellar 
+content 
+\end{keywords} 
+
+\subfile{intro.tex} 
+\subfile{methods.tex} 
+\subfile{comparison_observations.tex} 
+\subfile{conclusions.tex} 
+\subfile{acknowledgements.tex} 
+\subfile{data_availability.tex}
+
+\begin{appendices} 
+\subfile{age_oh.tex} 
+\subfile{normalize_sfh.tex} 
+\subfile{vice.tex} 
+\end{appendices} 
+
+\bibliographystyle{mnras} 
+\bibliography{ms} 
+
+\label{lastpage} 
+\end{document} 
+

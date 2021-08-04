@@ -1,0 +1,49 @@
+
+\documentclass[draft2.tex]{subfiles} 
+\begin{document} 
+
+\section{\texttt{VICE}} 
+\label{sec:vice} 
+
+\vice~is an open-source~\texttt{python} package available for Linux and Mac OS 
+X.\footnote{ 
+	Install (PyPI): \url{https://pypi.org/project/vice} \\ 
+	Documentation: \url{https://vice-astro.readthedocs.io} \\ 
+	Source Code: \url{https://github.com/giganano/VICE.git} 
+} 
+Windows users should install and use~\vice~entirely within the Windows Subsystem 
+for Linux. 
+It requires~\texttt{python >=}~3.6 and can be installed in a terminal via 
+\texttt{pip install vice}, after which~\texttt{vice -{}-docs} will launch a web 
+browser to the documentation at \url{https://vice-astro.readthedocs.io}. 
+\texttt{vice -{}-tutorial} will also 
+launch a web browser, but to a jupyter notebook in the GitHub repository 
+intended to familiarize first-time users with~\vice's API. 
+\texttt{Python} code that runs the simulations presented in this paper is 
+included as supplementary material in the GitHub repository; they can be run 
+from a terminal without modifying the source code. 
+When taking into account time-dependent stellar migration,~\vice~requires 
+$\sim$2.5 CPU-hours per chemical element to compute masses, abundances, and 
+initial and final Galactic regions for~$\sim$1.6 million stellar populations 
+spanning a little over 1,300 timesteps. 
+This estimate was made using a single core with a 3 GHz processor. 
+Although their outputs require only~$\sim$235 MB of disc space each, our models 
+as computed in this paper can require up to~$\sim$3 GB of RAM at any given 
+time owing to the number of timesteps and stellar populations used, but these 
+can be adjusted via command line arguments. 
+Beyond what has been presented in this paper,~\vice's capabilities include 
+user-defined, arbitrary functions of time describing star formation and infall 
+histories, star formation laws, outflow prescriptions, SN Ia delay-time 
+distributions, and element-by-element infall metallicities. 
+It allows the IMF to be a user-defined function of stellar mass. 
+It will compute yields from supernova and asymptotic giant branch star 
+nucleosynthesis studies, but allows the user to specify arbitrary mathematical 
+forms for use in chemical evolution models. 
+A complete breakdown of its abilities can be found in the documentation. 
+While providing this level of versatility in a~\texttt{python} package, 
+\vice~also enjoys a backend implemented in ANSI/ISO~\texttt{C}, providing it 
+with the powerful computing speeds of a compiled library; with typical 
+parameters, yield calculations and one-zone model integrations require only a 
+fraction of a second. 
+
+\end{document} 

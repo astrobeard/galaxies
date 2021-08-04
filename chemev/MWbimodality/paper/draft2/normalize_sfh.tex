@@ -1,0 +1,88 @@
+
+\documentclass[draft2.tex]{subfiles} 
+\begin{document} 
+
+\section{Normalizing the Star Formation History} 
+\label{sec:normalize_sfh} 
+
+In this appendix, we derive a prescription for calculating the prefactors of an 
+adopted star formation history (SFH) for each annulus in our models. As 
+mentioned in~\S~\ref{sec:methods:sfhs}, this procedure requires a unitless 
+description of the time-dependence of the SFH in each annulus, denoted 
+$f(t|R_\text{gal})$, and a unitless description of the radial dependence 
+of the stellar surface density, denoted~$g(R_\text{gal})$. 
+By additionally selecting a 
+total stellar mass of the present day model Galaxy, the solution to the 
+detailed form of the star formation history 
+$\dot{\Sigma}_\star(t, R_\text{gal})$ is unique. With this approach, we assume 
+that stellar migration does not significantly impact the form of 
+$g(R_\text{gal})$, an assumption we demonstrate to be accurate 
+in~\S~\ref{sec:methods:surface_density_gradient}. 
+\par 
+The surface density of star formation with units of mass per area per time can 
+be expressed in terms of~$f(t|R_\text{gal})$ as: 
+\begin{equation} 
+\dot{\Sigma}_\star(t, R_\text{gal}) = \dot{\Sigma}_\star(t = 0, R_\text{gal}) 
+f(t|R_\text{gal}) 
+\label{eq:sfh_terms_of_f} 
+\end{equation} 
+and the present-day radial surface density gradient with units of mass per area 
+as: 
+\begin{equation} 
+\Sigma_\star(R_\text{gal}) = \Sigma_\star(R_\text{gal} = 0) g(R_\text{gal}). 
+\label{eq:sigma_terms_of_g}  
+\end{equation} 
+The integral of~$\dot{\Sigma}_\star$ with time should yield the surface density 
+gradient at a given radius~$R_\text{gal}$, up to a prefactor accounting for the 
+return of stellar envelopes to the interstellar medium (ISM): 
+\begin{subequations}\begin{align} 
+\Sigma_\star(R_\text{gal}) &= (1 - r)\int_0^T \dot{\Sigma}_\star(t, 
+R_\text{gal}) dt 
+\\ 
+&= (1 - r) \dot{\Sigma}_\star(t = 0, R_\text{gal})\int_0^T f(t|R_\text{gal}) dt 
+\\ 
+\dot{\Sigma}_\star(t = 0, R_\text{gal}) &= \Sigma_\star(R_\text{gal}) 
+\left[(1 - r) \int_0^T f(t|R_\text{gal})dt\right]^{-1} 
+\\ 
+&= \Sigma_\star(R_\text{gal} = 0)g(R_\text{gal}) \left[(1 - r) \int_0^T 
+f(t|R_\text{gal})\right]^{-1} 
+\label{eq:intermediate_1} 
+\end{align}\end{subequations} 
+where~$(1 - r) \approx 0.6$~is an adequate approximation for a 
+\citetalias{Kroupa2001} IMF~\citep[][see discussion in 
+their~\S~2.2]{Weinberg2017}. 
+This expression relates the two unkowns introduced by 
+equations~\refp{eq:sfh_terms_of_f} and~\refp{eq:sigma_terms_of_g}. We continue 
+by asserting that the integral of the stellar surface density over the area of 
+the disc should be equal to the present-day stellar mass of the Milky Way: 
+\begin{subequations}\begin{align} 
+M_\star^\text{MW} &= \int_0^R \Sigma_\star(R_\text{gal}) 2\pi R_\text{gal} 
+dR_\text{gal} 
+\\ 
+&= \Sigma_\star(R_\text{gal} = 0) \int_0^R g(R_\text{gal}) 2\pi R_\text{gal} 
+dR_\text{gal} 
+\\ 
+\Sigma_\star(R_\text{gal} = 0) &= M_\star^\text{MW} \left[\int_0^R 
+g(R_\text{gal}) 2\pi R_\text{gal}dR_\text{gal}\right]^{-1}. 
+\label{eq:intermediate_2} 
+\end{align}\end{subequations} 
+\par 
+Now plugging equation~\refp{eq:intermediate_2} into equation 
+\refp{eq:intermediate_1}, and then that into equation~\refp{eq:sfh_terms_of_f} 
+yields the desired result: 
+\begin{subequations}\begin{align} 
+&\dot{\Sigma}_\star(t, R_\text{gal}) = Af(t|R_\text{gal})g(R_\text{gal}) 
+\\ 
+&A = M_\star^\text{MW}\left[(1 - r) \int_0^R g(R_\text{gal})2\pi R_\text{gal} 
+dR_\text{gal} \int_0^T f(t|R_\text{gal})dt\right]^{-1}, 
+\end{align}\end{subequations} 
+where the upper limits should be the maximum radius of star formation and the 
+end time of the simulation (15.5 kpc and 13.2 Gyr in this paper). This result 
+makes intuitive sense, simply stating that the required normalization of 
+$f(t|R_\text{gal})$~is specified by two things: the total stellar mass of the 
+Galaxy and how steeply the stellar density falls with increasing radius. As 
+long as the assumption that stellar migration does not significantly alter the 
+form of~$g(R_\text{gal})$~is not violated, this procedure can be used to 
+calculate prefactors for future models of disc galaxies. 
+
+\end{document} 

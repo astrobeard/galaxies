@@ -1,0 +1,153 @@
+
+We have compared our fiducial inside-out SFH model and its variants to a 
+variety of observations, most of them derived from the SDSS APOGEE survey
+\citep{Majewski2017}, finding a number of qualitative successes but also
+some significant quantitative discrepancies.
+
+\begin{enumerate}
+
+\item The relative number of high-$\alpha$ and low-$\alpha$ stars and the
+  $\feh$ distribution of these two populations changes systematically with
+  $\Rgal$ and $|z|$, in qualitative agreement with the findings of 
+  \cite{Nidever2014} and \cite{Hayden2015}.  See Fig.~\ref{fig7}.
+%%%
+\item The $\feh$ and $\oh$ distributions of stars near the Galactic plane
+  ($|z|<0.5\kpc$) change shape, from negatively skewed at small $\Rgal$
+  to roughly symmetric in the solar neighborhood to positively skewed in
+  the outer Galaxy, in agreement with the findings of \cite{Hayden2015}
+  and our new measurements based on APOGEE DR16.  The influence of radial
+  migration on MDF shape agrees with the simplified model presented
+  by \cite{Hayden2015} and with the numerical simulation results of
+  \cite{Loebman2016}.  See Figs.~\ref{fig10} and~\ref{fig11}.
+%%%
+\item Moving up from the midplane, the $\feh$ and $\oh$ MDFs become more
+  symmetric and less dependent on $\Rgal$, again in agreement with the
+  observational findings of \cite{Hayden2015} and the simulation results
+  of \cite{Loebman2016}.  However, the high-$|z|$ MDFs are not a perfect
+  match to the APOGEE data, especially at $|z|=0.5-1\kpc$ where they 
+  remain too skewed and too $\Rgal$-dependent.  See Figs.~\ref{fig10}
+  and~\ref{fig11}.
+%%%
+\item The distributions of $\ofe$ in bins of $\feh$ are broad, and their
+  skewness and width change with $\Rgal$ and $|z|$ in qualitative 
+  agreement with the APOGEE-based measurements of \cite{Vincenzo2021}.
+  However, the model $\ofe$ distributions at sub-solar $\feh$ do not
+  reproduce the pronounced bimodality found by \cite{Vincenzo2021}, and
+  the centroid of the model $\ofe$ distribution at super-solar $\feh$
+  shifts upwards with increasing $|z|$, a trend not seen in the data.
+  See Fig.~\ref{fig12}.
+%%%
+\item The trend of median stellar age in bins of $\ofe$ agrees with the
+  measurements of \cite{Feuillet2019} in the solar neighborhood.  The 
+  width of the log(age) distribution is narrow at high $\ofe$ and
+  broad near solar $\ofe$, again in agreement with the data.  The model
+  predicts a median $\ofe$-age relation that is nearly constant over the
+  range $\Rgal=5-13\kpc$ and $|z|=0-2\kpc$, but \cite{Feuillet2019} find
+  a $\sim 20\%$ reduction in the median age of high-$\ofe$ stars at high $|z|$.
+  See Figs.~\ref{fig13} and~\ref{fig14}.
+%%%
+\item While most stars with $\ofe \geq 0.1$ are old, the model predicts a
+  significant population of young and intermediate-age $\alpha$-rich stars.
+  These stars form in the outer Galaxy ($\Rgal > 10\kpc$) at times
+  when the local SNIa rate, and thus iron enrichment, has fluctuated to low
+  values because stellar populations have migrated away before most of their
+  SNIa have time to explode (Fig.~\ref{fig8}).  This mechanism, which is
+  only realized because we track SNIa enrichment through annuli as 
+  populations migrate (\S\ref{sec:2p2}), offers a novel explanation for the
+  existence of young and intermediate-age $\alpha$-rich stars seen in
+  APOGEE \citep{Chiappini2015,Martig2015,Warfield2021}.  
+  See Figs.~\ref{fig13} and~\ref{fig14}.
+%%%
+\item In the solar neighbourhood, the predicted distribution of stellar age
+  at solar $\feh$ or $\oh$ is broad, and the trend of median age with 
+  metallicity is non-monotonic, with both sub-solar and super-solar metallicity
+  stars being older on average than solar metallicity stars.  These 
+  predictions agree with the observational results of \cite{Feuillet2019},
+  though the age scatter is larger than \cite{Feuillet2019} infer, and
+  the agreement of median trends is better for $\oh$ than for $\feh$.
+  The old population at super-solar metallicity has migrated from the 
+  inner Galaxy, as suggested by \cite{Feuillet2018,Feuillet2019}, and 
+  migration produces a non-monotonic age-metallicity relation in the
+  solar neighborhood even if the SFH is constant throughout the disc.
+  The agreement between predicted and observed age-$\feh$ relations is
+  noticeably worse at $\Rgal=5-7\kpc$ and somewhat worse at $\Rgal=11-13\kpc$.
+  See Figs.~\ref{fig15}-\ref{fig17}.
+%%%
+\item The models with late bursts of star formation, either throughout the
+  disc or at $\Rgal > 6\kpc$ only (see Fig.~\ref{fig4}), achieve better
+  agreement with the \cite{Feuillet2019} age-$\feh$ relation over a range
+  of $\Rgal$.  In particular, these models better reproduce the young median
+  ages of solar metallicity stars and the C-shaped form of the observed
+  relation.  However, they predict a $\sim 0.1$-dex uptick of $\ofe$ at
+  ages of $\sim 2\Gyr$ that is not seen in the data.  The SFH of these 
+  models is empirically motivated \citep{Isern2019,Mor2019}, and we do not
+  know if there is some variation of our implementation that would
+  preserve their improved agreement with age-$\feh$ while mitigating
+  their mismatch to age-$\ofe$.  For the other measures listed above, the
+  predictions of these models are qualitatively similar to those of 
+  the inside-out model.  See Figs.~\ref{fig14} and~\ref{fig17}.
+\end{enumerate}
+
+All of these predictions are affected by radial migration, and those involving
+vertical trends also inherit the simulation's predicted correlations between
+final $|z|$ and the age, birth radius, and final radius of a stellar population.
+We regard the overall level of agreement with many distinctive features of the
+Milky Way disc's abundance structure as a signficant success of the models.
+However, at least within the range explored here, it appears that models
+with smooth star formation, accretion, and outflow histories coupled to
+stellar migration are not able to explain the pronounced bimodality of 
+the observed $\afe$ distribution.  As discussed by \cite{Vincenzo2021},
+we expect that this problem is generic: a one-zone model with a smooth
+SFH produces an $\afe$ distribution that peaks at low values, so it is
+difficult to create a superposition of such models that has a bimodal 
+distribution.
+
+The most widely explored solution to this problem involves a two-phase SFH,
+with gas accretion resetting the ISM to low metallicity in between.
+Versions of this scenario arise in two-infall GCE models
+\citep{Chiappini1997,Spintoni2018,Khoperskov2021} and in cosmological
+simulations that give rise to bimodal $\afe$
+\citep{Mackereth2017,Grand2018,Buck2020}.  
+An alternative scenario proposed by \cite{Clarke2019}, motivated by
+hydrodynamic simulations, attributes the low-$\alpha$ sequence to an
+evolutionary track with low star formation efficiency and the high-$\alpha$
+sequence to clumpy bursts of star formation that self-enrich with
+$\alpha$ elements.  In a third, possibly fanciful scenario proposed by
+\cite{Weinberg2017}, increased outflow efficiency at late times causes
+the low-$\alpha$ population to evolve ``backwards'' to lower $\feh$, after
+formation of the high-$\alpha$ sequence.  Radial migration is likely
+to reshape the predictions of any of these scenarios, even if it does not
+fully explain bimodality on its own.  These scenarios can be easily realized
+within our modeling framework by changing SFH, star formation efficiency,
+and outflow parameterizations.  We intend to explore the in future work,
+seeking observable signatures that can distinguish these alternative 
+explanations for one of the most striking features of the disc abundance
+distribution.
+
+The computational speed of our hybrid chemical evolution methodology makes it
+a valuable complement to calculating chemical evolution within full 
+hydrodynamic cosmological simulations 
+(e.g., \citealt{Mackereth2017,Grand2018,Naiman2018,Buck2020,Vincenzo2020}).
+% Others to cite here?
+For a given cosmological simulation, we can consider many different choices
+of yields and chemical evolution parameters, varying them individually to
+isolate physical effects and exploring parameter space to identify good
+fits, degeneracies, and persistent discrepancies with data.  There are 
+many obvious directions to go in extending this approach.  One is to apply
+it to additional cosmological simulations to understand the impact of 
+different dynamical histories, and to add the ability to model stellar
+populations accreted from satellites.  A second is to consider additional
+elements that probe different nucleosynthetic pathways; many of these are
+already incorporated in \vice, and it is easy to add other elements and sources.
+A third is to include treatment of radial gas flows and fountains, both
+of which have been explored in more idealized GCE models
+(e.g., \citealt{Lacey1985,Bilitewski2012,Kubryk2015a,Kubryk2015b,
+Spitoni2013,Pezzuli2016,Sharda2021}).  More ambitious is to implement
+treatments of stochastic enrichment and incomplete ISM mixing
+(e.g., \citealt{Montes2016,Krumholz2018b,Beniamini2020}), which have so 
+far been little explored in the context of Milky Way disc evolution
+but which are likely important in understanding the detailed correlations
+of elemental abundances \citep{Ting2021}.  As multi-element spectroscopic
+surveys grow even further in scope and precision, efficient and flexible
+theoretical models will be essential for extracting the lessons they
+have to teach about the origin of elements and the history of the Milky Way.

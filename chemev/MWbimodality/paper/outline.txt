@@ -1,0 +1,46 @@
+
+* The old metal-rich population 
+	- Static-disk models w/linear KS relation 
+		- Reproduced for O for tau_star as high as 2 Gyr 
+		- Reproduced for Fe for tau_star < 1-1.5 Gyr 
+	- Static-disk models w/non-linear KS relation 
+		- Same as the linear KS relation case, except effect is less 
+			pronounced for O; looks like tau_star larger than 2 shouldn't have 
+			an old metal-rich population in O 
+	- Inside-out models w/non-linear KS relation 
+		- Not reproduced for Fe in any model 
+		- Reproduced for O in models w/tau_star shorter than 1.5 Gyr 
+	- Inside-out models w/linear KS relation 
+		- Same as with the non-linear KS relation 
+	- Easier to reproduce old metal-rich population in static disk models due 
+		to ongoing star formation producing more young stars in the solar 
+		neighborhood 
+	- Bottom-line result: models suggest <2 Gyr star formation timescale at 
+		early epochs and small radii within Milky Way disk, or else this 
+		observed result is not reproduced 
+
+* The young alpha-rich population (or young Fe-poor population) 
+	- Seen in all models 
+	- Result of deficit in number of SN Ia events at large radii, leading to 
+		intrinsically iron poor ISM 
+	- Note that our interpretation is not mutually exclusive with that of 
+		Silva-Aguirre et al. (2018) - they're explanation stems from stellar 
+		interactions, which are not captured in our models. Absolutely 
+		possible that both are true for portions of the population 
+
+* z-dependent MDF (3-panel) (could do with age as well) 
+
+* Bimodality in [O/Fe] at constant [Fe/H] 
+	- Static disk models w/linear KS relation 
+		- Seen in all models 
+		- Becomes more pronounced with shorter tau_star 
+	- Static disk models w/non-linear KS relation 
+		- Struggle to reproduce this 
+		- Subtle yet noticeable in some metallicity bins 
+			- More apparent for linear-then-exponential SFHs 
+	- Inside-out models w/non-linear KS relation 
+		- Struggle to reproduce this 
+	- Inside-out models w/linear KS relation 
+		- Reproduce this result well for tau_star = 0.5 and 1 Gyr 
+
+

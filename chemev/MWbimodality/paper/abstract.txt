@@ -1,0 +1,24 @@
+We investigate the impact of stellar migration on galactic chemical evolution 
+models, considering a handful of assumptions for the star formation history 
+and time-dependence of radial migration based on a zoom-in, hydrodynamical 
+simulation of galaxy evolution. When stars migrate with a smooth, continuous 
+time dependence, the type Ia supernova rate exhibits significant variability in 
+our models. We demonstrate that this is a means with which young, super-solar 
+[$\alpha$/Fe] in the solar neighbourhood can arise naturally out of inside-out 
+Galaxy growth with stellar migration. We find 
+that the observed age-[$\alpha$/Fe] relation is well-fit by an inside-out star 
+formation history, while the age-[$\alpha$/H] and age-[Fe/H] relations are 
+well-fit by a late starburst model; no one model investigated here fits both 
+simultaneously. Our model successfully reproduces the broad nature of the 
+[$\alpha$/Fe] distribution at fixed [Fe/H] in a given Galactic region; however, 
+an overprediction of the frequency of intermediate [$\alpha$/Fe] stars prevents 
+it from explaining the observed results in detail. This suggests 
+that inside-out galaxy growth combined with stellar migration, even with a late 
+starburst, is not conducive to forming the infamous bimodality as it is 
+observed. We postulate that more dramatic evolutionary scenarios (e.g. a 
+two-infall model) may be necessary to describe the observed results. In 
+conducting this analysis, we developed and made use of newly released features 
+in the Versatile Integrator for Chemical Evolution (VICE) 
+which are built to handle these models under a wide variety of 
+assumptions. VICE is publicly available 
+at https://pypi.org/project/vice. 

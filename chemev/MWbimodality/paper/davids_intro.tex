@@ -1,0 +1,194 @@
+\newcommand{\afe}{[\alpha/{\rm Fe}]}
+\newcommand{\ofe}{[{\rm O}/{\rm Fe}]}
+\newcommand{\feh}{[{\rm Fe}/{\rm H}]}
+\newcommand{\oh}{[{\rm O}/{\rm H}]}
+\newcommand{\h277}{{\tt h277}}
+
+The large dispersion in the age-metallicity relation of local disk stars and
+the high metallicity of the sun relative to nearby stars of similar age
+provided early evidence that stars in the Milky Way disc can migrate many
+kpc from the Galactocentric radius at which they formed
+\citep{Edvardsson1993,Wielen1996}.
+Interest in radial migration as an important element of galactic chemical
+evolution (GCE) grew further with the demonstration by \cite{Sellwood2002}
+that resonant interactions with transient spiral perturbations could change
+stars' orbital guiding center radii without increasing orbital eccentricity,
+and with subsequent studies showing ubiquitous radial migration in 
+numerical simulations of disc galaxies (e.g., 
+\citealt{Roskar2008a,Roskar2008b,Loebman2011,Bird2012,Bird2013,Grand2012,
+Kubryk2013}).
+% This list could get much longer if we went past 2013, but given the
+% historical nature of the paragraph I think it is reasonable to focus
+% on the earliest examples.  However, my list there might still be incomplete.
+\cite{Schoenrich2009a,Schoenrich2009b} developed the first detailed GCE
+models incorporating radial migration, describing it with a flexible
+dynamically motivated parameterization constrained simultaneously with
+other GCE parameters when fitting to observations.  A number of subsequent
+studies have incorporated radial migration using similar analytic or
+parameterized models (e.g.,
+\citealt{Bilitewski2012,Hayden2015,Kubryk2015a,Kubryk2015b,Feuillet2018,
+Sharma2020}), and
+\cite{Frankel2018,Frankel2019,Frankel2020} have used stellar abundances,
+ages, and kinematics to constrain radial migration empirically.
+
+In this paper we construct evolutionary models for the Milky Way disc that
+combine a classic multi-ring GCE approach (e.g.,
+\citealt{Matteucci1989,Wyse1989,Prantzos1995})
+with the stellar migration predicted by a hydrodynamic simulation of disc
+galaxy formation from cosmological initial conditions.  Our methodology
+is similar to that of \cite{Minchev2013,Minchev2014} and has similar 
+motivations.  The use of a cosmological simulation that agrees with
+many observed properties of the Milky Way assures that our stellar 
+migration scenario is physically plausible, including any correlations 
+of migration in time and space that might be difficult to capture in a
+parameterized description.  Most hydrodynamic cosmological simulations include
+metal enrichment, and direct comparison between the predicted and observed
+abundance patterns can provide valuable insights into the accuracy of the
+simulations and the possible origin of the observed element structure (e.g., 
+\citealt{Mackereth2017,Grand2018,Buck2020,Vincenzo2020}.
+% The reference list for this sentence is potentially semi-infinite.
+% As a motivated way to make it finite, I restricted to cases using fully
+% cosmological initial conditions (zoom in or large box) that go into some
+% detail with, e.g., distributions of abundance ratios in stars, not just
+% overall metallicity and gradients.  Within these restrictions there still
+% may be multiple papers to add.
+However, many ingredients of the simulations' enrichment recipes are uncertain,
+and metal transport and mixing within the interstellar medium (ISM) are
+sensitive to numerical resolution and to details of the hydrodynamics and
+star formation algorithms.  Our hybrid approach allows us to consider many
+choices for uncertain GCE parameters, tuning them to reproduce some 
+observations while leaving others as independent empirical tests.
+This flexible approach also allows us to isolate the impact of different
+GCE model ingredients and to zero-in on the ways that stellar migration
+influences the predicted chemical evolution.  
+The hybrid model is not fully self-consistent, since it adopts its own 
+accretion, star formation, and outflow histories rather than the simulation's.
+In this paper, furthermore, we use a single cosmological simulation and 
+therefore a single realization of migration history, though one could
+apply the same method to multiple simulations to predict a statistical
+distribution of outcomes.
+
+We focus our predictions and observational comparisons on oxygen, a 
+representative $\alpha$-element produced almost exclusively by core
+collapse supernovae (CCSN), and iron, which at solar abundances has
+roughly equal contributions from CCSN and Type Ia supernovae (SNIa).
+We will consider other elements with other nucleosynthetic sources in
+future work, but observed trends of $\feh$ and 
+$\afe$\footnote{We follow standard
+notation $[{\rm X}/{\rm Y}] = \log_{10}[(X/Y)\div (X/Y)_\odot]$.  Different
+observational studies use different $\alpha$-elements (or combinations
+thereof) in abundance ratios, and we will generally use $\ofe$ and $\afe$
+synonymously.} 
+in the Milky Way disk already display a number of striking features, including:
+\begin{itemize}
+\item At sub-solar $\feh$, the distribution of $\afe$ is bimodal, with a
+  ``high-$\alpha$'' sequence and ``low-$\alpha$ sequence'' typically
+  separated by 0.1-0.4 dex (e.g., 
+  \citealt{Furhmann1998,Bensby2003,Adibekyan2012,Vincenzo2021}).
+\item The location of the high-$\alpha$ and low-$\alpha$ sequences is nearly
+  independent of position in the disc, but the relative number of stars
+  in these sequences and the distribution of those stars in $\feh$ changes
+  systematically with Galactocentric radius $\Rgal$ and midplane distance $|z|$
+  \citep{Nidever2014,Hayden2015,Weinberg2019}.
+\item In addition to an overall radial gradient, the shape of the $\feh$
+  distribution for stars with $|z|<0.5\kpc$ changes from negatively skewed
+  in the inner disc to roughly symmetric at the solar neighbourhood to
+  positively skewed in the outer disc \citep{Hayden2015,Weinberg2019}.
+\item With increasing $|z|$, $\feh$ distributions become more symmetric
+  and less dependent on $\Rgal$ \citep{Hayden2015}.
+\item The age-metallicity relation (AMR) is broad, with a wide range of
+  $\feh$ at fixed stellar age and vice versa, in the solar neighbourhood
+  \citep{Edvardsson1993} and beyond \citep{Feuillet2019}.  The trend of
+  median age with $\feh$ or $\oh$ is non-monotonic, with solar metallicity
+  stars being younger on average than both metal-poor {\it and} metal-rich
+  stars \citep{Feuillet2018,Feuillet2019}.
+\item The trend of stellar age with $\afe$ is much tighter than the trend
+  with $\feh$, becoming broad near $\afe \approx 0$ 
+  \citep{Feuillet2018,Feuillet2019}.  Although most stars with $\afe \geq 0.1$
+  are old, observations have revealed a significant population of
+  $\alpha$-rich stars that appear to be young or intermediate age
+  \citep{Chiappini2015,Martig2015,Warfield2021}.  Some of these stars
+  may have been ``rejuvenated'' by stellar mergers or mass transfer 
+  \citep{Izzard2018}, and the question of what fraction are truly much
+  younger than the median age-$\afe$ relation remains open \citep{Hekker2019}.
+\end{itemize}
+Many of these results have emerged most clearly from the Apache Point 
+Observatory Galactic Evolution Experiment (APOGEE; \citealt{Majewski2017})
+of the Sloan Digital Sky Survey (SDSS-III, \citealt{Eisenstein2011};
+SDSS-IV, \citealt{Blanton2017}), sometimes confirming and extending trends
+suggested by earlier observational data.  We will assess the degree to 
+which models with fairly conventional GCE assumptions coupled to 
+simulation-based radial and vertical migration of stars can explain, or
+fail to explain, these observations.
+
+Relative to \cite{Minchev2013,Minchev2014}, our base GCE model has many 
+differences of detail, the most important being our inclusion of outflows,
+which is in turn connected to our different choice of oxygen and iron yields.
+Our simulation, the galaxy \h277\ from the \cite{Christensen2012} suite
+evolved with the N-body+SPH code {\sc GASOLINE}	\citep{Wadsley2004}, is
+fully cosmological, while the simulation used by \cite{Minchev2013,Minchev2014}
+has a more idealized geometry with merger and accretion history drawn from
+a larger cosmological volume \citep{Martig2012}.  
+The \cite{Minchev2013,Minchev2014} simulation has a fairly strong, long-lived
+bar while \h277\ has only a weak, transient bar, and this difference could
+have some impact on radial migration.  Another methodological difference, 
+which turns out to be important for some observables, is that we track 
+enrichment from stellar populations as they migrate (see \S\ref{sec:2p2} below),
+while \cite{Minchev2013,Minchev2014} assume that populations enrich only
+the radial zone in which they were born.
+
+Previous studies have shown that \h277\ and other disc galaxies evolved with
+similar physics have realistic rotation curves 
+\citep{Governato2012,Christensen2014},
+stellar mass \citep{Munshi2013}, metallicity \citep{Christensen2016},
+dwarf satellite populations \citep{Zolotov2012,Brooks2014}, and 
+HI properties \citep{Brooks2017}.  
+% List cribbed from Jon's paper; I didn't re-examine.
+Most directly relevant to this study,
+\cite{Bird2020} show that \h277\ accurately reproduces the observed relation
+between stellar age and vertical velocity dispersion $\sigma_z$.
+This relation arises in part because of ``upside down'' disc formation in
+which the star-forming gas layer becomes thinner with time
+\citep{Bournaud2009,Forbes2012,Bird2013} and in part because stars are
+dynamically heated over time.
+\cite{Schoenrich2009a} distinguish between the radial mixing caused by
+``blurring'' of stars on moderately eccentric orbits and ``churning'' that
+changes the guiding center radii of their orbits.  Both phenomena occur in
+our simulation and we do not attempt to separate them, using the terms
+``radial migration'' or ``radial mixing'' to cover their combined effect.
+In addition to radial migration, we use the \h277\ predictions for the
+vertical locations (i.e., midplane distances $|z|$) of stars at the 
+present day.  Our GCE model assumes that the gas disk is vertically well
+mixed, so a stellar population's birth abundances depend only on $\Rgal$
+and time.  Vertical gradients arise because older populations have
+larger $\sigma_z$ and thus larger average $|z|$, and also because radial
+migration is coupled to changes in $\sigma_z$ \citep{Solway2012}.
+%% JON: OTHER PAPERS WE SHOULD CITE HERE?
+The good match to the observed age-velocity relation found by \cite{Bird2020}
+allows us to use vertical trends of abundance distributions as a further
+test of our chemical evolution model.
+
+We describe the \h277\ simulation further in \S\ref{sec:2p1} and our
+implementation of radial migration in \S\ref{sec:2p2}.
+We describe the base GCE model in \S\S\ref{sec:2p3}-\ref{sec:2p6}.
+Distinctive features of our GCE model are the use of radially dependent
+mass outflow loading $\eta(\Rgal)$ to tune the metallicity gradient,
+our implementation of a star formation law motivated by spatially resolved
+studies of nearby galaxies and high-redshift studies of its time dependence,
+and our use of mean radial age trends of disc galaxies to set the radial
+dependence of the star formation history (SFH).  Our fiducial model adopts
+a smooth SFH with an ``inside out'' radial trend in which star formation
+proceeds more rapidly in the inner Galaxy.  Motivated by the observational
+analysis of \cite{Isern2019} and \cite{Mor2019}, we also consider models with
+a burst of star formation centred $\approx 2\Gyr$ in the past, similar to 
+the one-zone models investigated by \cite{Johnson2020}.  Other authors have
+suggested multiple bursts in the Milky Way's SFH 
+(e.g., \citealt{Lian2020a,Lian2020b,Sysoliatina2021}, OTHERS?),
+perhaps triggered by satellite interactions, while others have advocated
+a two-phase star formation history to explain the $\afe$ dichotomy
+(e.g., \citealt{Chiappini1997,Haywood2016,Spitoni2019,Buck2020,Khoperskov2021}).
+% I don't think this is the place to reference every paper using the 2-infall
+% model, but we could add one or two more references if they clearly belong
+% with this sentence, especially if they bring in a distinct group.
+We do not investigate these more complex SFHs here, but we plan to do so
+in future work.

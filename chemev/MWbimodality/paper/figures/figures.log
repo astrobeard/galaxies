@@ -1,0 +1,582 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.13)  11 NOV 2020 18:15
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**figures.tex
+(./figures.tex
+LaTeX2e <2017/01/01> patch level 3
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/10/09 v1.0u Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2015/11/12 v1.18 mathematical typesetting tools
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count89
+\calc@Bcount=\count90
+\calc@Adimen=\dimen105
+\calc@Bdimen=\dimen106
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count91
+\calc@Cskip=\skip45
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen107
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen108
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count92
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count93
+\leftroot@=\count94
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count95
+\DOTSCASE@=\count96
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen109
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
+\dotsspace@=\muskip10
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
+\tag@help=\toks16
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
+\andhelp@=\toks17
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks18
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count104
+\l_MT_multwidth_dim=\dimen116
+\origjot=\skip49
+\l_MT_shortvdotswithinadjustabove_dim=\dimen117
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen118
+\l_MT_above_intertext_sep=\dimen119
+\l_MT_below_intertext_sep=\dimen120
+\l_MT_above_shortintertext_sep=\dimen121
+\l_MT_below_shortintertext_sep=\dimen122
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count105
+\Gm@cntv=\count106
+\c@Gm@tempcnt=\count107
+\Gm@bindingoffset=\dimen123
+\Gm@wd@mp=\dimen124
+\Gm@odd@mp=\dimen125
+\Gm@even@mp=\dimen126
+\Gm@layoutwidth=\dimen127
+\Gm@layoutheight=\dimen128
+\Gm@layouthoffset=\dimen129
+\Gm@layoutvoffset=\dimen130
+\Gm@dimlist=\toks20
+)
+(./figures.aux)
+\openout1 = `figures.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count108
+\scratchdimen=\dimen131
+\scratchbox=\box28
+\nofMPsegments=\count109
+\nofMParguments=\count110
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count111
+\MPscratchDim=\dimen132
+\MPnumerator=\count112
+\makeMPintoPDFobject=\count113
+\everyMPtoPDFconversion=\toks22
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/migration.pdf
+, id=1, 505.89pt x 505.89pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/migratio
+n.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/migration
+.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/migration.pdf used on input line 18.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/h277/birth_fi
+nal_radii_pdfs.pdf, id=2, 722.7pt x 361.35pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/h277/bir
+th_final_radii_pdfs.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/h277/birt
+h_final_radii_pdfs.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/h277/birth_final_radii_pdfs.pdf used on input line 31.
+(pdftex.def)             Requested size: 361.3491pt x 180.67456pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/tau_sfh.pdf, 
+id=3, 505.89pt x 505.89pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/tau_sfh.
+pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/tau_sfh.p
+df>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/tau_sfh.pdf used on input line 43.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/evol/2Gyr_tim
+edep/diffusion.pdf, id=4, 1445.4pt x 1084.05pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/evol/2Gy
+r_timedep/diffusion.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/evol/2Gyr
+_timedep/diffusion.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/evol/2Gyr_timedep/diffusion.pdf used on input line 53.
+(pdftex.def)             Requested size: 462.53746pt x 346.90309pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/sfe/2Gyr_time
+dep/diffusion.pdf, id=5, 1445.4pt x 361.35pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/sfe/2Gyr
+_timedep/diffusion.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/sfe/2Gyr_
+timedep/diffusion.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/sfe/2Gyr_timedep/diffusion.pdf used on input line 65.
+(pdftex.def)             Requested size: 462.53746pt x 115.63435pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/eta.pdf, id=6
+, 505.89pt x 505.89pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/eta.pdf 
+Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/eta.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/eta.pdf used on input line 75.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/surface_densi
+ty_gradient_timedep.pdf, id=7, 505.89pt x 505.89pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/surface_
+density_gradient_timedep.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/surface_d
+ensity_gradient_timedep.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/surface_density_gradient_timedep.pdf used on input line 84.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/metallicity_g
+radient/2Gyr_timedep/diffusion.pdf, id=8, 1445.4pt x 722.7pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/metallic
+ity_gradient/2Gyr_timedep/diffusion.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/metallici
+ty_gradient/2Gyr_timedep/diffusion.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/metallicity_gradient/2Gyr_timedep/diffusion.pdf used on input line 9
+5.
+(pdftex.def)             Requested size: 462.53746pt x 231.26872pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/tracks/diffus
+ion_2Gyr_timedep.pdf, id=9, 1011.78pt x 505.89pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/tracks/d
+iffusion_2Gyr_timedep.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/tracks/di
+ffusion_2Gyr_timedep.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/tracks/diffusion_2Gyr_timedep.pdf used on input line 110.
+(pdftex.def)             Requested size: 455.2968pt x 227.64839pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/age_ofe/2Gyr_
+timedep/Rgal_7_9/insideout.pdf, id=10, 722.7pt x 722.7pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/age_ofe/
+2Gyr_timedep/Rgal_7_9/insideout.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/age_ofe/2
+Gyr_timedep/Rgal_7_9/insideout.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/age_ofe/2Gyr_timedep/Rgal_7_9/insideout.pdf used on input line 128.
+(pdftex.def)             Requested size: 361.3491pt x 361.3491pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/age_ofe/2Gyr_
+timedep/Rgal_7_9/diffusion.pdf, id=11, 722.7pt x 722.7pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/age_ofe/
+2Gyr_timedep/Rgal_7_9/diffusion.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/age_ofe/2
+Gyr_timedep/Rgal_7_9/diffusion.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/age_ofe/2Gyr_timedep/Rgal_7_9/diffusion.pdf used on input line 149.
+(pdftex.def)             Requested size: 361.3491pt x 361.3491pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_time
+dep/diffusion/insideout_O_Fe.pdf, id=12, 1445.4pt x 1084.05pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr
+_timedep/diffusion/insideout_O_Fe.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_
+timedep/diffusion/insideout_O_Fe.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/amr/2Gyr_timedep/diffusion/insideout_O_Fe.pdf used on input line 161
+.
+(pdftex.def)             Requested size: 462.53746pt x 346.90309pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_time
+dep/diffusion_O.pdf, id=13, 1445.4pt x 1445.4pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr
+_timedep/diffusion_O.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_
+timedep/diffusion_O.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/amr/2Gyr_timedep/diffusion_O.pdf used on input line 182.
+(pdftex.def)             Requested size: 462.53746pt x 462.53746pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_time
+dep/diffusion_Fe.pdf, id=14, 1445.4pt x 1445.4pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr
+_timedep/diffusion_Fe.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_
+timedep/diffusion_Fe.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/amr/2Gyr_timedep/diffusion_Fe.pdf used on input line 198.
+(pdftex.def)             Requested size: 462.53746pt x 462.53746pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_time
+dep/diffusion/outerburst_O.pdf, id=15, 1445.4pt x 1084.05pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr
+_timedep/diffusion/outerburst_O.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_
+timedep/diffusion/outerburst_O.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/amr/2Gyr_timedep/diffusion/outerburst_O.pdf used on input line 206.
+(pdftex.def)             Requested size: 462.53746pt x 346.90309pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_time
+dep/diffusion/outerburst_Fe.pdf, id=16, 1445.4pt x 1084.05pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr
+_timedep/diffusion/outerburst_Fe.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_
+timedep/diffusion/outerburst_Fe.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/amr/2Gyr_timedep/diffusion/outerburst_Fe.pdf used on input line 215.
+
+(pdftex.def)             Requested size: 462.53746pt x 346.90309pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/mdf_3panel/2G
+yr_timedep/diffusion/insideout.pdf, id=17, 505.89pt x 722.7pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/mdf_3pan
+el/2Gyr_timedep/diffusion/insideout.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/mdf_3pane
+l/2Gyr_timedep/diffusion/insideout.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/mdf_3panel/2Gyr_timedep/diffusion/insideout.pdf used on input line 2
+24.
+(pdftex.def)             Requested size: 202.3524pt x 289.07487pt.
+
+</Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/mdf_3panel/2G
+yr_timedep/diffusion/lateburst.pdf, id=18, 505.89pt x 722.7pt>
+File: /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/mdf_3pan
+el/2Gyr_timedep/diffusion/lateburst.pdf Graphic file (type pdf)
+
+<use /Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/mdf_3pane
+l/2Gyr_timedep/diffusion/lateburst.pdf>
+Package pdftex.def Info: /Users/astrobeard/Work/Research/VICErepos/VICE/migrati
+on/figures/mdf_3panel/2Gyr_timedep/diffusion/lateburst.pdf used on input line 2
+36.
+(pdftex.def)             Requested size: 202.3524pt x 289.07487pt.
+ [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </Use
+rs/astrobeard/Work/Research/VICErepos/VICE/migration/figures/migration.pdf> </U
+sers/astrobeard/Work/Research/VICErepos/VICE/migration/figures/h277/birth_final
+_radii_pdfs.pdf
+
+pdfTeX warning: pdflatex (file /Users/astrobeard/Work/Research/VICErepos/VICE/m
+igration/figures/h277/birth_final_radii_pdfs.pdf): PDF inclusion: multiple pdfs
+ with page group included in a single page
+>] [2 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/tau_sfh
+.pdf>] [3 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/evo
+l/2Gyr_timedep/diffusion.pdf> </Users/astrobeard/Work/Research/VICErepos/VICE/m
+igration/figures/sfe/2Gyr_timedep/diffusion.pdf
+
+pdfTeX warning: pdflatex (file /Users/astrobeard/Work/Research/VICErepos/VICE/m
+igration/figures/sfe/2Gyr_timedep/diffusion.pdf): PDF inclusion: multiple pdfs 
+with page group included in a single page
+>] [4 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/eta.pdf
+> </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/surface_den
+sity_gradient_timedep.pdf
+
+pdfTeX warning: pdflatex (file /Users/astrobeard/Work/Research/VICErepos/VICE/m
+igration/figures/surface_density_gradient_timedep.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+>] [5 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/metalli
+city_gradient/2Gyr_timedep/diffusion.pdf> </Users/astrobeard/Work/Research/VICE
+repos/VICE/migration/figures/tracks/diffusion_2Gyr_timedep.pdf
+
+pdfTeX warning: pdflatex (file /Users/astrobeard/Work/Research/VICErepos/VICE/m
+igration/figures/tracks/diffusion_2Gyr_timedep.pdf): PDF inclusion: multiple pd
+fs with page group included in a single page
+>] [6 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/age_ofe
+/2Gyr_timedep/Rgal_7_9/insideout.pdf>] [7 </Users/astrobeard/Work/Research/VICE
+repos/VICE/migration/figures/age_ofe/2Gyr_timedep/Rgal_7_9/diffusion.pdf>]
+[8 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_t
+imedep/diffusion/insideout_O_Fe.pdf>] [9 </Users/astrobeard/Work/Research/VICEr
+epos/VICE/migration/figures/amr/2Gyr_timedep/diffusion_O.pdf>] [10 </Users/astr
+obeard/Work/Research/VICErepos/VICE/migration/figures/amr/2Gyr_timedep/diffusio
+n_Fe.pdf>] [11 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figure
+s/amr/2Gyr_timedep/diffusion/outerburst_O.pdf>] [12 </Users/astrobeard/Work/Res
+earch/VICErepos/VICE/migration/figures/amr/2Gyr_timedep/diffusion/outerburst_Fe
+.pdf>] [13 </Users/astrobeard/Work/Research/VICErepos/VICE/migration/figures/md
+f_3panel/2Gyr_timedep/diffusion/insideout.pdf>] [14 </Users/astrobeard/Work/Res
+earch/VICErepos/VICE/migration/figures/mdf_3panel/2Gyr_timedep/diffusion/latebu
+rst.pdf>] (./figures.aux) ) 
+Here is how much of TeX's memory you used:
+ 3531 strings out of 493013
+ 57543 string characters out of 6133343
+ 132301 words of memory out of 5000000
+ 7001 multiletter control sequences out of 15000+600000
+ 5815 words of font info for 24 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 39i,6n,35p,1079b,248s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2016/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr17.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb>
+Output written on figures.pdf (14 pages, 5993678 bytes).
+PDF statistics:
+ 1401 PDF objects out of 1440 (max. 8388607)
+ 420 compressed objects within 5 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+
