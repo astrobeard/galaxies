@@ -38,19 +38,48 @@ Substantial changes to the revised manuscript are marked in red.
 	here.
 } 
 \par 
-Having strived for transparency, we are glad that Dr. Mackereth believes that 
-we achieved this goal and that it improves the quality of the paper! 
-Although novel predictions are always interesting, we believe that one of the 
-most important results from this paper is that some observables can be 
-explained by ongoing star formation combined with stellar migration, but that 
-simultaneously fitting all of them is extremely challenging. 
-None of the models we present are able to achieve this goal despite how well 
-one model may agree with a particular observable. 
-Largely because we find that different observables from the same dataset favor 
-different models, an important lesson to learn from this paper is that we as a 
-community need to be careful to compare our models to as many observables in as 
-many Galactic regions as possible. 
-This was our motivation behind emphasizing the comparison with data. 
+We are pleased that the referee appreciates the clarity and transparency of
+the paper. 
+The comment that we focus on comparison to existing data rather than 
+predictions for future data is a fair one. 
+There are several reasons for this focus: 
+(a) many of the observational constraints we compare to are relatively recent 
+results from APOGEE, and no previous models have been compared to them 
+systematically as a set; 
+(b) our modeling framework still involves multiple parameters/choices, most 
+notably the smooth vs. bursty star formation history, and many predictions 
+depend on those choices; 
+(c) as stated in the paper, within the range of parameters we have 
+investigated, some of the existing observations remain difficult to fit, 
+especially the bimodality of [alpha/Fe]. 
+\par 
+We have added sentences after the numbered list of conclusions in Section 4 
+to say that the predictive power of the models can be extended by including 
+elements with large AGB contributions, since these have different timescales 
+and metallicity dependent yields. 
+These sentences are a prospect rather than an actual prediction, but they are 
+a direction we are pursuing, limited mainly by the fact that we don't consider 
+yield predictions reliable enough to be taken at face value without empirical 
+calibration. 
+\par 
+Our other main changes to the paper, discussed further below, are 
+the addition of a table of model parameters, greater clarity on the 
+choice of analogues for migration calculations, and further explanation 
+of the SNIa rate fluctuations as a potential explanation for young 
+alpha-rich stars. 
+% Having strived for transparency, we are glad that Dr. Mackereth believes that 
+% we achieved this goal and that it improves the quality of the paper! 
+% Although novel predictions are always interesting, we believe that one of the 
+% most important results from this paper is that some observables can be 
+% explained by ongoing star formation combined with stellar migration, but that 
+% simultaneously fitting all of them is extremely challenging. 
+% None of the models we present are able to achieve this goal despite how well 
+% one model may agree with a particular observable. 
+% Largely because we find that different observables from the same dataset favor 
+% different models, an important lesson to learn from this paper is that we as a 
+% community need to be careful to compare our models to as many observables in as 
+% many Galactic regions as possible. 
+% This was our motivation behind emphasizing the comparison with data. 
 
 \par\null\par 
 \breakline 
@@ -95,8 +124,12 @@ with analogues that formed as far in as R = 5 kpc, instead finding star
 particles that formed at~$\sim$11 kpc if the search widens that far without 
 finding another analogue first. 
 We have added a few sentences to this effect to paragraph 4 of~\S~2.2 so 
-that uninitiated readers can be assured that our models assign outer rather 
-than inner disc star particles to these outer disc stellar populations. 
+that readers can be assured that our models assign outer rather than inner 
+disc star particles to these outer disc stellar populations. 
+The fact that there are occasionally analogue separations of 2 or more kpc is 
+the reason why we assign final particle radii as~$R_\text{final} = 
+R_\text{initial} + \Delta R_\text{analogue}$ as opposed 
+to~$R_\text{final} = R_\text{final,analogue}$. 
 \par 
 This issue is of little importance to the conclusions presented in this paper. 
 In our exploratory work, we originally used an algorithm in which stellar 
@@ -131,12 +164,9 @@ This point is actually closely connected to the previous question; the larger
 search annuli at large~$R$ help ensure that the stellar populations born there 
 are able to find an analogue born at a similar radius without having to extend 
 the search too far inward. 
-A change to our model such that stars stay at their birth radius if they do not 
-find an analogue within~$R~\pm$~500 pc and~$T~\pm$~500 Myr makes similar 
-predictions (see previous). 
-Particularly at large~$R$, this is a substantial change to the dynamics of the 
-stellar populations such that the search may as well have not even been 
-conducted for some of them, and our conclusions are still unaffected. 
+Even if we make a large change to our model such that stars stay at their 
+birth radius if they do not find an analogue within~$R~\pm$~500 pc 
+and~$T~\pm$~500 Myr, our conclusions are still unaffected. 
 We hope that the aforementioned addition of text to paragraph 4 of~\S~2.2 
 helps mitigate this concern. 
 There may be interesting regions of parameter space where the model predictions 
@@ -195,6 +225,8 @@ near~$\tau_\text{rise}$, but in detail the time of the peak increases with
 increasing~$\tau_\text{sfh}$ (i.e. with increasing~$R_\text{gal}$). 
 When~$\tau_\text{sfh}$ is as high as~$\sim$30 Gyr, the peak in star formation 
 instead occurs~$\sim$7.5 - 8 Gyr ago. 
+As discussed in the text, our choice of~$\tau_\text{sfh}(R)$ is motivated by 
+observed radial age gradients of disc galaxies comparable to the Milky Way. 
 Whether or not this is accurate for the Milky Way, it at least to some extent 
 reflects the radial growth of the Galaxy. 
 We have added a couple of sentences to the discussion of equation 10 in~\S~2.5 
@@ -268,14 +300,14 @@ We have added the relevant statements to the end of paragraph 5 of~\S~3.4.
 	may make differences here too, I think?
 } 
 \par 
-This is an excellent point! 
+This is an excellent point. 
 We have added a reference to the metallicity map published in Bovy et al. 
 (2019) to paragraph 3 of~\S~3.2. 
 However, these models are generally independent of the mass normalization - it 
 matters in determining how far up the~$\Sigma_\text{gas}-\dot{\Sigma}_\star$ 
 relation our models go, but this has only a small effect on chemistry. 
 For this reason, we are skeptical that changing the surface density profile 
-would significantly impact the MDFs, but we have not ran models with different 
+would significantly impact the MDFs, but we have not run models with different 
 choices for the surface density gradient, so we cannot say for certain. 
 We refrain from mentioning anything about surface density in our additions 
 to the text. 
@@ -293,7 +325,7 @@ to the text.
 	than the SNIa timescale, right?) 
 } 
 \par 
-We thank Dr. Mackereth for pointing out that this is confusing. 
+We have expanded and clarified the text on this point. 
 It is true that at some annuli radial migration is efficient and mixes stars 
 on timescales shorter than or comparable to the SN Ia timescale, but that's 
 only one piece of this puzzle. 
@@ -358,19 +390,14 @@ distinction a little clearer.
 	achieved by a double burst SFH? 
 } 
 \par 
-We thank Dr. Mackereth for letting us know that this explanation is confusing. 
 In general, the inside-out model overpredicts ages for solar and sub-solar 
 metallicity stars at~$R = 5 - 7$ kpc, an issue which is mitigated by the 
 late-burst model. 
 In the outer Galaxy, the late-burst model better reproduces the C-shaped nature 
 of the AMR as observed by Feuillet et al. (2019). 
-Although there appears to be a difference in normalization at large~$R$ in the 
-late-burst model, this could be due to a number of minor details: a 
-mis-calibration of our yields or the mass-loading factor, slight differences in 
-the time-dependence of the burst as a function of radius, etc. 
 We have revised our discussion in~\S~3.5 to address this. 
-Perhaps this difference is shown more clearly in the age-[O/H] relation, which 
-is unaffected by SN Ia enrichment; this is shown in Fig. 18. 
+Perhaps the difference is visualized more clearly in the age-[O/H] relation, 
+which is unaffected by SN Ia enrichment; this is shown in Fig. 18. 
 
 \par\null\par 
 \breakline 
@@ -382,8 +409,7 @@ is unaffected by SN Ia enrichment; this is shown in Fig. 18.
 	density (and may be of relevance to your discussion of that!). 
 } 
 \par 
-We thank Dr. Mackereth for pointing this out! 
-We have updated the draft to cite his 2018 paper. 
+We have updated the draft to cite the 2018 paper. 
 
 \par\null\par 
 \breakline 
@@ -413,7 +439,7 @@ We have added a sentence referencing this.
 	\end{itemize} 
 }
 \par 
-We thank Dr. Mackereth for catching these editing mistakes! 
+Good catch - fixed. 
 
 
 \end{document} 

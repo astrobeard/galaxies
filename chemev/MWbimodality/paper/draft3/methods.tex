@@ -297,8 +297,8 @@ It then randomly selects a star particle from this subsample to act as an
 This stellar population then adopts the {\color{red} present day midplane 
 distance~$z$ and the} change in orbital radius 
 $\Delta \rgal$ of its analogue, and moves from its birth radius to the 
-implied final radius at~$T$ = 13.2 Gyr with an assumed time dependence (see 
-below). 
+implied final radius and~$z$ at~$T$ = 13.2 Gyr with an assumed time dependence 
+(see below). 
 If no candidate analogues are found,~\vice~widens the search to~$T \pm$~500 Myr 
 and~$\rgal \pm$~500 pc. 
 If still no analogue is found, then it finds the star particle with the 
@@ -572,7 +572,7 @@ main sequence lifetime of the sun and the factor of 1.1 accounts for the
 post-main sequence lifetime. 
 \vice~includes AGB enrichment in all models; here we adopt the net yields 
 sampled on a table of stellar initial mass and metallicity from the FRUITY 
-database \citep{Cristallo2011}. 
+database~\citep{Cristallo2011, Cristallo2015}. 
 However, the AGB star yields of O and Fe are tiny compared to their 
 supernova yields, so they have negligible impact on the results presented in 
 this paper. 
@@ -714,7 +714,7 @@ They are defined as follows:
 	(see discussion below). 
 	As a result,~$\dot{\Sigma}_\star$ in the outer disc instead reaches its 
 	peak at lookback times of~$\sim$7 - 8 Gyr, qualitatively consistent with 
-	the radial growth of the Galaxy~\citep[e.g.][]{Bird2012, Bird2013}. 
+	the radial growth of disc galaxies~\citep{Bird2013, Bird2021, Frankel2019}. 
 	} 
 	% We discuss the choice of~$\tau_\text{sfh}$ below. 
 
@@ -773,7 +773,7 @@ recent data.
 More complex scenarios, such as multiple bursts induced by repeated satellite 
 passages~\citep[e.g.][]{Lian2020a, Lian2020b, RuizLara2020, Sysoliatina2021} or 
 the onset of star formation occurring later in the outer disc to better capture 
-the radial growth of the Galaxy~\citep[e.g.][]{Bird2012, Bird2013}, can be 
+the radial growth of the Galaxy~\citep[e.g.][]{Frankel2019}, can be 
 explored easily using~\vice, but we do not explore such models here. 
 } 
 % More complex scenarios with multiple bursts induced by repeated satellite 
@@ -1030,7 +1030,7 @@ $\Delta$\rgal & \ref{sec:methods:migration} & Change in orbital radius due to
 stellar migration; adopted from~\hsim~analogue star particle & N/A 
 \\ 
 $z$ & \ref{sec:methods:migration} & Present day distance to Galactic midplane; 
-adopted from~\hsim~analogue star particle & $-3 - +3$ kpc 
+adopted from~\hsim~analogue star particle & [$-3$, 3] kpc 
 \\ 
 $T_\text{max}$ & \ref{sec:methods:h277} & Time interval over which our models 
 are integrated & 13.2 Gyr 
@@ -1152,8 +1152,13 @@ The stellar gradient very nearly follows our target gradient (equation
 {\color{red} 
 Simply introducing scatter around the adopted trend, stellar migration has 
 not significantly altered the overall form of the gradient, as we assumed in 
-Appendix~\ref{sec:normalize_sfh}; we find this to also be true for our sample 
-of star particles from~\hsim. 
+Appendix~\ref{sec:normalize_sfh}. 
+We find this to also be true for our sample of star particles from~\hsim, 
+a result which is expected given the roughly symmetric shapes of the 
+histograms in the top row of Fig.~\ref{fig:h277_decomposition} and consistent 
+with previous arguments that radial migration does not significantly alter the 
+vertical and radial structure of the disc~\citep[e.g.][]{Sellwood2014, 
+VeraCiro2014}. 
 }
 % Stellar migration has not altered the overall form of the gradient, simply 
 % introducing scatter around the adopted trend. 

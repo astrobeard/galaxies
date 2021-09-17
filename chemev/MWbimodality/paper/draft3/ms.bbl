@@ -205,6 +205,11 @@
   {Pfrommer} C.,  {Steinmetz} M.,   {Ness} M.,  2021, arXiv e-prints, \href
   {https://ui.adsabs.harvard.edu/abs/2021arXiv210303884B} {p. arXiv:2103.03884}
 
+\bibitem[\protect\citeauthoryear{{Buder} et~al.,}{{Buder}
+  et~al.}{2021}]{Buder2021}
+{Buder} S.,  et~al., 2021, \mn@doi [\mnras] {10.1093/mnras/stab1242}, \href
+  {https://ui.adsabs.harvard.edu/abs/2021MNRAS.506..150B} {506, 150}
+
 \bibitem[\protect\citeauthoryear{{Bundy} et~al.,}{{Bundy}
   et~al.}{2015}]{Bundy2015}
 {Bundy} K.,  et~al., 2015, \mn@doi [\apj] {10.1088/0004-637X/798/1/7}, \href
@@ -294,6 +299,12 @@
   et~al.}{2011}]{Cristallo2011}
 {Cristallo} S.,  et~al., 2011, \mn@doi [\apjs] {10.1088/0067-0049/197/2/17},
   \href {https://ui.adsabs.harvard.edu/abs/2011ApJS..197...17C} {197, 17}
+
+\bibitem[\protect\citeauthoryear{{Cristallo}, {Straniero}, {Piersanti}  \&
+  {Gobrecht}}{{Cristallo} et~al.}{2015}]{Cristallo2015}
+{Cristallo} S.,  {Straniero} O.,  {Piersanti} L.,   {Gobrecht} D.,  2015,
+  \mn@doi [\apjs] {10.1088/0067-0049/219/2/40}, \href
+  {https://ui.adsabs.harvard.edu/abs/2015ApJS..219...40C} {219, 40}
 
 \bibitem[\protect\citeauthoryear{{\noopsort{Delosreyes}{de los Reyes}} \&
   {Kennicutt}}{{\noopsort{Delosreyes}{de los Reyes}} \&
@@ -722,6 +733,11 @@ Hunter J.~D.,  2007, \mn@doi [Computing in Science \& Engineering]
 {Maoz} D.,  {Mannucci} F.,  2012, \mn@doi [\pasa] {10.1071/AS11052}, \href
   {https://ui.adsabs.harvard.edu/abs/2012PASA...29..447M} {29, 447}
 
+\bibitem[\protect\citeauthoryear{{Martell} et~al.,}{{Martell}
+  et~al.}{2017}]{Martell2017}
+{Martell} S.~L.,  et~al., 2017, \mn@doi [\mnras] {10.1093/mnras/stw2835}, \href
+  {https://ui.adsabs.harvard.edu/abs/2017MNRAS.465.3203M} {465, 3203}
+
 \bibitem[\protect\citeauthoryear{{Martig}, {Bournaud}, {Croton}, {Dekel}  \&
   {Teyssier}}{{Martig} et~al.}{2012}]{Martig2012}
 {Martig} M.,  {Bournaud} F.,  {Croton} D.~J.,  {Dekel} A.,   {Teyssier} R.,
@@ -922,6 +938,11 @@ Hunter J.~D.,  2007, \mn@doi [Computing in Science \& Engineering]
   {10.1111/j.1365-2966.2009.15365.x}, \href
   {https://ui.adsabs.harvard.edu/abs/2009MNRAS.399.1145S} {399, 1145}
 
+\bibitem[\protect\citeauthoryear{{Sellwood}}{{Sellwood}}{2014}]{Sellwood2014}
+{Sellwood} J.~A.,  2014, \mn@doi [Reviews of Modern Physics]
+  {10.1103/RevModPhys.86.1}, \href
+  {https://ui.adsabs.harvard.edu/abs/2014RvMP...86....1S} {86, 1}
+
 \bibitem[\protect\citeauthoryear{{Sellwood} \& {Binney}}{{Sellwood} \&
   {Binney}}{2002}]{Sellwood2002}
 {Sellwood} J.~A.,  {Binney} J.~J.,  2002, \mn@doi [\mnras]
@@ -1033,6 +1054,12 @@ Hunter J.~D.,  2007, \mn@doi [Computing in Science \& Engineering]
   {Springel} V.,  {G{\'o}mez} F.~A.,   {Marinacci} F.,  2020, \mn@doi [\mnras]
   {10.1093/mnras/staa754}, \href
   {https://ui.adsabs.harvard.edu/abs/2020MNRAS.494.4867V} {494, 4867}
+
+\bibitem[\protect\citeauthoryear{{Vera-Ciro}, {D'Onghia}, {Navarro}  \&
+  {Abadi}}{{Vera-Ciro} et~al.}{2014}]{VeraCiro2014}
+{Vera-Ciro} C.,  {D'Onghia} E.,  {Navarro} J.,   {Abadi} M.,  2014, \mn@doi
+  [\apj] {10.1088/0004-637X/794/2/173}, \href
+  {https://ui.adsabs.harvard.edu/abs/2014ApJ...794..173V} {794, 173}
 
 \bibitem[\protect\citeauthoryear{{Vincenzo} \& {Kobayashi}}{{Vincenzo} \&
   {Kobayashi}}{2020}]{Vincenzo2020}

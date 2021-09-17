@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.13)  29 JUL 2021 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.13)  1 SEP 2021 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,7 +6,7 @@ entering extended mode
 (./ms.tex
 LaTeX2e <2017/01/01> patch level 3
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
-(/Users/astrobeard/Library/texmf/tex/latex/base/mnras.cls
+(/Users/astrobeard/Library/texmf/tex/latex/mnras/mnras.cls
 Document Class: mnras 2015/05/22\ v3.0\ LaTeX2e MNRAS document class
 MNRAS document style v3.0, released 2015/05/22
 
@@ -979,7 +979,7 @@ Package pdftex.def Info: migration.pdf used on input line 361.
                                                   \fi \fi 
 l.482 \begin{subequations}\begin{align}
                                         <./migration.pdf>]
-<eta_tau_sfh.pdf, id=691, 505.89pt x 1011.78pt>
+<eta_tau_sfh.pdf, id=692, 505.89pt x 1011.78pt>
 File: eta_tau_sfh.pdf Graphic file (type pdf)
  <use eta_tau_sfh.pdf>
 Package pdftex.def Info: eta_tau_sfh.pdf used on input line 638.
@@ -996,7 +996,7 @@ ation.2}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.685 \par
-          ] <evol.pdf, id=755, 1445.4pt x 1084.05pt>
+          ] <evol.pdf, id=761, 1445.4pt x 1084.05pt>
 File: evol.pdf Graphic file (type pdf)
  <use evol.pdf>
 Package pdftex.def Info: evol.pdf used on input line 752.
@@ -1024,13 +1024,13 @@ has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.879 
-       <./evol.pdf>] <sfe.pdf, id=863, 505.89pt x 505.89pt>
+       <./evol.pdf>] <sfe.pdf, id=868, 505.89pt x 505.89pt>
 File: sfe.pdf Graphic file (type pdf)
  <use sfe.pdf>
 Package pdftex.def Info: sfe.pdf used on input line 883.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
 
-<surface_density_gradient.pdf, id=938, 505.89pt x 505.89pt>
+<surface_density_gradient.pdf, id=943, 505.89pt x 505.89pt>
 File: surface_density_gradient.pdf Graphic file (type pdf)
 
 <use surface_density_gradient.pdf>
@@ -1041,93 +1041,92 @@ Package pdftex.def Info: surface_density_gradient.pdf used on input line 1134.
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1170 \par
+l.1175 \par
             <./sfe.pdf>]
-Underfull \vbox (badness 1742) has occurred while \output is active []
-
-
-<ofe_feh_densitymap.pdf, id=999, 1806.75pt x 1084.05pt>
+<ofe_feh_densitymap.pdf, id=1010, 1806.75pt x 1084.05pt>
 File: ofe_feh_densitymap.pdf Graphic file (type pdf)
 
 <use ofe_feh_densitymap.pdf>
-Package pdftex.def Info: ofe_feh_densitymap.pdf used on input line 1187.
+Package pdftex.def Info: ofe_feh_densitymap.pdf used on input line 1192.
 (pdftex.def)             Requested size: 505.88655pt x 303.53194pt.
  [10pdfTeX warning (ext4): destination with the same identifier (name{table.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1253 \par
+l.1258 \par
            pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1253 \par
+l.1258 \par
             <./surface_density_gradient.pdf>]) (./comparison_observations.tex
-<tracks.pdf, id=1061, 1011.78pt x 505.89pt>
+<tracks.pdf, id=1074, 1011.78pt x 505.89pt>
 File: tracks.pdf Graphic file (type pdf)
  <use tracks.pdf>
 Package pdftex.def Info: tracks.pdf used on input line 11.
 (pdftex.def)             Requested size: 424.9447pt x 212.47234pt.
-
-<metallicity_gradient.pdf, id=1062, 1445.4pt x 722.7pt>
-File: metallicity_gradient.pdf Graphic file (type pdf)
-
-<use metallicity_gradient.pdf>
-Package pdftex.def Info: metallicity_gradient.pdf used on input line 31.
-(pdftex.def)             Requested size: 462.53746pt x 231.26872pt.
  [11pdfTeX warning (ext4): destination with the same identifier (name{figure.7}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.100 \subsection
-                 {Abundance Gradients} <./ofe_feh_densitymap.pdf>] [12pdfTeX wa
-rning (ext4): destination with the same identifier (name{figure.8}) has been al
-ready used, duplicate ignored
+l.83 
+      <./ofe_feh_densitymap.pdf>]
+<metallicity_gradient.pdf, id=1174, 1445.4pt x 722.7pt>
+File: metallicity_gradient.pdf Graphic file (type pdf)
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 \par
-          pdfTeX warning (ext4): destination with the same identifier (name{fig
-ure.9}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.140 \par
-           <./tracks.pdf> <./metallicity_gradient.pdf
-
-pdfTeX warning: pdflatex (file ./metallicity_gradient.pdf): PDF inclusion: mult
-iple pdfs with page group included in a single page
->] <mdf_3panel_fe.pdf, id=1238, 722.7pt x 722.7pt>
-File: mdf_3panel_fe.pdf Graphic file (type pdf)
- <use mdf_3panel_fe.pdf>
-Package pdftex.def Info: mdf_3panel_fe.pdf used on input line 211.
-(pdftex.def)             Requested size: 245.71474pt x 245.71474pt.
+<use metallicity_gradient.pdf>
+Package pdftex.def Info: metallicity_gradient.pdf used on input line 90.
+(pdftex.def)             Requested size: 462.53746pt x 231.26872pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-<mdf_3panel_o.pdf, id=1239, 722.7pt x 722.7pt>
-File: mdf_3panel_o.pdf Graphic file (type pdf)
- <use mdf_3panel_o.pdf>
-Package pdftex.def Info: mdf_3panel_o.pdf used on input line 229.
-(pdftex.def)             Requested size: 245.71474pt x 245.71474pt.
- [13pdfTeX warning (ext4): destination with the same identifier (name{figure.10
-}) has been already used, duplicate ignored
+ [12pdfTeX warning (ext4): destination with the same identifier (name{figure.8}
+) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.301 \par
-           <./mdf_3panel_fe.pdf>] <ofe_mdfs.pdf, id=1311, 1445.4pt x 867.24pt>
-File: ofe_mdfs.pdf Graphic file (type pdf)
+l.186 M
+       edian [O/Fe] values are close to solar at nearly all radii, rising at...
+ <./tracks.pdf>] <mdf_3panel_fe.pdf, id=1230, 722.7pt x 722.7pt>
+File: mdf_3panel_fe.pdf Graphic file (type pdf)
 
-<use ofe_mdfs.pdf>
+<use mdf_3panel_fe.pdf>
+Package pdftex.def Info: mdf_3panel_fe.pdf used on input line 211.
+(pdftex.def)             Requested size: 245.71474pt x 245.71474pt.
+ <mdf_3panel_o.pdf, id=1231, 722.7pt x 722.7pt>
+File: mdf_3panel_o.pdf Graphic file (type pdf)
+
+<use mdf_3panel_o.pdf>
+Package pdftex.def Info: mdf_3panel_o.pdf used on input line 229.
+(pdftex.def)             Requested size: 245.71474pt x 245.71474pt.
+ [13pdfTeX warning (ext4): destination with the same identifier (name{figure.9}
+) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.264 I
+       n detail, the MDFs are not as smooth at large~\rgal~as in the observa...
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
+as been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.264 I
+       n detail, the MDFs are not as smooth at large~\rgal~as in the observa...
+ <./metallicity_gradient.pdf> <./mdf_3panel_fe.pdf
+
+pdfTeX warning: pdflatex (file ./mdf_3panel_fe.pdf): PDF inclusion: multiple pd
+fs with page group included in a single page
+>] <ofe_mdfs.pdf, id=1321, 1445.4pt x 867.24pt>
+File: ofe_mdfs.pdf Graphic file (type pdf)
+ <use ofe_mdfs.pdf>
 Package pdftex.def Info: ofe_mdfs.pdf used on input line 366.
 (pdftex.def)             Requested size: 462.53746pt x 277.52248pt.
 
-<age_ofe_migration_comparison.pdf, id=1329, 722.7pt x 722.7pt>
+<age_ofe_migration_comparison.pdf, id=1339, 722.7pt x 722.7pt>
 File: age_ofe_migration_comparison.pdf Graphic file (type pdf)
 
 <use age_ofe_migration_comparison.pdf>
@@ -1135,7 +1134,7 @@ Package pdftex.def Info: age_ofe_migration_comparison.pdf used on input line 41
 2.
 (pdftex.def)             Requested size: 245.71474pt x 245.71474pt.
 
-<age_ofe_sfh_comparison.pdf, id=1330, 722.7pt x 722.7pt>
+<age_ofe_sfh_comparison.pdf, id=1340, 722.7pt x 722.7pt>
 File: age_ofe_sfh_comparison.pdf Graphic file (type pdf)
 
 <use age_ofe_sfh_comparison.pdf>
@@ -1158,8 +1157,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.533 
-       <./ofe_mdfs.pdf>]
+l.516 T
+       he simplest way to produce stronger [$\alpha$/Fe] bimodality in our m...
+ <./ofe_mdfs.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 534.
@@ -1172,27 +1172,36 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 534.
 
-<age_alpha_regions.pdf, id=1441, 1445.4pt x 1084.05pt>
+<age_alpha_regions.pdf, id=1450, 1445.4pt x 1084.05pt>
 File: age_alpha_regions.pdf Graphic file (type pdf)
 
 <use age_alpha_regions.pdf>
 Package pdftex.def Info: age_alpha_regions.pdf used on input line 540.
 (pdftex.def)             Requested size: 462.53746pt x 346.90309pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [16pdfTeX warning (ext4): destination with the same identifier (name{figure.13
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.647 \par
-           <./age_ofe_migration_comparison.pdf> <./age_ofe_sfh_comparison.pdf
+l.648 \par
+          \null\par <./age_ofe_migration_comparison.pdf> <./age_ofe_sfh_compari
+son.pdf
 
 pdfTeX warning: pdflatex (file ./age_ofe_sfh_comparison.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >]
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+<amr_static_o.pdf, id=1664, 722.7pt x 361.35pt>
+File: amr_static_o.pdf Graphic file (type pdf)
+ <use amr_static_o.pdf>
+Package pdftex.def Info: amr_static_o.pdf used on input line 698.
+(pdftex.def)             Requested size: 252.94878pt x 126.4744pt.
+
+Overfull \hbox (7.55727pt too wide) in paragraph at lines 698--704
+ [][] 
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1202,26 +1211,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.718 \par
+l.731 \par
            <./age_alpha_regions.pdf>]
-<amr_static_o.pdf, id=1881, 722.7pt x 361.35pt>
-File: amr_static_o.pdf Graphic file (type pdf)
- <use amr_static_o.pdf>
-Package pdftex.def Info: amr_static_o.pdf used on input line 797.
-(pdftex.def)             Requested size: 252.94878pt x 126.4744pt.
-
-Overfull \hbox (7.55727pt too wide) in paragraph at lines 797--803
- [][] 
- []
-
-<amr_solar_annulus.pdf, id=1884, 505.89pt x 867.24pt>
+<amr_solar_annulus.pdf, id=1896, 505.89pt x 867.24pt>
 File: amr_solar_annulus.pdf Graphic file (type pdf)
 
 <use amr_solar_annulus.pdf>
 Package pdftex.def Info: amr_solar_annulus.pdf used on input line 810.
-(pdftex.def)             Requested size: 222.59227pt x 381.58679pt.
+(pdftex.def)             Requested size: 227.64839pt x 390.2544pt.
 
-<amr_insideout_vs_lateburst_fe.pdf, id=1891, 1445.4pt x 722.7pt>
+<amr_insideout_vs_lateburst_fe.pdf, id=1903, 1445.4pt x 722.7pt>
 File: amr_insideout_vs_lateburst_fe.pdf Graphic file (type pdf)
 
 <use amr_insideout_vs_lateburst_fe.pdf>
@@ -1233,16 +1232,14 @@ Package pdftex.def Info: amr_insideout_vs_lateburst_fe.pdf used on input line 8
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.854 T
-       he intrinsic scatter in the observed AMR has previously been interpre...
-pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) h
-as been already used, duplicate ignored
+l.853 \par
+          pdfTeX warning (ext4): destination with the same identifier (name{fig
+ure.16}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.854 T
-       he intrinsic scatter in the observed AMR has previously been interpre...
- <./amr_static_o.pdf> <./amr_solar_annulus.pdf
+l.853 \par
+           <./amr_static_o.pdf> <./amr_solar_annulus.pdf
 
 pdfTeX warning: pdflatex (file ./amr_solar_annulus.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
@@ -1257,90 +1254,88 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.962 T
-       he CCSN and SN Ia associated with the burst also boost the evolutionary 
-<./amr_insideout_vs_lateburst_fe.pdf>]) (./conclusions.tex
+l.993 \par
+           <./amr_insideout_vs_lateburst_fe.pdf>]) (./conclusions.tex
 Underfull \vbox (badness 4328) has occurred while \output is active []
 
  [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 8189) in paragraph at lines 167--167
+$[]$ [][] \T1/ntxtlf/m/n/8 GALAH = GALac-tic Ar-chae-ol-ogy with HER-MES (sur-v
+ey
+ []
 
-)
-(./acknowledgements.tex <age_oh_comparison.pdf, id=2359, 1445.4pt x 1084.05pt>
+) (./acknowledgements.tex
+<age_oh_comparison.pdf, id=2379, 1445.4pt x 1084.05pt>
 File: age_oh_comparison.pdf Graphic file (type pdf)
 
 <use age_oh_comparison.pdf>
 Package pdftex.def Info: age_oh_comparison.pdf used on input line 10.
 (pdftex.def)             Requested size: 462.53746pt x 346.90309pt.
-) (./data_availability.tex [21]) (./age_oh.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-)
+ [21]) (./data_availability.tex) (./age_oh.tex)
 (./normalize_sfh.tex [22pdfTeX warning (ext4): destination with the same identi
 fier (name{figure.18}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.50 \end{align}
-                \end{subequations} <./age_oh_comparison.pdf>]) (./vice.tex
+l.28 \end{equation}
+                    <./age_oh_comparison.pdf>]) (./vice.tex
 LaTeX Font Info:    Font shape `T1/ntxtt/bx/n' will be
 (Font)              scaled to size 9.0pt on input line 5.
-)
-(./ms.bbl [23pdfTeX warning (ext4): destination with the same identifier (name{
-equation.21}) has been already used, duplicate ignored
+) (./ms.bbl [23pdfTeX warning (ext4): destination with the same identifier (nam
+e{equation.21}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.21}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.21}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.21}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.21}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.21}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.21}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.22}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.22}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.22}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.22}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.22}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.22}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.23}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.23}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      pdfTeX warning (ext4): destination with the same identifier (name{equatio
-n.23}) has been already used, duplicate ignored
+l.209   et~al.}{2021}]{Buder2021}
+                                 pdfTeX warning (ext4): destination with the sa
+me identifier (name{equation.23}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.260 
-      ] [24])
+l.209   et~al.}{2021}]{Buder2021}
+                                 ] [24])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
  [25
 
@@ -1359,13 +1354,13 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 133.
  ) 
 Here is how much of TeX's memory you used:
- 12344 strings out of 493013
- 176411 string characters out of 6133343
- 433942 words of memory out of 5000000
- 15285 multiletter control sequences out of 15000+600000
+ 12365 strings out of 493013
+ 176798 string characters out of 6133343
+ 436225 words of memory out of 5000000
+ 15300 multiletter control sequences out of 15000+600000
  150062 words of font info for 268 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,15n,65p,1323b,810s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,15n,65p,1323b,789s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1394,10 +1389,10 @@ ublic/txfonts/txmia.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 txfonts/txsya.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/
 txsys.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on ms.pdf (25 pages, 5103459 bytes).
+Output written on ms.pdf (25 pages, 5105890 bytes).
 PDF statistics:
- 3138 PDF objects out of 3580 (max. 8388607)
- 2435 compressed objects within 25 object streams
- 288 named destinations out of 1000 (max. 500000)
+ 3174 PDF objects out of 3580 (max. 8388607)
+ 2471 compressed objects within 25 object streams
+ 294 named destinations out of 1000 (max. 500000)
  280 words of extra memory for PDF output out of 10000 (max. 10000000)
 

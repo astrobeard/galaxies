@@ -25,22 +25,6 @@ to improve clarity. }
 \label{fig:tracks} 
 \end{figure*} 
 
-% fig 9 
-\begin{figure*} 
-\centering 
-\includegraphics[scale = 0.32]{metallicity_gradient.pdf} 
-\caption{Radial abundance gradients in [O/H] (top, red), [Fe/H] (top, blue), 
-and [O/Fe] (bottom) for our four SFHs with diffusion migration - constant (far 
-left), inside-out (left-middle), late-burst (right-middle), and outer-burst 
-(far right). We plot the gas-phase abundance at the present day as a function 
-of Galactocentric radius in solid lines. Points denote the median of the stellar 
-MDF of the 100-pc width ring at a given radius, with shaded regions marking 
-the 16th and 84th percentiles thereof. Black lines in the top panels denote our 
-target [$\alpha$/H] gradient of mode([$\alpha$/H]) = +0.3 at~$R_\text{gal}$~= 
-4 kpc with a slope of -0.08 kpc$^{-1}$. } 
-\label{fig:metallicity_gradient} 
-\end{figure*} 
-
 We begin the comparison of our model predictions to observational data with the 
 distribution of stellar populations in the [O/Fe]-[Fe/H] plane. We separate 
 stars into bins based on their present-day Galactic regions defined by five 
@@ -99,6 +83,22 @@ differences in some cases, which we discuss in subsequent subsections.
 
 \subsection{Abundance Gradients} 
 \label{sec:obs_comp:gradient} 
+
+% fig 9 
+\begin{figure*} 
+\centering 
+\includegraphics[scale = 0.32]{metallicity_gradient.pdf} 
+\caption{Radial abundance gradients in [O/H] (top, red), [Fe/H] (top, blue), 
+and [O/Fe] (bottom) for our four SFHs with diffusion migration - constant (far 
+left), inside-out (left-middle), late-burst (right-middle), and outer-burst 
+(far right). We plot the gas-phase abundance at the present day as a function 
+of Galactocentric radius in solid lines. Points denote the median of the stellar 
+MDF of the 100-pc width ring at a given radius, with shaded regions marking 
+the 16th and 84th percentiles thereof. Black lines in the top panels denote our 
+target [$\alpha$/H] gradient of mode([$\alpha$/H]) = +0.3 at~$R_\text{gal}$~= 
+4 kpc with a slope of -0.08 kpc$^{-1}$. } 
+\label{fig:metallicity_gradient} 
+\end{figure*} 
 
 The left panel of Fig.~\ref{fig:tracks} shows gas phase [O/Fe]-[Fe/H] 
 evolutionary tracks at several radii assuming the inside-out SFH, using either 
@@ -278,7 +278,7 @@ We have computed such a comparison case and find that it does indeed reproduce
 this observational result, though it still underpredicts the skewness at 
 small~\rgal. 
 {\color{red} 
-It's also possible that the differences at 3 - 5 kpc are due to stars 
+It is also possible that the differences at 3 - 5 kpc are due to stars 
 associated with the Milky Way's strong bar, which~\citet{Bovy2019} demonstrate 
 to be low metallicity (see their Fig. 5). 
 With only a weak and transient bar in~\hsim, this is a dynamical effect not 
@@ -636,7 +636,8 @@ our models due to the substantial outflows at these radii (see discussion
 in~\S~\ref{sec:methods:outflows}). 
 Consequently, when the SN Ia Fe production rate fluctuates downward, [O/Fe] 
 fluctuates upward in the ISM. 
-In a starburst event, the ISM becomes~$\alpha$-enhanced because the CCSN rate 
+An alternative explanation for young~$\alpha$-rich stars is a burst of 
+star formation, when the ISM becomes~$\alpha$-enhanced because the CCSN rate 
 increases~\citep{Johnson2020}. 
 The explanation suggested here is in some sense the opposite: the ISM 
 becomes not necessarily~$\alpha$-rich but Fe-poor because of fewer SNe Ia. 
@@ -644,7 +645,7 @@ The stars that form inherit such a composition and can then migrate to
 the solar annulus, and our models predict the variability to be sufficiently 
 large to explain the high [$\alpha$/Fe] ratios seen in APOGEE. 
 }
-\par 
+\par\null\par 
 The presence of young and intermediate-age~$\alpha$-enhanced stars in APOGEE 
 has been demonstrated using ages based on carbon-to-nitrogen ratios 
 \citep{Martig2016} calibrated against the asteroseismic ages of the APOKASC 
@@ -672,9 +673,9 @@ sequence.
 % stars are not so much~$\alpha$-rich as they are Fe-poor because of the 
 % deficit in SNe Ia events. 
 {\color{red} 
-We clarify that this result does not refute the previously suggested mass 
-transfer origin; this mechanism explains the truly young, 
-intrinsically~$\alpha$-enhanced stars which appear to make up a portion of the 
+Our model does not refute mass transfer as an origin for some massive, 
+$\alpha$-rich stars, but it can explain the truly young, intrinsically 
+$\alpha$-enhanced stars which appear to make up a portion of the 
 young~$\alpha$-rich population separate from those which formed via mass 
 transfer~\citep{Yong2016, Hekker2019}. 
 }
@@ -683,15 +684,27 @@ In our diffusion model,~$\sim$0.2\% of solar neighbourhood stars with 0.1~$\leq$
 {\color{red} 
 They have a broad distribution in metallicity spanning from [Fe/H]~$\approx-1$ 
 to~$\sim$solar, with multiple peaks indicative of separate sub-populations. 
-Although small sample sizes have prevented the detailed analaysis of 
-the [Fe/H] distribution of the young~$\alpha$-rich population, this 
-qualitatively agrees with the findings of~\citet{SilvaAguirre2018} (see their 
-Figs. 8 and 10) and~\citet{Miglio2021} (see their Fig. 5). 
-However, a direct comparison to data is not free of nuance, because the 
-young~$\alpha$-rich stars which formed via mass transfer likely outnumber those 
-which are intrinsically young~\citep{Miglio2021}. 
+This large spread qualitatively agrees with the findings 
+of~\citet{SilvaAguirre2018} (see their Figs. 8 and 10) and~\citet{Miglio2021} 
+(see their Fig. 5). 
+A direct comparison to data is not free of nuance, because the 
+young~$\alpha$-rich stars which formed via mass transfer may outnumber 
+those which are intrinsically young~\citep{Miglio2021}. 
 } 
-\par 
+
+% fig 15 
+\begin{figure} 
+\centering 
+\includegraphics[scale = 0.35]{amr_static_o.pdf} 
+\caption{The age-[O/H] relation predicted by our constant SFR model for 
+$R_\text{gal}$~= 7 - 9 kpc (left) and 11 - 13 kpc (right). Each panel plots 
+only the~$\left|z\right|\leq$~0.5 kpc population. The colored points in the 
+background and the black squares with error bars are as in Fig. 
+\ref{fig:age_alpha}, but with the model prediction quantified in bins 
+of~$\Delta$[O/H] = 0.05. } 
+\label{fig:age_oh_static} 
+\end{figure} 
+
 The right panels of Fig.~\ref{fig:age_alpha} compare the model predictions of 
 our four different SFHs, all assuming the diffusion migration prescription, 
 with the same plotting scheme and colour-coding as in the left panels. 
@@ -791,23 +804,10 @@ the nucleosynthetic sources.
 \subsection{The Age-Metallicity Relation} 
 \label{sec:obs_comp:amr} 
 
-% fig 15 
-\begin{figure} 
-\centering 
-\includegraphics[scale = 0.35]{amr_static_o.pdf} 
-\caption{The age-[O/H] relation predicted by our constant SFR model for 
-$R_\text{gal}$~= 7 - 9 kpc (left) and 11 - 13 kpc (right). Each panel plots 
-only the~$\left|z\right|\leq$~0.5 kpc population. The colored points in the 
-background and the black squares with error bars are as in Fig. 
-\ref{fig:age_alpha}, but with the model prediction quantified in bins 
-of~$\Delta$[O/H] = 0.05. } 
-\label{fig:age_oh_static} 
-\end{figure} 
-
 % fig 16 
 \begin{figure} 
 \centering 
-\includegraphics[scale = 0.44]{amr_solar_annulus.pdf} 
+\includegraphics[scale = 0.45]{amr_solar_annulus.pdf} 
 \caption{The age-[O/H] (top) and age-[Fe/H] (bottom) relations for the solar 
 neighbourhood (i.e.~$R_\text{gal}$ = 7 - 9 kpc,~$\left|z\right|\leq$~0.5 kpc) 
 as predicted by the fiducial model. Red triangles, black squares, error bars, 
@@ -942,10 +942,10 @@ Appendix~\ref{sec:age_oh_relation} present the same comparison for the
 age-[O/H] relation, which is unaffected by SN Ia enrichment. 
 The late-burst model improves upon the inside-out model there for the same 
 reasons as in age-[Fe/H], but perhaps more clearly when comparing bin-by-bin. 
-Although none of these models reproduce the data perfectly, the detailed form 
-of the AMR in our models is sensitive to the nature of the recent starburst or 
-lackthereof, and its true form was likely more complicated than our 
-parameterization. 
+% Although none of these models reproduce the data perfectly, the detailed form 
+% of the AMR in our models is sensitive to the nature of the recent starburst or 
+% lackthereof, and its true form was likely more complicated than our 
+% parameterization. 
 } 
 \par 
 % The late-burst of star formation reduces the median age of [Fe/H]~$\approx$ 0 
