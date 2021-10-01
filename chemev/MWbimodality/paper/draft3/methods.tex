@@ -42,10 +42,10 @@ We emphasize that the hydrodynamical simulation~\textit{only} informs the
 mixing processes in our models, and there is no N-body integration involved in 
 our models aside from that which was used to run the~\hsim~simulation in the 
 first place. 
-{\color{red} 
+% {\color{red} 
 A summary of our chemical evolution model parameters can be found in 
 Table~\ref{tab:params}. 
-} 
+% } 
 
 \subsection{The Hydrodynamical Simulation} 
 \label{sec:methods:h277} 
@@ -59,11 +59,13 @@ of star particles for use in our chemical evolution models.
 \par 
 The parameters of stars that we use in our analysis are the birth and final 
 radii and the final midplane distance. 
-{\color{red}\textit{
+% {\color{red}
+\textit{
 	We emphasize that these are the only quantities from~\hsim~which we make 
 	use of in our model; our Galaxies have their own star formation histories, 
 	nucleosynthetic yields, outflow prescriptions, etc.
-}}
+}
+% }
 \hsim~did not record the exact birth radius of each star particle; however, 
 each star particle does have an accurate age at each snapshot. 
 The orbital radii of stars that are sufficiently young in their first snapshot 
@@ -294,8 +296,11 @@ $\rgal$, it first searches for star particles from~\texttt{h277} that
 formed at~$T \pm$~250 Myr and~$\rgal \pm$~250 pc. 
 It then randomly selects a star particle from this subsample to act as an 
 \textit{analogue}. 
-This stellar population then adopts the {\color{red} present day midplane 
-distance~$z$ and the} change in orbital radius 
+This stellar population then adopts the %{\color{red} 
+present day midplane 
+distance~$z$ and the
+%} 
+change in orbital radius 
 $\Delta \rgal$ of its analogue, and moves from its birth radius to the 
 implied final radius and~$z$ at~$T$ = 13.2 Gyr with an assumed time dependence 
 (see below). 
@@ -304,7 +309,7 @@ and~$\rgal \pm$~500 pc.
 If still no analogue is found, then it finds the star particle with the 
 smallest difference in birth radius still within a birth time of $T \pm$~500 
 Myr, and assigns it as the analogue. 
-{\color{red} 
+% {\color{red} 
 Because we remove bulge, pseudobulge, and halo star particles from our sample 
 (see discussion in~\S~\ref{sec:methods:h277}), every assigned analogue is a 
 star particle with disc-like kinematics. 
@@ -316,16 +321,18 @@ thrown out of the sample of candidate analogues, in theory allowing a star
 particle to act as an analogue for multiple stellar populations. Because these 
 populations will have similar~$R_\text{form}$~and~$T_\text{form}$, they will 
 have similar but not identical abundances. 
-}
+% }
 \par 
 While this prescription allows stellar populations to be assigned analogues 
 with significantly different birth radii, this is only an issue for small~$T$ 
-and large~$\rgal$ where {\color{red} only a small fraction of~\hsim's star 
-particles reside,} 
+and large~$\rgal$ where %{\color{red} 
+only a small fraction of~\hsim's star 
+particles reside,
+% } 
 % there are few star particles from~\hsim, 
 and where few stars form in nature anyway due to the inside-out growth of 
 galaxies~\citep[e.g.][]{Bird2013}. 
-{\color{red} 
+% {\color{red} 
 In practice, we find that our sample of star particles is sufficiently large 
 such that our model is still able to assign the vast majority of stellar 
 populations born at large~\rgal~($\gtrsim$10 kpc) and small~$T$ 
@@ -336,19 +343,19 @@ level of star formation at early times and large radii (see Fig.~\ref{fig:evol}
 and the associated discussion in~\S~\ref{sec:methods:sfhs}), this ensures that 
 those stellar populations inherit plausible dynamics from the~\hsim~star 
 particles. 
-}
+% }
 Furthermore, due to the similarity of the histograms in the top row of 
 Fig.~\ref{fig:h277_decomposition}, we expect taking~$\Delta \rgal$ from 
 a star particle that formed at a similar time but different birth radius in 
 these instances to be accurate enough for our purposes. 
-{\color{red}
+% {\color{red}
 In exploratory work for this paper, we also considered a migration model in 
 which stellar populations remain at their birth radius if no analogue born 
 within~$\rgal~\pm$~500 pc and~$T~\pm$~500 Myr is found. 
 We find similar results in this case, suggesting that our qualitative 
 conclusions are largely unaffected by the fine details of the dynamical 
 history. 
-}
+% }
 % When an~\hsim~star particle is assigned as an analogue, it is~\textit{not} 
 % thrown out of the sample of candidate analogues, in theory allowing a star 
 % particle to act as an analogue for multiple stellar populations. Because these 
@@ -671,12 +678,12 @@ $f(t|\rgal)$ in each annulus such that the desired gradient is achieved
 with a total stellar mass similar to the Milky Way. 
 This procedure neglects the impact of radial migration, assuming that it does 
 not significantly alter the form of~$g(\rgal)$. 
-{\color{red} 
+% {\color{red} 
 We find this to be true for our sample of~\hsim~star particles, and we 
 demonstrate that this assumption holds in our chemical evolution models 
 in~\S~\ref{sec:methods:surface_density_gradient}, where we also detail our 
 adopted form of~$g(\rgal)$. 
-}
+% }
 % We demonstrate that this assumption holds 
 % in~\S~\ref{sec:methods:surface_density_gradient}, in which we also detail our 
 % adopted form of~$g(\rgal)$. 
@@ -708,14 +715,14 @@ They are defined as follows:
 	which in this paper we set to 2 Gyr at all radii. 
 	This form produces a peak in star formation at lookback times of~$\sim$11 
 	Gyr, roughly corresponding to a redsfhit of~$z \approx$ 2.5. 
-	{\color{red} 
+	% {\color{red} 
 	In detail, however, the time of peak star formation increases 
 	with~$\tau_\text{sfh}$, which in turn increases with~\rgal~in our models 
 	(see discussion below). 
 	As a result,~$\dot{\Sigma}_\star$ in the outer disc instead reaches its 
 	peak at lookback times of~$\sim$7 - 8 Gyr, qualitatively consistent with 
 	the radial growth of disc galaxies~\citep{Bird2013, Bird2021, Frankel2019}. 
-	} 
+	% } 
 	% We discuss the choice of~$\tau_\text{sfh}$ below. 
 
 	\item \textbf{Late-Burst}: In this model, the inside-out SFH is modified to 
@@ -769,13 +776,13 @@ The constant SFR model allows us to investigate the impact of migration when
 the time-dependence of the SFH is removed, and the two burst models allow us to 
 explore the consequences of elevated recent star formation supported by some 
 recent data. 
-{\color{red} 
+% {\color{red} 
 More complex scenarios, such as multiple bursts induced by repeated satellite 
 passages~\citep[e.g.][]{Lian2020a, Lian2020b, RuizLara2020, Sysoliatina2021} or 
 the onset of star formation occurring later in the outer disc to better capture 
 the radial growth of the Galaxy~\citep[e.g.][]{Frankel2019}, can be 
 explored easily using~\vice, but we do not explore such models here. 
-} 
+% } 
 % More complex scenarios with multiple bursts induced by repeated satellite 
 % passages~\citep[e.g.][]{Lian2020a, Lian2020b, RuizLara2020, Sysoliatina2021} 
 % can be modeled easily in~\vice, but we do not explore them here. 
@@ -820,11 +827,11 @@ We plot the resulting SFHs of our models in the top row of Fig.~\ref{fig:evol}
 for a handful of radii. 
 Because of the long~$\tau_\text{sfh}$, the SFR at most radii has fallen only 
 modestly from its 2 Gyr peak in the inside-out model. 
-{\color{red} 
+% {\color{red} 
 The gas supply, whose value at all timesteps is known via the star formation 
 efficiency timescale~$\tau_\star$ (see~\S~\ref{sec:methods:sfe}), is 
 illustrated in the bottom row of Fig.~\ref{fig:evol}. 
-}
+% }
 % At all timesteps, the gas supply is known via the star formation efficiency 
 % timescale~$\tau_\star$ (see~\S~\ref{sec:methods:sfe}), which is illustrated in 
 % the bottom row of Fig.~\ref{fig:evol}. 
@@ -1084,12 +1091,12 @@ equation~\refp{eq:lateburst_sfh}
 % As discussed in~\S~\ref{sec:methods:sfhs}, Appendix~\ref{sec:normalize_sfh} 
 % presents the recipe by which we select a unitless function describing the 
 % stellar surface density gradient~$g(\rgal)$. 
-{\color{red} 
+% {\color{red} 
 As discussed in~\S~\ref{sec:methods:sfhs}, Appendix~\ref{sec:normalize_sfh} 
 presents the recipe by which we normalize our star formation histories, a 
 necessary component of which is a unitless function describing the stellar 
 surface density gradient~$g(\rgal)$. 
-}
+% }
 In setting the normalization, our model ensures that the integral of~$g(\rgal)$ 
 over the surface area of the disc predicts a total stellar mass in agreement 
 with that observed for the Milky Way. 
@@ -1149,7 +1156,7 @@ SFH model in Fig.~\ref{fig:surface_density} as well, with red denoting the
 stellar gradient and the gas in blue. 
 The stellar gradient very nearly follows our target gradient (equation 
 \ref{eq:gradient}) denoted by the solid black line. 
-{\color{red} 
+% {\color{red} 
 Simply introducing scatter around the adopted trend, stellar migration has 
 not significantly altered the overall form of the gradient, as we assumed in 
 Appendix~\ref{sec:normalize_sfh}. 
@@ -1159,7 +1166,7 @@ histograms in the top row of Fig.~\ref{fig:h277_decomposition} and consistent
 with previous arguments that radial migration does not significantly alter the 
 vertical and radial structure of the disc~\citep[e.g.][]{Sellwood2014, 
 VeraCiro2014}. 
-}
+% }
 % Stellar migration has not altered the overall form of the gradient, simply 
 % introducing scatter around the adopted trend. 
 Although there are slight enhancements at small~$\rgal$ and deficits at large 
@@ -1205,10 +1212,10 @@ migration model; this curve is the same in all panels. }
 \label{fig:ofe_feh_diagram} 
 \end{figure*} 
 
-{\color{red} 
+% {\color{red} 
 Table~\ref{tab:params} presents a breakdown of our model parameters, their 
 values, and references to the sections where relevant discussion can be found. 
-}
+% }
 In summary, our fiducial model has an inside-out SFH with e-folding timescales 
 derived from the observations of~\citet[][see discussion 
 in~\S~\ref{sec:methods:sfhs}]{Sanchez2020}. 

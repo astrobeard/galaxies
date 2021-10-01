@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.13)  1 SEP 2021 17:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.4.13)  17 SEP 2021 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,19 +941,19 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 12.0pt on input line 205.
  [2])
 (./methods.tex
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 66.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 67.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/it' in size <9> not available
-(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 66.
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 67.
 <decomposition.pdf, id=454, 1445.4pt x 722.7pt>
 File: decomposition.pdf Graphic file (type pdf)
  <use decomposition.pdf>
-Package pdftex.def Info: decomposition.pdf used on input line 137.
+Package pdftex.def Info: decomposition.pdf used on input line 139.
 (pdftex.def)             Requested size: 462.53746pt x 231.26872pt.
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 148.
+(Font)              scaled to size 8.0pt on input line 150.
 
 Underfull \vbox (badness 1845) has occurred while \output is active []
 
@@ -965,53 +965,53 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.320 \par
+l.325 \par
            <./decomposition.pdf>] <migration.pdf, id=552, 505.89pt x 505.89pt>
 File: migration.pdf Graphic file (type pdf)
 
 <use migration.pdf>
-Package pdftex.def Info: migration.pdf used on input line 361.
+Package pdftex.def Info: migration.pdf used on input line 368.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
  [5pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.482 \begin{subequations}\begin{align}
+l.489 \begin{subequations}\begin{align}
                                         <./migration.pdf>]
 <eta_tau_sfh.pdf, id=692, 505.89pt x 1011.78pt>
 File: eta_tau_sfh.pdf Graphic file (type pdf)
  <use eta_tau_sfh.pdf>
-Package pdftex.def Info: eta_tau_sfh.pdf used on input line 638.
+Package pdftex.def Info: eta_tau_sfh.pdf used on input line 645.
 (pdftex.def)             Requested size: 227.64839pt x 455.2968pt.
  [6pdfTeX warning (ext4): destination with the same identifier (name{equation.2
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.685 \par
+l.692 \par
           pdfTeX warning (ext4): destination with the same identifier (name{equ
 ation.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.685 \par
+l.692 \par
           ] <evol.pdf, id=761, 1445.4pt x 1084.05pt>
 File: evol.pdf Graphic file (type pdf)
  <use evol.pdf>
-Package pdftex.def Info: evol.pdf used on input line 752.
+Package pdftex.def Info: evol.pdf used on input line 759.
 (pdftex.def)             Requested size: 462.53746pt x 346.90309pt.
  [7pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.804 \par
+l.811 \par
            <./eta_tau_sfh.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 1661) in paragraph at lines 861--879
+Underfull \hbox (badness 1661) in paragraph at lines 868--886
 [][]\T1/ntxtlf/m/n/9 Kennicutt[][] ([][]1998[][]) finds $\OML/ntxmi/m/it/9 N \U
 /ntxmia/m/it/9 = \OT1/ntxtlf/m/n/9 1\OML/ntxmi/m/it/9 :\OT1/ntxtlf/m/n/9 4 \LMS
 /ntxsy/m/n/9 ^^F \OT1/ntxtlf/m/n/9 0\OML/ntxmi/m/it/9 :\OT1/ntxtlf/m/n/9 15$ \T
@@ -1023,44 +1023,44 @@ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.879 
+l.886 
        <./evol.pdf>] <sfe.pdf, id=868, 505.89pt x 505.89pt>
 File: sfe.pdf Graphic file (type pdf)
  <use sfe.pdf>
-Package pdftex.def Info: sfe.pdf used on input line 883.
+Package pdftex.def Info: sfe.pdf used on input line 890.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
 
 <surface_density_gradient.pdf, id=943, 505.89pt x 505.89pt>
 File: surface_density_gradient.pdf Graphic file (type pdf)
 
 <use surface_density_gradient.pdf>
-Package pdftex.def Info: surface_density_gradient.pdf used on input line 1134.
+Package pdftex.def Info: surface_density_gradient.pdf used on input line 1141.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
  [9pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1175 \par
+l.1182 \par
             <./sfe.pdf>]
 <ofe_feh_densitymap.pdf, id=1010, 1806.75pt x 1084.05pt>
 File: ofe_feh_densitymap.pdf Graphic file (type pdf)
 
 <use ofe_feh_densitymap.pdf>
-Package pdftex.def Info: ofe_feh_densitymap.pdf used on input line 1192.
+Package pdftex.def Info: ofe_feh_densitymap.pdf used on input line 1199.
 (pdftex.def)             Requested size: 505.88655pt x 303.53194pt.
  [10pdfTeX warning (ext4): destination with the same identifier (name{table.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1258 \par
+l.1265 \par
            pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1258 \par
+l.1265 \par
             <./surface_density_gradient.pdf>]) (./comparison_observations.tex
 <tracks.pdf, id=1074, 1011.78pt x 505.89pt>
 File: tracks.pdf Graphic file (type pdf)
@@ -1389,7 +1389,7 @@ ublic/txfonts/txmia.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 txfonts/txsya.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/
 txsys.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on ms.pdf (25 pages, 5105890 bytes).
+Output written on ms.pdf (25 pages, 5105547 bytes).
 PDF statistics:
  3174 PDF objects out of 3580 (max. 8388607)
  2471 compressed objects within 25 object streams
